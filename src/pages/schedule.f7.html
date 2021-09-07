@@ -1,0 +1,592 @@
+<template>
+  <div class="page" data-name="catalog">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="title">Schedule</div>
+        <div class="right">
+          <a class="link" @click=${togglePosition}>
+            <i class="md-only icon material-icons rotate-icon">compare_arrows</i>
+            <i class="if-not-md icon f7-icons">arrow_up_arrow_down_circle_fill</i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Floating Action Button -->
+    <div class="fab fab-center-center color-green">
+      <a href="#">
+        <i class="icon f7-icons if-not-md">plus</i>
+        <i class="icon f7-icons if-not-md">xmark</i>
+        <i class="icon material-icons md-only">add</i>
+        <i class="icon material-icons md-only">close</i>
+      </a>
+      <div class="fab-buttons fab-buttons-center">
+        <a href="#" @click="${toggleJoinin}">预订</a>
+        <a href="#" @click="${toggleDetail}">详情</a>
+        <a href="#" @click="${toggleClose}" class="fab-close" id="wei_href" >关闭</a>
+        <a href="#" @click="${toggleMore}">更多..</a>
+      </div>
+    </div>
+    <!-- FAB With Backdrop -->
+    <div class="fab-backdrop"></div>
+    <div class="fab fab-right-bottom">
+      <a href="#">
+        <i class="icon f7-icons if-not-md">plus</i>
+        <i class="icon f7-icons if-not-md">xmark</i>
+        <i class="icon material-icons md-only">add</i>
+        <i class="icon material-icons md-only">close</i>
+      </a>
+      <div class="fab-buttons fab-buttons-top">
+        <a class="fab-label-button fab-close" href="#" @click="${toggleClose2nd}" id="ron_href" ><span>1</span><span class="fab-label">关闭</span></a>
+        <a class="fab-label-button" href="#" @click="${toggleCancle}"><span>2</span><span class="fab-label">退订</span></a>
+      </div>
+    </div>
+
+    <!-- -----------Tabbar With Labels--------------- -->
+    <div class="toolbar tabbar-labels toolbar-top">
+      <div class="toolbar-inner">
+        <a href="#tab-1" class="tab-link tab-link-active">
+          <i class="icon f7-icons if-not-md">today</i><!-- envelope_fill -->
+          <i class="icon material-icons md-only">today</i><!-- email -->
+          <span class="tabbar-label">活动日程</span>
+        </a>
+        <a href="#tab-2" class="tab-link" @click=${toggleMyArrange}>
+          <i class="icon f7-icons if-not-md">today_fill</i>
+          <i class="icon material-icons md-only">today</i>
+          <span class="tabbar-label">我的安排</span>
+        </a>
+        <a href="#tab-3" class="tab-link" @click=${toggleMySuggestion}>
+          <i class="icon f7-icons if-not-md">cloud_upload_fill<span class="badge color-red">5</span></i>
+          <i class="icon material-icons md-only">file_upload<span class="badge color-red">5</span></i>
+          <span class="tabbar-label">推荐</span>
+        </a>
+      </div>
+    </div>
+    <!-- ---------------------------------------------- -->
+
+    <div class="tabs">
+      <div class="page-content tab tab-active" id="tab-1">
+        <div class="block">
+          <p><b>操作小贴士</b></p>
+          <p>1> 左右滑动屏幕<i style="font-size: 20px" class="icon f7-icons icon-tooltip if-not-md">info_circle_fill</i>
+          <i style="font-size: 20px" class="icon material-icons icon-tooltip if-md">info</i>可以看到更多的活动时间安排.</p>
+          <p>2> 双击某一天的活动框，将弹出快捷操作工具图标.</p>
+          <!-- <p><a href="#" class="fab-open" data-fab=".fab-center-center">测试工具箱1</a>   <a href="#" class="fab-open" data-fab=".fab-right-bottom">测试工具箱2</a></p> -->
+        </div>
+        <!-- ============================================== -->
+        <!--
+        Additional "timeline-horizontal" class to enable Horizontal timeline
+        Additional "col-50" to define column width (50%)
+        Additional "tablet-20" to define column width for tablets (20%)
+        -->
+        ${events.value.length > 0 ? $h`
+          <!-- ----------------------- Outer Loop : When N-Days Array events[..] is Not Null,  do the logic below  ------------- -->
+          <div class="block-title">timeline-horizontal</div>
+          <div class="timeline timeline-horizontal col-50 tablet-20">
+              ${events.value.map((line) => $h`
+              <!-- Timeline Item (Day) -->
+              <div class="timeline-item">
+                <div class="timeline-item-date">${line.date_title} <small></small></div>
+                <div class="timeline-item-content">
+                  <!-- <div class="timeline-item-inner">  !!! Example here.. !!!
+                    <div class="timeline-item-time">12:56</div>
+                    <div class="timeline-item-title">Title 1</div>
+                    <div class="timeline-item-subtitle">Subtitle 1</div>
+                    <div class="timeline-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit</div>
+                  </div> -->
+                  <!-- ----------------------- Inner Loop: each day have a different activity list  ------------- -->
+                  ${artidaily.value.length > 0 ? $h`
+
+                      ${artidaily.value.map((dailyLine) => (line.date_start === dailyLine.date_start ? $h`
+                          <!-- Some data show in Col-1, others show in Col-2..Col-3....Col-N -->
+                          <!-- We using AAA === BBB ? H : N,  and first we should mapping to daily--lines  -->
+                          <div class="timeline-item-inner" @dblclick="${showFABTools}" id="Biz_div_${dailyLine.art_daily_id}" data-myid="${dailyLine.art_daily_id}">
+                            <div class="timeline-item-time  biz_noselect">${dailyLine.time_st} - ${dailyLine.time_ed} <a href="#" class="fab-open" data-fab=".fab-center-center" data-myid="${dailyLine.art_daily_id}" @click=${toggleFABAuto}>
+                                <i class="icon f7-icons if-not-md">cloud_upload_fill</i>
+                                <i class="icon material-icons md-only">file_upload</i>
+                                <span class="tabbar-label">操作</span>
+                              </a>
+                            </div>
+                            <div class="timeline-item-title biz_noselect"><small>${dailyLine.title}</small></div>
+                            <div class="timeline-item-subtitle">#${dailyLine.art_daily_id}\/#Ref.${dailyLine.ref_article_id}</div>
+                            <div class="timeline-item-text  biz_noselect">${dailyLine.desc}</div>
+                          </div>
+                          ` : '')
+                      )}
+
+                  ` : $h`
+                      <!-- <div class="timeline-item-inner">
+                        <div class="timeline-item-time">12:56</div>
+                        <div class="timeline-item-text">No Action goes here</div>
+                      </div>
+                      ... -->
+                  `}
+                  <!-- ----------------------- Inner Loop: FINISHED   FINISHED   FINISHED   FINISHED  ------------- -->
+                </div>
+              </div>
+              `)}
+          </div>
+          <!-- ----------------------- Outer Loop : if true {do sometHing} FINISHED  FINISHED  FINISHED  FINISHED    ----------- -->
+        ` : $h`
+          <!-- ----------------------- Outer Loop : if falae {do another thing here}  ------------- -->
+          <div>NO RECORDS [LINE 97] FILE [schedule.f7]</div>
+        `}
+
+        <!-- ============================================== -->
+        <!-- Tab 1 Ending -->
+        <!-- ============================================== -->
+      </div>
+      <div class="page-content tab" id="tab-2">
+        <div class="block">
+          <p><b>Tab 2 content</b></p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque quos asperiores ut, odio numquam ab, qui,
+            alias adipisci in magni reiciendis reprehenderit. Labore esse quae ut tempore consequatur, reprehenderit
+            similique!</p>
+        </div>
+        <!-- ============================================== -->
+        <!--
+        Additional "timeline-horizontal" class to enable Horizontal timeline
+        Additional "col-50" to define column width (50%)
+        Additional "tablet-20" to define column width for tablets (20%)
+        -->
+        ${events.value.length > 0 ? $h`
+          <!-- ----------------------- Outer Loop : When N-Days Array events[..] is Not Null,  do the logic below  ------------- -->
+          <div class="block-title">timeline-horizontal</div>
+          <div class="timeline">
+              ${events.value.map((line) => $h`
+              <!-- Timeline item with special timeline elements and inner (Day) -->
+              <div class="timeline-item">
+                <div class="timeline-item-date">${line.date_title} <small></small></div>
+                <div class="timeline-item-divider"></div>
+                <div class="timeline-item-content">
+                  <!--                             !!! Example here.. !!!
+                    <div class="timeline-item-content">
+                      <div class="timeline-item-time">12:33</div>
+                      <div class="timeline-item-title">Item Title</div>
+                      <div class="timeline-item-subtitle">Item Subtitle</div>
+                      <div class="timeline-item-text">Item Text</div>
+                    </div> -->
+                  <!-- ----------------------- Inner Loop: each day have a different activity list  ------------- -->
+                  ${myarrange.value.length > 0 ? $h`
+
+                      ${myarrange.value.map((dailyLine) => (line.date_start === dailyLine.date_start ? $h`
+                          <!-- Some data show in Col-1, others show in Col-2..Col-3....Col-N -->
+                          <!-- We using AAA === BBB ? H : N,  and first we should mapping to daily--lines  -->
+                          <div class="timeline-item-inner">
+                            <div class="timeline-item-time  biz_noselect" >${dailyLine.time_st} - ${dailyLine.time_ed} <a href="#" class="fab-open" data-fab=".fab-right-bottom" data-myid="${dailyLine.id}" @click=${toggleFABAuto2nd}>
+                                <i class="icon f7-icons if-not-md">cloud_upload_fill</i>
+                                <i class="icon material-icons md-only">file_upload</i>
+                                <span class="tabbar-label">操作</span>
+                              </a>
+                            </div>
+                            <div class="timeline-item-title biz_noselect"><small>${dailyLine.title}</small></div>
+                            <div class="timeline-item-subtitle">#${dailyLine.id}</div>
+                            <div class="timeline-item-text  biz_noselect">${dailyLine.desc}</div>
+                          </div>
+                          ` : '')
+                      )}
+
+                  ` : $h`
+                      <!-- <div class="timeline-item-inner">
+                        <div class="timeline-item-time">12:56</div>
+                        <div class="timeline-item-text">No Action goes here</div>
+                      </div>
+                      ... -->
+                  `}
+                  <!-- ----------------------- Inner Loop: FINISHED   FINISHED   FINISHED   FINISHED  ------------- -->
+                </div>
+              </div>
+              `)}
+          </div>
+          <!-- ----------------------- Outer Loop : if true {do sometHing} FINISHED  FINISHED  FINISHED  FINISHED    ----------- -->
+        ` : $h`
+          <!-- ----------------------- Outer Loop : if falae {do another thing here}  ------------- -->
+          <div>NO RECORDS [LINE 164] FILE [schedule.f7]</div>
+        `}
+
+        <!-- ============================================== -->
+        <!-- Tab 2 Ending -->
+        <!-- ============================================== -->
+      </div>
+      <div class="page-content tab" id="tab-3">
+<form action="https://www.kideduc.com/portal/api/EditSuggestion.php?user_id=${users.value.length > 0 ? users.value[0].id : -1}&ccsForm=suggestion%3AEdit" method="POST" class="list form-ajax-submit" id="kitty-form">
+        <div class="block">
+          <p><b>Tab 3 content</b></p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque quos asperiores ut, odio numquam ab, qui,
+            alias adipisci in magni reiciendis reprehenderit. Labore esse quae ut tempore consequatur, reprehenderit
+            similique!</p>
+          <p class="row">
+            <div class="col"><button class="col button button-fill fill-form-from-data" type="submit">标记已读</button></div>
+            <div class="col"></div>
+            <div class="col"><!-- <a class="button button-fill fill-form-from-data"  href="#">debug..</a> --></div>
+            <div class="col"></div>
+          </p>
+        </div>
+</form>
+        <!-- ============================================== -->
+        <!--
+        Additional "timeline-horizontal" class to enable Horizontal timeline
+        Additional "col-50" to define column width (50%)
+        Additional "tablet-20" to define column width for tablets (20%)
+        -->
+        ${events.value.length > 0 ? $h`
+          <!-- ----------------------- Outer Loop : When N-Days Array events[..] is Not Null,  do the logic below  ------------- -->
+          <div class="block-title">timeline-horizontal</div>
+          <div class="timeline timeline-sides">
+              ${events.value.map((line) => $h`
+              <!-- Timeline Item (Day) -->
+              <div class="timeline-item">
+                <div class="timeline-item-date">${line.date_title} <small></small></div>
+                <div class="timeline-item-divider"></div>
+                <div class="timeline-item-content">
+                     <!-- <div class="timeline-item">
+                            <div class="timeline-item-date">21 <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                              <div class="timeline-item-inner">Some text goes here</div>
+                            </div>
+                          </div> -->
+                  <!-- ----------------------- Inner Loop: each day have a different activity list  ------------- -->
+                  ${mysuggest.value.length > 0 ? $h`
+
+                      ${mysuggest.value.map((dailyLine) => (line.date_start === dailyLine.date_start ? $h`
+                          <!-- Some data show in Col-1, others show in Col-2..Col-3....Col-N -->
+                          <!-- We using AAA === BBB ? H : N,  and first we should mapping to daily--lines  -->
+                          <div class="timeline-item-inner">
+                            <div class="timeline-item-time  biz_noselect">${dailyLine.time_st} - ${dailyLine.time_ed}</div>
+                            <div class="timeline-item-title biz_noselect"><small>${dailyLine.title}</small></div>
+                            <div class="timeline-item-subtitle"></div>
+                            <div class="timeline-item-text  biz_noselect">${dailyLine.desc}</div>
+                          </div>
+                          ` : '')
+                      )}
+
+                  ` : $h`
+                      <!-- <div class="timeline-item-inner">
+                        <div class="timeline-item-time">12:56</div>
+                        <div class="timeline-item-text">No Action goes here</div>
+                      </div>
+                      ... -->
+                  `}
+                  <!-- ----------------------- Inner Loop: FINISHED   FINISHED   FINISHED   FINISHED  ------------- -->
+                </div>
+              </div>
+              `)}
+          </div>
+          <!-- ----------------------- Outer Loop : if true {do sometHing} FINISHED  FINISHED  FINISHED  FINISHED    ----------- -->
+        ` : $h`
+          <!-- ----------------------- Outer Loop : if falae {do another thing here}  ------------- -->
+          <div>NO RECORDS [LINE 231] FILE [schedule.f7]</div>
+        `}
+
+        <!-- ============================================== -->
+        <!-- Tab 3 Ending -->
+        <!-- ============================================== -->
+        <!-- Each next item will on different side -->
+        <!-- 
+        <div class="block-title">Side By Side</div>
+        <div class="timeline timeline-sides">
+          <div class="timeline-item">
+            <div class="timeline-item-date">21 <small>DEC</small></div>
+            <div class="timeline-item-divider"></div>
+            <div class="timeline-item-content">
+              <div class="timeline-item-inner">Some text goes here</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-item-date">22 <small>DEC</small></div>
+            <div class="timeline-item-divider"></div>
+            <div class="timeline-item-content">
+              <div class="timeline-item-inner">Another text goes here</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-item-date">23 <small>DEC</small></div>
+            <div class="timeline-item-divider"></div>
+            <div class="timeline-item-content">
+              <div class="timeline-item-inner">Just plain text</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-item-date">24 <small>DEC</small></div>
+            <div class="timeline-item-divider"></div>
+            <div class="timeline-item-content">
+              <div class="timeline-item-inner">One more text here</div>
+            </div>
+          </div>
+        </div> -->
+        <!-- ============================================== -->
+      </div>
+    </div>
+
+    <div class="page-content">
+      <div class="list links-list">
+
+      </div> <!-- End of <div class="list links-list"> -->
+    </div>
+
+  </div>
+</template>
+<script>
+  export default (props, {$, $on, $f7, $store }) => {
+    //----------------------------------------------------
+    const loading = $store.getters.loading;
+    const users   = $store.getters.users;
+
+    //----------------------------------------------------
+    // Component Data
+    let $toolbarEl;
+
+    let $currEvnID;  // for later used! 
+    let $currMyArrgID; // 2nd, same purpose!
+
+    // Component Methods
+    const showToastCenter = (msg) => {
+      let toastCenter;
+      // Create toast
+      if (!toastCenter) {
+        toastCenter = $f7.toast.create({
+          text: msg,
+          position: 'center',
+          closeTimeout: 800,
+        });
+      }
+      // Open it
+      toastCenter.open();
+    }
+
+    const togglePosition = () => {
+      $toolbarEl.toggleClass('toolbar-bottom toolbar-top');
+    }
+
+    const toggleMyArrange = () => {     // Tab 2  <My Arrange>    trigger
+      //console.log("---- toggleMyArrange exec");
+      //----------------------------------------------------
+      if (myarrange.value.length > 0){
+          ;
+      }else {
+          $f7.preloader.show();
+          $store.dispatch('getMyArrange',   { userID: (users.value.length > 0 ? users.value[0].login : -1), f7:$f7} ); // Ajax Get Data...
+      }
+      //----------------------------------------------------
+    }
+
+    const toggleMySuggestion = () => {  // Tab 3  <My Suggestion> trigger
+      //console.log("---- toggleMySuggestion exec");
+      //----------------------------------------------------
+      if (mysuggest.value.length > 0){
+          ;
+      }else {
+          $f7.preloader.show();
+          $store.dispatch('getMySuggest',   { userID: (users.value.length > 0 ? users.value[0].login : -1), f7:$f7} );   // Ajax Get Data...
+      }
+      //----------------------------------------------------
+    }
+
+    const toggleFABAuto = (e) => {
+      var key = $(e.currentTarget).data('myid');
+
+      console.log("---- auto toggle FAB|ID key = [" + key + "]");
+      console.log("---- e.currentTarget = " + e.currentTarget);
+      console.log("---- e.parentNode = " + e.currentTarget.parentNode);
+      // show FAB tools
+      $('.fab-center-center').attr('style', 'display:block;');    // show FAB
+      // parentNode childNodes firstChild lastChile previousSibling nextSibling
+      $(e.currentTarget.parentNode.parentNode).css("background-color","yellow");    // tag yellow
+
+      // At last, saving page variable, for latere used.
+      $currEvnID = key; 
+    }
+
+    const toggleFABAuto2nd = (e) => {   // Almost same as 1st
+      var key = $(e.currentTarget).data('myid');
+
+      $('.fab-right-bottom').attr('style', 'display:block;');    // show FAB
+      $(e.currentTarget.parentNode.parentNode).css("background-color","yellow");    // tag yellow
+
+      // At last, saving page variable, for latere used.
+      $currMyArrgID = key; 
+    }
+
+    const toggleJoinin = () => {     // click action join-in
+      console.log("---- toggle action Join In");
+
+      var evtID = $currEvnID;
+      doSaveDBJoinIn(evtID);
+    }
+
+    const toggleDetail = () => {     // click action detail
+      console.log("---- toggle action Details");
+    }
+
+    const toggleClose = () => {     // click action close
+      console.log("---- toggle action 1st Close");
+      $('.timeline-item-inner').attr('style', 'background-color:white;');   // remove yellow
+      // hidden FAB Tools
+      $('.fab-center-center').attr('style', 'display:none;');     // hidden FAB
+
+      // At last, saving page variable, for latere used.
+      $currEvnID = -1; 
+    }
+
+    const toggleClose2nd = () => {     // Almost same ass 1st
+      console.log("---- toggle action 2nd Close");
+      $('.timeline-item-inner').attr('style', 'background-color:white;');   // remove yellow
+      // hidden FAB Tools
+      $('.fab-right-bottom').attr('style', 'display:none;');     // hidden FAB
+
+      // At last, saving page variable, for latere used.
+      $currMyArrgID = -1; 
+    }
+
+    const toggleMore = () => {     // click action more
+      console.log("---- toggle action More..Nothing to do!");
+    }
+
+    const toggleCancle = () => {     // click action more
+      console.log("---- toggle action Cancle #!");
+
+      var argID = $currMyArrgID;
+      doSaveDBCancle(argID);
+    }
+
+    const doSaveDBJoinIn = (evtID) => {
+      console.log("---- saving database joinin ID=[" + evtID + "]");
+
+      if (evtID < 0) { 
+        // sometimes we check and verify
+        showToastCenter('请首先选择活动!');
+        return;
+      }  
+
+      // AJAX Post Jason
+      var app = $f7;
+
+      let paraUserID    = (1==users.value.length ? users.value[0].id:'-1');
+      let paraUserLogin = (1==users.value.length ? users.value[0].login:'WEI');
+
+      app.request.post('https://www.kideduc.com/portal/api/EditArticleArrange.php?ccsForm=articles_daily_arrange', { event_id: evtID, user_id_add: paraUserID, user_login: paraUserLogin })
+          .then(function (res) {
+//          $$('.login').html(res.data);                        // init examples code, let it be here. WAIST & NOT CHANGED
+            console.log('Ajax Saving was performed');
+
+            // otherwise html will not refresh data, deleted-item will be always exist
+            $store.dispatch('resetMyArrange',{ userID:paraUserLogin});
+
+            //reback html init status [no yellow selected]
+            setTimeout(function(){
+                $('a#wei_href').trigger('click');
+            },200);
+
+            showToastCenter('预约成功!');
+      });
+
+    }
+
+    const doSaveDBCancle = (argID) => {
+      console.log("---- saving database cancle ID=[" + argID + "]");
+
+      if (argID < 0) { 
+        // sometimes we check and verify
+        showToastCenter('请首先选择活动!');
+        return;
+      }  
+
+      // AJAX Post Jason
+      var app = $f7;
+
+      let paraUserID    = (1==users.value.length ? users.value[0].id:'-1');
+      let paraUserLogin = (1==users.value.length ? users.value[0].login:'WEI');
+
+      app.request.post('https://www.kideduc.com/portal/api/EditArticleArrange.php?arrange_id='+argID+'&ccsForm=articles_daily_arrange%3AEdit', { user_id_add: paraUserID, Button_Delete: 'Delete' })
+          .then(function (res) {
+//          $$('.login').html(res.data);                        // init examples code, let it be here. WAIST & NOT CHANGED
+            console.log('Ajax Removing was performed');
+
+            // otherwise html will not refresh data, deleted-item will be always exist
+            $store.dispatch('resetMyArrange',{ userID:paraUserLogin});
+
+            //reback html init status [no yellow selected]
+            setTimeout(function(){
+                $('a#ron_href').trigger('click');
+            },200);
+
+            showToastCenter('退订成功!');
+      });
+
+    }
+
+    const showFABTools = (e) => {
+//---------------------------------------------------------------------------------------
+if (true) {        return;       }    // tony: no longer used 
+//---------------------------------------------------------------------------------------
+      console.log("---- target " + e.target);
+      console.log("---- current target " + e.currentTarget);
+//    console.log("---- targetID " + e.target.id);
+//    console.log("---- showFABTools exec " + $(e.target).data('myid'));
+      console.log("---- showFABTools exec " + $(e.currentTarget).data('myid'));
+
+      //$(e.currentTarget).css("background-color","red");   "white"
+      //$('.timeline-item-inner').attr('style', 'background-color:white;');
+
+      if ( $('.fab-center-center').css('display')=='block') {
+        $('.fab-center-center').attr('style', 'display:none;');     // hidden FAB
+        $(e.currentTarget).css("background-color","white");
+      }else{
+        $('.fab-center-center').attr('style', 'display:block;');    // show FAB
+        $(e.currentTarget).css("background-color","gray");
+
+      }
+      //$('.timeline-item-inner').attr('style', 'background-color:white;');
+      //$(e.currentTarget).css("background-color","white"); // Div white color
+
+      //$('.timeline-item-inner').attr('style', 'background-color:white;');
+      //$(e.currentTarget).css("background-color","red");   // Div red color
+
+    }
+    // Lifecycle
+
+    // Page Events
+    $on('pageInit', (e, page) => {
+      $toolbarEl = page.$el.find('.toolbar');
+
+      $store.dispatch('getEvents',   { catgID:'1'} );   // Outer Loop : Each Daily
+      $store.dispatch('getArtiDaily',{ userID:'-1'});   // Inner Loop : Each Line of that Day
+
+      $('.fill-form-from-data').on('click', function(){ //  do this when Button SAVE | DEBUG Click
+          // show form:action
+          //console.log("Form Action URL:! " + $f7.$('form#kitty-form').attr('action'));
+          // remove Red Badge
+          $f7.$('span.badge').removeClass('color-red');
+        //$f7.$('span.badge').removeClass('badge');
+      });
+
+      $('.fab-center-center').on('open', function(){
+        console.log("FAB control trigger..");
+      });
+
+      // iconTooltip init functioon
+      var iconTooltip = $f7.tooltip.create({
+        targetEl: '.icon-tooltip',
+        text: '日程安排可能超出屏幕宽度，请左右划动触摸屏',
+      });
+
+      // first time , hidden FAB Tools by default
+      $('.fab-center-center').attr('style', 'display:none;');
+      $('.fab-right-bottom').attr('style', 'display:none;');
+
+
+    });
+
+    // -------------------------------------    App Events  -----------------------------------------
+    const events    = $store.getters.events;
+    const artidaily = $store.getters.artidaily; // Tab-1 : Whole Activity
+
+    const myarrange = $store.getters.myarrange; // Tab-2 : My Arranges
+    const mysuggest = $store.getters.mysuggest; // Tab-3 : My Suggestions
+    //----------------------------------------------------
+
+    return $render;
+  }
+
+</script>

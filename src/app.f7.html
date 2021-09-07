@@ -1,0 +1,824 @@
+
+<template>
+  <div id="app">
+
+
+    <!-- Left panel with cover effect-->
+    <div class="panel panel-left panel-cover theme-dark panel-init">
+      <div class="view view-init" data-name="left">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner sliding">
+              <div class="title">甲板</div>
+            </div>
+          </div>
+          <div class="page-content">
+            <div class="block-title">查看各层平面布局</div>
+            <div class="list links-list">
+              <ul>
+                <li><a id="Biz_Link_1" @click="${showPhotoBrowser}" href="#">甲板 4</a></li>
+                <li><a id="Biz_Link_2" @click="${showPhotoBrowser}" href="#">甲板 5</a></li>
+                <li><a id="Biz_Link_3" @click="${showPhotoBrowser}" href="#">甲板 6</a></li>
+                <li><a id="Biz_Link_4" @click="${showPhotoBrowser}" href="#">甲板 7</a></li>
+                <li><a id="Biz_Link_5" @click="${showPhotoBrowser}" href="#">甲板 8</a></li>
+                <li><a id="Biz_Link_6" @click="${showPhotoBrowser}" href="#">甲板 10</a></li>
+                <li><a id="Biz_Link_7" @click="${showPhotoBrowser}" href="#">甲板 11</a></li>
+                <li><a id="Biz_Link_8" @click="${showPhotoBrowser}" href="#">甲板 12</a></li>
+                <li><a id="Biz_Link_9" @click="${showPhotoBrowser}" href="#">甲板 13</a></li>
+                <li><a id="Biz_Link_10" @click="${showPhotoBrowser}" href="#">甲板 14</a></li>
+                <li><a id="Biz_Link_11" @click="${showPhotoBrowser}" href="#">甲板 15</a></li>
+                <li><a id="Biz_Link_12" @click="${showPhotoBrowser}" href="#">甲板 16</a></li>
+              </ul>
+            </div>
+            <div class="block-title">救援小知识</div>
+            <div class="list links-list">
+              <ul>
+                <li><a href="/left-page-1/">意外医护</a></li>
+                <li><a href="/left-page-2/">救助指南</a></li>
+              </ul>
+            </div>
+            <div class="block-title">应用程序</div>
+            <div class="list links-list">
+              <ul>
+                <li>
+                  <a href="/about/" data-view=".view-main" class="panel-close">About</a>
+                </li>
+                <li>
+                  <a href="#" data-view=".view-main" class="back panel-close">Back in history</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Right panel with reveal effect-->
+    <div class="panel panel-right panel-reveal theme-dark">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+              <div class="title">14 Night Nonrev Repositioning</div>
+            </div>
+          </div>
+          <div class="page-content">
+            <div class="block">第1天 - 干尼亚(克里特岛)，希腊</div>
+            <div class="block">第2天 - 雅典(比雷埃夫斯)，希腊</div>
+            <div class="block">第3天 - 海上巡游</div>
+            <div class="block">第4天 - 海上巡游</div>
+            <div class="block">第5天 - 海上巡游</div>
+            <div class="block">第6天 - 海上巡游</div>
+            <div class="block">第7天 - 海上巡游</div>
+            <div class="block">第8天 - 海上巡游</div>
+            <div class="block">第9天 - 海上巡游</div>
+            <div class="block">第10天 - 海上巡游</div>
+            <div class="block">第11天 - 海上巡游</div>
+            <div class="block">第12天 - 海上巡游</div>
+            <div class="block">第13天 - Poole Bay，UK</div>
+            <div class="block">第14天 - Poole Bay，UK</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Views/Tabs container -->
+    <div class="views tabs safe-areas">
+      <!-- Tabbar for switching views-tabs -->
+      <div class="toolbar toolbar-bottom tabbar-labels">
+        <div class="toolbar-inner">
+          <a href="#view-home" class="tab-link tab-link-active">
+            <i class="icon f7-icons if-not-md">house_fill</i>
+            <i class="icon material-icons if-md">home</i>
+            <span class="tabbar-label">首页</span>
+          </a>
+          <a href="#view-catalog" class="tab-link">
+            <i class="icon f7-icons if-not-md">square_list_fill</i>
+            <i class="icon material-icons if-md">view_list</i>
+            <span class="tabbar-label">历史</span>
+          </a>
+          <a href="#view-schedule" class="tab-link">
+            <i class="icon f7-icons if-not-md">today_fill<span class="badge color-red">5</span></i>
+            <i class="icon material-icons if-md">today<span class="badge color-red">5</span></i>
+            <span class="tabbar-label">日程</span>
+          </a>
+          <a href="#view-settings" class="tab-link">
+            <i class="icon f7-icons if-not-md">gear_alt_fill</i>
+            <i class="icon material-icons if-md">settings</i>
+            <span class="tabbar-label">设置</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Your main view/tab, should have "view-main" class. It also has "tab-active" class -->
+      <div id="view-home" class="view view-main view-init tab tab-active" data-url="/">
+        <!-- Home page will be loaded here dynamically from / route -->
+      </div>
+
+      <!-- Catalog View -->
+      <div id="view-catalog" class="view view-init tab" data-name="catalog" data-url="/catalog/">
+        <!-- Catalog page will be loaded here dynamically from /catalog/ route -->
+      </div>
+
+      <!-- Catalog View -->
+      <div id="view-schedule" class="view view-init tab" data-name="schedule" data-url="/schedule/">
+        <!-- Schedule page will be loaded here dynamically from /schedule/ route -->
+      </div>
+
+      <!-- Settings View -->
+      <div id="view-settings" class="view view-init tab" data-name="settings" data-url="/settings/">
+        <!-- Settings page will be loaded here dynamically from /settings/ route -->
+      </div>
+    </div>
+
+
+    <!-- Popup -->
+    <div class="popup" id="my-popup">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+              <div class="title">问卷调查</div>
+              <div class="right">
+                <a href="#" class="link popup-close">Close</a>
+              </div>
+            </div>
+          </div>
+          <div class="page-content">
+
+            <!-- <div class="block">
+              <p>Popup content goes here.</p>
+            </div> -->
+            <!-- questionnaire form here -->
+<form action="https://www.kideduc.com/portal/api/EditQuestionnaire.php?user_id=${users.value.length > 0 ? users.value[0].id : -1}&ccsForm=questionnaire" method="POST" class="list form-ajax-submit" id="helen-form">
+            <div class="block-title">1 您对本次航程的服务是否满意？</div>
+            <div class="list">
+              <ul>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_1" value="1" checked="checked"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">非常满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_1" value="2"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_1" value="3"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">一般</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_1" value="4"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">不满意</div>
+                    </div>
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="block-title">2 您对游轮上的基础服务设施是否满意?</div>
+            <div class="list">
+              <ul>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_2" value="1" checked="checked"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">非常满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_2" value="2"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_2" value="3"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">一般</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_2" value="4"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">不满意</div>
+                    </div>
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="block-title">3 您对游轮上工作人员的服务态度是否满意?</div>
+            <div class="list">
+              <ul>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_3" value="1" checked="checked"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">非常满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_3" value="2"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_3" value="3"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">一般</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_3" value="4"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">不满意</div>
+                    </div>
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="block-title">4 您对船上的餐饮服务质量是否满意?</div>
+            <div class="list">
+              <ul>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_4" value="1" checked="checked"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">非常满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_4" value="2"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_4" value="3"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">一般</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_4" value="4"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">不满意</div>
+                    </div>
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="block-title">5 您对游轮上的娱乐活动及设施是否满意？</div>
+            <div class="list">
+              <ul>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_5" value="1" checked="checked"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">非常满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_5" value="2"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_5" value="3"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">一般</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_5" value="4"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">不满意</div>
+                    </div>
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="block-title">6 您对客舱基本生活设施及条件是否满意?</div>
+            <div class="list">
+              <ul>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_6" value="1" checked="checked"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">非常满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_6" value="2"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_6" value="3"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">一般</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_6" value="4"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">不满意</div>
+                    </div>
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="block-title">7 您对游轮上的音乐与艺术活动质量及场次安排是否满意?</div>
+            <div class="list">
+              <ul>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_7" value="1" checked="checked"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">非常满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_7" value="2"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_7" value="3"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">一般</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_7" value="4"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">不满意</div>
+                    </div>
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="block-title">8 您的本次航程的日程活动安排是否满意?</div>
+            <div class="list">
+              <ul>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_8" value="1" checked="checked"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">非常满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_8" value="2"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_8" value="3"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">一般</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_8" value="4"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">不满意</div>
+                    </div>
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="block-title">9 您是否愿意下次仍然携带家人参与我们的海上航行?</div>
+            <div class="list">
+              <ul>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_9" value="1" checked="checked"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">非常满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_9" value="2"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">满意</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_9" value="3"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">一般</div>
+                    </div>
+                  </label>
+                </li>
+                <li>
+                  <label class="item-radio item-content">
+                    <input type="radio" name="item_9" value="4"/>
+                    <i class="icon icon-radio"></i>
+                    <div class="item-inner">
+                      <div class="item-title">不满意</div>
+                    </div>
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="block-title">10 您认为我们需要改进和完善的服务有：</div>
+            <div class="list no-hairlines-md">
+              <ul>
+                <li class="align-top">
+                  <div class="item-content item-input">
+                    <div class="item-inner">
+                      <div class="item-title item-label"></div>
+                      <div class="item-input-wrap">
+                        <textarea placeholder="Bio" name="item_10" class="resizable"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+        <div class="block block-strong">
+          <p class="row">
+            <button class="col button button-fill color-red" type="submit">Save Data</button>
+          </p>
+          <p class="row"></p>
+        </div>
+</form>
+            <!-- Buttons Fill Form Data Here style="display:none;" -->
+            <div class="block block-strong row">
+              <div class="col"><a class="button button-fill fill-form-from-data-s"  href="#">testing</a></div>
+            </div>
+            <!-- END OF Fill Form Data Buttons  -->
+            <!-- questionnaire form here -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login Screen -->
+    <div class="login-screen" id="my-login-screen">
+      <div class="view">
+        <div class="page">
+          <div class="page-content login-screen-content">
+            <div>
+              <img src="static/images/addi_sumry.jpeg" width="100%" height="150px" border="0" alt="here is sumary icon" />
+            </div>
+            <div class="login-screen-title">欢迎登录系统</div>
+            <div class="list">
+              <ul>
+                <li class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">用户名</div>
+                    <div class="item-input-wrap">
+                      <input type="text" name="username" placeholder="Your username" value="${username}" @input="${updateUsername}"/>
+
+                    </div>
+                  </div>
+                </li>
+                <li class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">密码</div>
+                    <div class="item-input-wrap">
+                      <input type="password" name="password" placeholder="Your password" value="${password}" @input="${updatePassword}"/>
+
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="list">
+              <ul>
+                <li>
+                  <a href="#" class="item-link list-button login-button" @click="${alertLoginData}">Sign In</a>
+
+                </li>
+              </ul>
+              <div class="block-footer">欢迎您乘坐Anthem of the Seas号邮轮<br/>请点击 "Sign In" 按钮进入系统。 <!-- and click here to <a href="#" class="login-screen-close">Close Login Screen</a> --></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>
+<script>
+  export default (props, { $, $on, $f7, $update, $store }) => {
+    //----------------------------------------------------
+    const loading = $store.getters.loading;
+    const users   = $store.getters.users;
+    //----------------------------------------------------
+    // Login screen demo data
+    //let toastCenter;        //alert message
+
+    let username = '';
+    let password = '';
+
+    var myPhotoBrowserPage = $f7.photoBrowser.create({
+        photos: [
+          'static/images/floor_4.jpg',      // 4--8
+          'static/images/floor_11.jpg',
+          'static/images/floor_4.jpg',
+          'static/images/floor_11.jpg',
+          'static/images/floor_4.jpg',
+          'static/images/floor_11.jpg',     // 10--16
+          'static/images/floor_4.jpg',
+          'static/images/floor_11.jpg',
+          'static/images/floor_4.jpg',
+          'static/images/floor_11.jpg',
+          'static/images/floor_4.jpg',
+          'static/images/floor_11.jpg',
+          ],
+        type: 'popup',
+        pageBackLinkText: 'Back'
+    });
+
+    $f7.on('panelOpen', function (panel) {
+      console.log('Panel ' + panel.side + ' opened');
+    });
+
+    $f7.on('connection', function (isOnline) {
+      if (isOnline) {
+        console.log('app is online now');
+      } else {
+        console.log('app is offline now');
+      }
+    });
+
+    $f7.on('darkThemeChange', function (isDark) {
+      if (isDark) {
+        console.log('color scheme changed to Dark');
+      } else {
+        console.log('color scheme changed to Light');
+      }
+    });
+
+    $f7.on('tabShow', function (tabEL) {
+      if (tabEL) {
+        //console.log('Tab becomes visible/active : ' + tabEL.id);
+        // if come into Tab <Settings>, we should do Login operator if necessary
+        if ((tabEL.id == 'view-settings') /*|| (tabEL.id == 'view-schedule')*/) {
+             // -----------------------  Step.1 Login Necessary --------------------------------
+              const flag = $store.getters.users.value.length;
+              if (!(flag > 0))  //  !flag > 0 means NOT login yet
+              {
+                // ---   Open Login Screen Automatic ----
+                console.log('login-screen.....line 664 ! ');
+                $f7.loginScreen.open('.login-screen', true);
+              }
+             // --------------------------------------------------------------------------------
+        }
+      } else {
+        console.log('Tab is unknown status in <tabShow>' + tabEL.id);
+      }
+    });
+
+/*
+    $f7.on('tabHide', function (tabEL) {
+      if (tabEL) {
+        console.log('Tab becomes hidden/inactive : ' + tabEL.id);
+      } else {
+        console.log('Tab is unknown status in <tabHide>' + tabEL.id);
+      }
+    }); */
+
+/*
+    $f7.on('popupClose', function (popup) {
+      // do something on popup close
+      console.log('pop up closing..... : ' + popup.el.id);
+    }); */
+
+    // Page Events
+    $on('pageInit', () => {
+        $('.fill-form-from-data-s').on('click', function(){
+          console.log("Form Action URL:! " + $f7.$('form#helen-form').attr('action'));
+        });
+    });
+
+    // ==================================================================================
+    // Important !!! Important !!! Important !!! Important !!! Important !!! Important !!! 2021.07.05 15:49 Tony: Coding many many times!
+    // ==================================================================================
+    $f7.on('loginScreenClosed', function (loginScreen) {
+      // do something on popup close
+      console.log('login screen closed..... id=|' + loginScreen.el.id +'|');
+
+      const flag = $store.getters.users.value.length;
+      if (flag > 0)
+      {   // Dymatic Automatic Click Button <Load Store> in Tab-Settings
+          //------------------------------------------------------------
+          loginScreen.app.$('.fill-form-from-data-c').click();      //  BUTTON Click ******
+      }
+
+    }); 
+    // ==================================================================================
+
+    const updateUsername = (e) => {
+      username = e.target.value;
+      $update();
+    }
+    const updatePassword = (e) => {
+      password = e.target.value;
+      $update();
+    }
+    const showToastCenter = (msg) => {
+      let toastCenter;
+      // Create toast
+      if (!toastCenter) {
+        toastCenter = $f7.toast.create({
+          text: msg,
+          position: 'center',
+          closeTimeout: 2000,
+        });
+      }
+      // Open it
+      toastCenter.open();
+    }
+    const alertLoginData = () => {
+
+      // Input Validation
+      if (username == "" || password == "") {
+          console.log("Error: username or password mustn't be null!");
+          showToastCenter('用户名与密码不允许为空!');
+          return;
+      }       // Easy Version of check, should be more carefully later
+
+      //Export DOM7 to local variable to make it easy accessible
+      var app = $f7;
+      var $$ = app.$;
+
+      // We got user data from request
+      var vUser = {
+        firstName: '',
+        lastName: '',
+        login:'',
+        address:''
+      };
+
+      // Simulate Ajax Request
+      app.request.get('https://www.kideduc.com/portal/services/auth.php', { login: username, password: password })
+      .then(function (res) {
+//////  $$('.login').html(res.data);
+        console.log(res.data);
+
+        var users = JSON.parse(res.data)['users'];
+        if (users.length < 1) { 
+            // sometimes we got users[0], sometimes got users[NULL], so check and verify
+            showToastCenter('密码不正确! 请重新输入!');
+            return;
+        }  
+
+        vUser.firstName = users[0]["first_name"];
+        vUser.lastName  = users[0]["last_name"];
+        vUser.login     = users[0]["login"];
+        vUser.address   = users[0]["address2"];
+        console.log('Girl 001 = |' + vUser.login + '|');
+        console.log('Address2 = |' + vUser.address + '|');
+        console.log('Load was performed');
+
+        if (username == vUser.login)
+        {
+          $f7.dialog.alert('恭喜您登录成功 !', () => {
+            // Saving data into Store-Storage  -------------------------
+            $store.state.users = users;
+
+            // Close Login Screen  -------------------------------------
+            $f7.loginScreen.close();
+            // ---------------------------------------------------------
+          });
+        }else {
+          console.log('left username=' + username);
+          console.log('right restful=' + vUser.login);
+        }
+      });
+
+/*
+      $f7.dialog.alert('Username: ' + username + '<br/>Password: ' + password, () => {
+        $f7.loginScreen.close();
+      });
+*/
+    }
+
+    //Open photo browser on click
+    const showPhotoBrowser = (e) => {
+      /*=== Default standalone ===*/
+      var str = new String(e.target.id);    // Biz_Link_4|Biz_Link_5|Biz_Link_6.....
+      var reg = str.substring(0,9);         // Biz_Link_
+      var x = str.replace(reg,"");          // 4|5|6.....
+      var idx = (x)-1;      // activeIndex start at 0
+
+//var straa = new String(e.target.href.type); alert(straa.substring(2,2));return; //var x = str.indexOf("#");alert("DEBUG = ".x);return;
+//var idx = str.match(reg); alert("DEBUG = ".idx);return;
+
+//      var idx = $(this).attr("href", 1);      console.log("DEBUG = ".idx);
+      //var id = $(this).attr('href').split('?')[1].split('&')[0].split('=')[1];
+      myPhotoBrowserPage.activeIndex = (idx);
+
+      //Open photo browser on click
+      myPhotoBrowserPage.open();
+    }
+
+    return $render;
+  }
+</script>

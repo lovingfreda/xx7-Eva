@@ -1,0 +1,232 @@
+<template>
+<div class="page" data-name="about">
+
+  <div class="navbar">
+    <div class="navbar-bg"></div>
+    <div class="navbar-inner sliding">
+    ${products.map((link) => $h`
+      <div class="left">
+        <a href="#" class="link back">
+          <i class="icon icon-back"></i>
+          <span class="if-not-md">Back</span>
+        </a>
+      </div>
+      <div class="title">${link.name}</div>
+    `)}
+    </div>
+  </div>
+
+  <div class="page-content">
+<!-- 
+      <div class="list links-list">
+        <ul>
+          <li>
+              <a href="#1" class="popup-open" data-popup="#my-popup-1">自定义 - 测试项目</a>
+              <div class="block">
+                  <p class="row">
+                    <span class="col">
+                        <p>甲板14, Midship</p>
+                        <p>我们的海上历奇项目体验为孩子们准备了游戏和活动和科普项目，让他们也能尽享充满乐趣的游轮时光!</p>
+                    </span>
+                    <span class="col">
+                        <img src="static/images/mytemp03.jpg" width="190" height="150" border="0" alt="" />
+                    </span>
+                  </p>
+              </div>
+          </li>
+        </ul>
+      </div>
+ -->
+    <!-- inner loop, such as DINNER-A|LUNCH-B|PIZZA-C|FOOD-D|.... -->
+    ${pdtlinks.map((line) => $h`
+      <div class="list links-list">
+        <ul>
+          <li>
+              <a href="#${line.id}" class="popup-open" data-popup="#my-popup-${line.id}">#${line.id} - ${line.name}</a>
+              <div class="block">
+                  <p class="row">
+                    <span class="col">
+                        <p>${line.addr}</p>
+                        <p>${line.title}</p>
+                    </span>
+                    <span class="col"><!-- class="lazy lazy-fade-in demo-lazy"-->
+                        <img src="${line.url}" width="165" height="110" border="0" alt="picture ${line.url} missing" />
+                    </span>
+                  </p>
+              </div>
+          </li>
+        </ul>
+      </div>
+    `)}
+  </div>
+
+    <!-- Popup -->
+    <!-- outside loop, such as ACTIVE|TASK|... -->
+    ${pdtlinks.map((link) => $h`
+        <div class="popup" id="my-popup-${link.id}">
+          <div class="view">
+            <div class="page">
+
+              <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                  <div class="title">${link.name}</div>
+                  <div class="right">
+                    <a @click="${setAccessHistory}" href="#" class="link popup-close" id="${link.id}">Close<p id="KKK-${link.id}" data-id="${link.id}" data-name="${link.name}" data-desc="${link.keywords}"></p></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="page-content">
+                <!-- inner loop, such as DINNER-A|LUNCH-B|PIZZA-C|FOOD-D|.... -->
+                  <div class="list">
+                    <ul>
+                      <li>
+                          <p><img src="${link.url}" width="100%" height="120px" border="0" alt="picture ${link.url} missing" /></p>
+                      </li>
+                      <!-- <li>
+                          <p>${link.catg} - ${link.name}</p>
+                      </li> -->
+                      <li>
+                          <p>${link.addr}</p>
+                      </li>
+                      <li>
+                          <p class="row">
+                            <div class="col-60">
+                                <a @click="${showPhotoBrowser}" href="#" id="Biz_Href_${link.deck_idx}" data-myid="${link.deck_idx}">
+                                  <i class="icon f7-icons if-not-md">search_circle_fill</i>
+                                  <i class="icon material-icons if-md">search_circle</i>
+                                  <span class="tabbar-label">查看甲板位置</span>
+                                </a>
+                            </div>
+                          </p>
+                      </li>
+                      <li>
+                          <p style="white-space:pre-line" innerHTML="${link.desc}"></p>
+                      </li>
+                 <!-- 
+                      <li>
+                          <p>这是一小段测试成功了<br />\n\r如果第一行在这里<br />第二行在这里<br />那么成功啦！</p>
+                      </li>
+                      <li>
+                          <p style="white-space:pre-line">  link.desc </p>
+                      </li>
+                  -->
+                    </ul>
+                  </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+    `)}
+    <!-- Popup ending... -->
+
+
+</div>
+</template>
+<script>
+export default (props, { $, $update, $f7, $store }) => {
+    //----------------------------------------------------
+    const synday = $store.getters.synday;
+    const access = $store.getters.access;
+    //----------------------------------------------------
+    const user = props.catg;
+
+// Important !!! a> we set this var in Route   b> MUST using JSON.parse()
+        // New veresion using 'success'=1 and 'products'=xxxxxxx, so we using new statement
+//      products: JSON.parse(this.$route.context.products),                 // Important !!! ********************************
+//      products: JSON.parse(this.$route.context.products)['products'],     // Important !!! ********************************
+    var products = JSON.parse(props.prdt)['products'];
+    var pdtlinks = JSON.parse(props.prdt)['links'];
+    console.log("Access Catg succeed!" + products[0]["name"]);  // Debug..
+    console.log("Access Prdt succeed!" + pdtlinks[0]["name"]);  // Debug..
+console.log("DEBUG..DESC=|" + pdtlinks[1]["desc"] + "|");  // Debug..
+//pdtlinks[0]["desc"] = pdtlinks[0]["desc"].replace(/\n/g,"\\n").replace(/\r/g,"\\n");
+//console.log("DEBUG..DESC=|" + pdtlinks[0]["desc"] + "|");  // Debug..
+// ====================================================================
+    var myPhotoBrowserPage = $f7.photoBrowser.create({
+        photos: [
+        {url:  'static/images/floor_4.jpg', caption:'甲板4'},      // 4--8
+        {url:  'static/images/floor_11.jpg',caption:'甲板5'},
+        {url:  'static/images/floor_4.jpg', caption:'甲板6'},
+        {url:  'static/images/floor_11.jpg',caption:'甲板7'},
+        {url:  'static/images/floor_4.jpg', caption:'甲板8'},
+        {url:  'static/images/floor_11.jpg',caption:'甲板10'},     // 10--16
+        {url:  'static/images/floor_4.jpg', caption:'甲板11'},
+        {url:  'static/images/floor_11.jpg',caption:'甲板12'},
+        {url:  'static/images/floor_4.jpg', caption:'甲板13'},
+        {url:  'static/images/floor_11.jpg',caption:'甲板14'},
+        {url:  'static/images/floor_4.jpg', caption:'甲板15'},
+        {url:  'static/images/floor_11.jpg',caption:'甲板16'},
+          ],
+        type: 'popup',              // Could be standalone | popup | page
+        popupCloseLinkText: 'Back', // Text on close link in Photo Browser's navbar when opened
+        navbarShowCount: 0,         // Defines should it display "3 of 5" text in navbar title or not.
+        toolbar: false              // Set to false to remove Photo Browser's Toolbar
+    });
+
+    //Open photo browser on click
+    const showPhotoBrowser = (e) => {
+      /*=== Default standalone ===*/
+      /*
+      var str = new String(e.target.id);    // Biz_Link_4|Biz_Link_5|Biz_Link_6.....Biz_Span_4|Biz_Span_5|Biz_Span_6.....
+console.log("e.target.id = " + str);    // Debug..
+      var reg = str.substring(0,9);         // Biz_Link_  or Biz_Span_    So from char at pos[9]
+      var x = str.replace(reg,"");          // 4|5|6.....
+      var idx = (x)-1;      // activeIndex start at 0
+console.log("idx = " + idx);             // Debug..
+      */
+
+      console.log("target   = " + e.target);
+      console.log("currentTarget   = " + e.currentTarget);
+      console.log("TargetID   = " + e.currentTarget.id);
+      console.log("Date-MyID  = " + $(e.currentTarget).data('myid'));
+//    console.log("href myid = " + $('span#'+e.target.id).data('myid'));
+
+/*
+      var elmID = 'p#'+e.target.id;
+      console.log("elmID = " + elmID);
+
+      var x = $(elmID).data('myid');
+      var idx = (x)-1;
+*/
+      // ----------------------------------------------------------------------------
+      // tony 2021.08.09  Best Method Best Method Best Method Best Method Best Method
+      // ----------------------------------------------------------------------------
+      // what you need is to use the event.currentTarget. This will contain the element that actually has the event listener. 
+      // ----------------------------------------------------------------------------
+      // After several debug, we find the best method below. 
+//    var x = $(e.target).data('myid');           // 4|5|6.....
+      var x = $(e.currentTarget).data('myid');    // 4|5|6.....
+      var idx = (x)-1;                      // activeIndex start at 0
+
+      myPhotoBrowserPage.activeIndex = (idx);
+
+      //Open photo browser on click
+      myPhotoBrowserPage.open();
+    }
+
+    //Set Gobal Access History Flag
+    const setAccessHistory = (e) => {
+        var str = new String(e.target.id);      // Biz_Link_4|Biz_Link_5|Biz_Link_6.....
+        console.log("push...e.target.id = " + str);    // Debug..
+        console.log("push...data:name = " + $('p#KKK-'+str).data('name'));    
+        console.log("push...data:desc = " + $('p#KKK-'+str).data('desc'));    
+        var tmpName = $('p#KKK-'+str).data('name');
+        var tmpDesc = $('p#KKK-'+str).data('desc');
+        var tmpNow  = $f7.utils.now();
+
+      $store.dispatch('addProduct', {
+        id: ''+str,  // MUST be string, so we using '' to + it
+        title: tmpName,
+        description: tmpDesc
+//      description: tmpNow + '|' + tmpDesc
+      });
+
+    }
+// ====================================================================
+
+    return $render;
+};
+</script>

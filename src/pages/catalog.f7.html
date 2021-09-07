@@ -1,0 +1,128 @@
+<template>
+  <div class="page" data-name="catalog">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="title">History</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="list links-list">
+        <ul>
+          ${products.value.map((product) => $h`
+            <li><a href="/product/${product.id}/">${product.title}</a></li>
+          `)}
+        </ul>
+      </div>
+      ${products.value.length === 3 && $h`
+        <div class="block">
+          <button class="button button-fill" @click=${addProduct}>Add Record Line</Button>
+        </div>
+      `}
+    <!-- </div>
+
+    <div class="page-content"> -->
+      ${users.value.length > 0 ? $h`
+        <div class="list">
+          <ul>
+            ${users.value.map((user) => $h`
+            <li class="item-content">
+              <div class="item-inner">
+                <div class="item-title">${user.first_name}.${user.last_name}@${user.address2}</div>
+              </div>
+            </li>
+            `)}
+          </ul>
+        </div>
+      ` : $h`
+        <div class="block block-strong">
+          <a
+            href="#"
+            class="button button-fill button-preloader ${loading.value ? 'button-loading' : ''}"
+            @click=${loadUsers}
+          >
+            <span class="preloader"></span>
+            <span>Load Users</span>
+          </a>
+        </div>
+      `}
+      <!-- ---------------   Post Session Variables   -------------------- -->
+        <div class="block block-strong">
+          <button class="button button-fill" @click=${postSession}>Post To Server</Button>
+        </div>
+      <!-- ---------------   Post Session Variables   -------------------- -->
+    </div>
+
+  </div>
+</template>
+<script>
+  export default (props, {$, $on, $f7, $store }) => {
+    // Component Data
+
+    // Component Methods
+
+    // Lifecycle
+
+    // Page Events
+    $on('pageInit', () => {
+        console.log("category.f7  pageInit! ");
+    });
+
+    // -------------------------------------    App Events  -----------------------------------------
+    const products = $store.getters.products;
+
+    const addProduct = () => {
+      $store.dispatch('addProduct', {
+        id: '4',
+        title: 'Apple iPhone 12',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis.'
+      });
+    }
+    //----------------------------------------------------
+    const loading = $store.getters.loading;
+    const users = $store.getters.users;
+
+    const loadUsers = () => {
+//    $store.dispatch('getUsers');
+      $store.dispatch('getUsersBy',{ login:'yangy', password: 'lovingme' });
+    };
+
+    const postSession = () => {
+
+        console.log("Pust Session Datas Now.........");
+        console.log( $store.getters.products.value);
+
+        // URL Parameters prepair
+        let strWord = "";
+        for (var i=0; i<$store.state.products.length; i++) {
+            if (i>2) {
+                console.log( "Line " + i + " : ........." + $store.state.products.[i].description);
+                strWord += " " + $store.state.products.[i].description;
+            }
+        }
+        let strEcho = "{login:'" + (1==users.value.length ? users.value[0].login:'EVA') + "',keywords='" + strWord + "'}";
+        console.log("parmeters = |" +strEcho+ "|");
+
+        let paraUserName = (1==users.value.length ? users.value[0].login:'EVA');
+        let paraKeywords = strWord;
+
+        // AJAX Post Jason
+        var app = $f7;
+
+        app.request.post('https://www.kideduc.com/portal/api/EditKeywords.php?ccsForm=user_keywords', {user_login:paraUserName, key_desc: paraKeywords} )
+          .then(function (res) {
+//          $$('.login').html(res.data);                        // init examples code, let it be here. WAIST & NOT CHANGED
+            console.log('Load was performed');
+
+//          products.value.splice(3,products.value.length-3);   // using this will occur BUG. page category's product-list will NOT remove waist items
+            $store.dispatch('resetProduct');                    // so we using this method to Re-render Product List
+
+        });
+
+
+    };
+    //----------------------------------------------------
+    return $render;
+  }
+
+</script>
