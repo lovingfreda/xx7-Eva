@@ -1,10 +1,10 @@
 {
-  "cwd": "F:\\Cordova_Angular\\xx7-Nora",
+  "cwd": "F:\\Cordova_Angular\\xx7-Eva",
   "type": [
     "web",
     "cordova"
   ],
-  "name": "Nora Lovely",
+  "name": "Lovely Eva",
   "framework": "core",
   "template": "tabs",
   "bundler": "webpack",
@@ -24,7 +24,7 @@
     "preserveAssetsPaths": false,
     "inlineAssets": true
   },
-  "pkg": "io.framework7.myapp",
+  "pkg": "io.framework7.myeva",
   "cordova": {
     "folder": "cordova",
     "platforms": [

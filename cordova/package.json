@@ -1,6 +1,6 @@
 {
-  "name": "io.framework7.myapp",
-  "displayName": "Nora Lovely",
+  "name": "io.framework7.myeva",
+  "displayName": "Lovely Eva",
   "version": "1.0.0",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",

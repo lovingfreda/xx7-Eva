@@ -20,11 +20,11 @@ import App from '../app.f7.html';
 
 var device = getDevice();
 var app = new Framework7({
-  name: 'Nora Lovely', // App name
+  name: 'Lovely Eva', // App name
   theme: 'auto', // Automatic theme detection
   el: '#app', // App root element
   component: App, // App main component
-  id: 'io.framework7.myapp', // App bundle ID
+  id: 'io.framework7.myeva', // App bundle ID
   // App store
   store: store,
   // App routes
