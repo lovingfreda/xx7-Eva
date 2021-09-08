@@ -7,221 +7,304 @@
     </div>
   </div>
   <div class="page-content">
-    <div class="block-title">个人资料</div>
-
-<!-- Form 的URL Get参数集合里需要传入user_id=[Edit:ID]，从而保证CCS框架的代码可以正常做Update -->
-<form action="https://www.kideduc.com/portal/api/EditUser.php?user_id=${users.value.length > 0 ? users.value[0].id : -1}&ccsForm=users%3AEdit" method="POST" class="list form-ajax-submit" id="my-form">
-<!-- Laravel 的请求处理系统要求所有非 GET 和 POST 的请求全部通过 POST 请求来执行，再将真正的方法使用 _method 表单字段携带给后端。 -->
-
-    ${users.value.length > 0 ? $h`
-    <div class="list no-hairlines-md">
-      ${users.value.map((user) => $h`
-      <ul>
-        <li>
-          <div class="item-content item-input">
-            <div class="item-inner">
-              <div class="item-title item-label">姓名</div>
-              <div class="item-input-wrap">
-                <input type="text" name="first_name" placeholder="Your name"/>
+    <div class="block-title">账号与安全</div>
+    <div class="list">
+        <ul>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">手机号</div>
+                <div class="item-after">13910726164</div>
               </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="item-content item-input">
-            <div class="item-inner">
-              <div class="item-title item-label">昵称</div>
-              <div class="item-input-wrap">
-                <input type="text" name="title" placeholder="Your title"/>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">个人资料</div>
+                <div class="item-after">Andis.Smith</div>
               </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="item-content item-input">
-            <div class="item-inner">
-              <div class="item-title item-label">电子邮箱</div>
-              <div class="item-input-wrap">
-                <input type="email" name="email" placeholder="E-mail"/>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">安全中心</div>
               </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="item-content item-input">
-            <div class="item-inner">
-              <div class="item-title item-label">手机号</div>
-              <div class="item-input-wrap">
-                <input type="tel" name="phone_home" placeholder="Phone"/>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="item-content item-input">
-            <div class="item-inner">
-              <div class="item-title item-label">性别</div>
-              <div class="item-input-wrap">
-                <select name="gender_id">
-                  <option value="1">Male</option>
-                  <option value="2">Female</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="item-content item-input">
-            <div class="item-inner">
-              <div class="item-title item-label">年龄</div>
-              <div class="item-input-wrap">
-                <select name="age_id">
-                  <option value="1">less than 13岁</option>
-                  <option value="2">13-17岁</option>
-                  <option value="3">18-24岁</option>
-                  <option value="4">25-34岁</option>
-                  <option value="5">35-50岁</option>
-                  <option value="6">51-65岁</option>
-                  <option value="7">over 65岁</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="item-content item-input">
-            <div class="item-inner">
-              <div class="item-title item-label">语言</div>
-              <div class="item-input-wrap">
-                <select name="language_id">
-                  <option value="1">English</option>
-                  <option value="2">French</option>
-                  <option value="3">German</option>
-                  <option value="4">Chinese</option>
-                  <option value="5">Japanese</option>
-                  <option value="6">Russian</option>
-                  <option value="7">Polish</option>
-                  <option value="8">Turkish</option>
-                  <option value="9">Yiddish</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="item-content item-input">
-            <div class="item-inner">
-              <div class="item-title item-label">所在城市</div>
-              <div class="item-input-wrap">
-                <input type="tel" name="city" placeholder="City"/>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="item-content item-input">
-            <div class="item-inner">
-              <div class="item-title item-label">地址处所</div>
-              <div class="item-input-wrap">
-                <input type="tel" name="address1" placeholder="Address Line 1"/>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="item-content item-input">
-            <div class="item-inner">
-              <div class="item-title item-label"></div>
-              <div class="item-input-wrap">
-                <input type="tel" name="address2" placeholder="Address Line 2"/>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="item-content item-input">
-            <div class="item-inner">
-              <div class="item-title item-label"></div>
-              <div class="item-input-wrap">
-                <input type="tel" name="address3" placeholder="Address Line 3"/>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="align-top">
-          <div class="item-content item-input">
-            <div class="item-inner">
-              <div class="item-title item-label">兴趣爱好</div>
-              <div class="item-input-wrap">
-                <textarea placeholder="Bio" name="notes" class="resizable"></textarea>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="item-content">
-            <div class="item-inner">
-              <div class="item-title">物联设备</div>
-              <div class="item-after">
-                <label class="toggle toggle-init">
-                  <input type="checkbox" name="ilot" value="yes" />
-                  <i class="toggle-icon"></i>
-                </label>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-      `)}
+            </a>
+          </li>
+        </ul>
     </div>
-    <!-- Buttons Submit Starting -->
-    <!-- <div class="block-title">Buttons</div>
-    <div class="block block-strong">
-      <p class="row">
-        <a href="#" class="col button button-raised color-green">取消</a>
-        <a href="#" class="col button button-raised button-fill color-red">保存</a>
-      </p>
-      <p class="row">
-      </p>
-    </div> -->
-    <div class="block block-strong">
-      <p class="row">
-        <button class="col button button-fill color-red" type="submit">Save Data</button>
-      </p>
-      <p class="row"></p>
+    <div class="block-title">高级设置</div>
+    <div class="list">
+        <ul>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">事件类型</div>不良事件的特性与类别定义<div class="item-footer">例：药物事件、跌倒事件、手术事件等</div>
+                </div>
+                <div class="item-after">Edit</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">发生地点</div>不良事事件在院内/外的发生位置定义<div class="item-footer">例：门诊区域、急诊区域、公共区域等</div>
+                </div>
+                <div class="item-after">Edit</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">影响对象</div>不良事件可能影响到的群体类别定义<div class="item-footer">例：患者、家属、员工等</div>
+                </div>
+                <div class="item-after">Edit</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">影响程度</div>事件发生后对病人健康的影响程度定义<div class="item-footer">例：有伤害、无伤害、无法判定等</div>
+                </div>
+                <div class="item-after">Edit</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">关联人员</div>不良事件涉及或关联到的人员类别定义<div class="item-footer">例：门诊护士、病房护士等</div>
+                </div>
+                <div class="item-after">Edit</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">处理方式</div>事件发生后的立即处理方式定义<div class="item-footer">例：持续观察、伤口处理等</div>
+                </div>
+                <div class="item-after">Edit</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">改过措施</div>预防此类事件再发生的措施或方法定义<div class="item-footer">例：加强教育培训、改变行政管理等</div>
+                </div>
+                <div class="item-after">Edit</div>
+              </div>
+            </a>
+          </li>
+        </ul>
     </div>
-    <!-- Buttons Submit Ending -->
-    ` : $h`
-    <div class="block block-strong">
-      <p class="row">
-        <!-- <div class="block">请首先登录系统再修改个人资料</div>
-        <button class="col button button-fill color-red" onclick="submit">我要登录</button> -->
-        请首先登录系统再修改个人资料
-      </p>
-      <p class="row">
-        <a class="button button-fill color-red fill-form-login"  href="#">我要登录</a>
-      </p>
+    <div class="block-title">第三方接入</div>
+    <div class="list">
+        <ul>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">管理员权限</div>
+                <div class="item-after">设置</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">生效策略</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <div class="item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">钉钉接入</div>
+                <div class="item-after">
+                  <label class="toggle toggle-init">
+                    <input type="checkbox" />
+                    <span class="toggle-icon"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">微信接入</div>
+                <div class="item-after">
+                  <label class="toggle toggle-init">
+                    <input type="checkbox" />
+                    <span class="toggle-icon"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="item-content">
+              <div class="item-inner">
+                <div class="item-title">相关参数设置</div>
+              </div>
+            </div>
+            <ul>
+              <li>
+                <a href="#" class="item-link item-content">
+                  <div class="item-media"><i class="icon icon-f7"></i></div>
+                  <div class="item-inner">
+                    <div class="item-title">企业账号</div>
+                    <div class="item-after">设置</div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="item-link item-content">
+                  <div class="item-media"><i class="icon icon-f7"></i><i class="icon icon-f7"></i></div>
+                  <div class="item-inner">
+                    <div class="item-title">服务器&.IP地址</div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">员工/部门信息</div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <a href="#" class="item-link item-content">
+                  <div class="item-media"><i class="icon icon-f7"></i></div>
+                  <div class="item-inner">
+                    <div class="item-title">初始导入</div>
+                    <div class="item-after">已执行</div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <div class="item-content">
+                  <div class="item-media"><i class="icon icon-f7"></i></div>
+                  <div class="item-inner">
+                    <div class="item-title">实时同步</div>
+                    <div class="item-after">
+                      <label class="toggle toggle-init">
+                        <input type="checkbox" />
+                        <span class="toggle-icon"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">异常与错误处理</div>
+                <div class="item-after">设置</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <div class="item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">定时任务</div>
+                <div class="item-after">
+                  <label class="toggle toggle-init">
+                    <input type="checkbox" />
+                    <span class="toggle-icon"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
     </div>
-    `}
-</form>
-
-    <!-- Buttons Fill Form Data Here style="display:none;" style="height:0px" -->
-    <div class="block block-strong row" style="display:none;">
-      <div class="col"><a class="button button-fill fill-form-from-data-a"  href="#">Fill Eva</a></div>
-      <div class="col"><a class="button button-fill fill-form-from-data-c"  href="#">Fill Store</a></div>
-      <div class="col"><a class="button button-fill fill-form-from-data-b"  href="#">Fill YangY</a></div>
-      <div class="col"><a class="button button-fill fill-form-from-data-k"  href="#">testing</a></div>
+    <div class="block-title">常规功能</div>
+    <div class="list">
+        <ul>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">退出系统</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">关于我们</div>
+              </div>
+            </a>
+          </li>
+          <li>
+             
+          </li>
+        </ul>
     </div>
-    <!-- END OF Fill Form Data Buttons  -->
 
   </div>
 </div>
 </template>
+<style>
+  .icon-f7 {
+    background: #EE350F;
+    color: #fff !important;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .icon-f7:before {
+    content: '7';
+  }
+
+  .ios .icon-f7 {
+    width: 29px;
+    height: 29px;
+    line-height: 29px;
+  }
+
+  .md .icon-f7 {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+  }
+</style>
 <script>
 export default (props, { $, $on, $f7, $store }) => {
     //----------------------------------------------------
-    const loading = $store.getters.loading;
-    const users   = $store.getters.users;
+
     //----------------------------------------------------
     // Component Data
 
@@ -232,61 +315,9 @@ export default (props, { $, $on, $f7, $store }) => {
     // Page Events
     $on('pageInit', () => {
         // ------------------------------    Request Data from AJAX   -----------------------------------------
-        console.log("xxxxx Pretty Girls! " + users.value.length);
+        console.log("xxxxx Pretty Girls! ");
 
         // -------------------------------------    DOM Events  -----------------------------------------
-        $('.fill-form-from-data-a').on('click', function(){
-          var formData = {
-            'city': "上海浦东",
-            'title': "白领丽人",
-            'gender_id': 2,
-            'age_id': 3,
-            'email': "eva@kideduc.com",
-            'language_id': 1,
-            'notes': "停车坐爱枫林晚，霜叶红于二月花",
-          }
-          $f7.form.fillFromData('#my-form', formData);
-        });
-        $('.fill-form-from-data-b').on('click', function(){
-          var formData = {
-            'city': "北京三里屯",
-            'title': "美貌少妇",
-            'gender_id': 2,
-            'age_id': 4,
-            'email': "yangy@kideduc.com",
-            'language_id': 4,
-            'notes': "花径不曾缘客扫，蓬门今始为君开",
-          }
-          $f7.form.fillFromData('#my-form', formData);
-        });
-        $('.fill-form-from-data-c').on('click', function(){
-          console.log("xxxxx YangY OOXX! " + users.value.length + '|' + users.value[0].first_name);
-          var formData = {
-              'first_name': users.value[0].first_name,
-                'title':    users.value[0].title,
-                'email':    users.value[0].email,
-              'phone_home': users.value[0].phone_home,
-                'gender_id':   users.value[0].gender_id,
-                'age_id':      users.value[0].age_id,
-                'language_id': users.value[0].language_id,
-                'city':     users.value[0].city,
-                'address1': users.value[0].address1,
-                'address2': users.value[0].address2,
-                'address3': users.value[0].address3,
-                'notes':    users.value[0].notes,
-                'ilot':     ['yes'],
-          }
-          $f7.form.fillFromData('#my-form', formData);
-        });
-
-        $('.fill-form-login').on('click', function(){
-          
-          $f7.loginScreen.open('.login-screen', true);
-        });
-
-        $('.fill-form-from-data-k').on('click', function(){
-          console.log("Form Action URL:! " + $f7.$('form#my-form').attr('action'));
-        }); 
 
         // -------------------------------------    App Events  -----------------------------------------
     });
