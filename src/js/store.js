@@ -17,17 +17,17 @@ const store = createStore({
     products: [
       {
         id: '1',
-        title: 'Apple iPhone 8',
+        title: '不良事件上报历史-记录1',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis.'
       },
       {
         id: '2',
-        title: 'Apple iPhone 8 Plus',
+        title: '不良事件上报历史-记录2',
         description: 'Velit odit autem modi saepe ratione totam minus, aperiam, labore quia provident temporibus quasi est ut aliquid blanditiis beatae suscipit odio vel! Nostrum porro sunt sint eveniet maiores, dolorem itaque!'
       },
       {
         id: '3',
-        title: 'Apple iPhone X',
+        title: '不良事件上报历史-记录3',
         description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.'
       },
     ]
@@ -74,7 +74,7 @@ const store = createStore({
     getUsersBy({ state }, { login , password }) {
       state.loading = true;
       setTimeout(() => {
-          fetch(`https://www.kideduc.com/portal/services/auth.php?login=${login}&password=${password}`)
+          fetch(`https://www.kideduc.com/adverse/services/auth.php?login=${login}&password=${password}`)
             .then((res) => res.json())
             .then((users) => {
               state.loading = false;
@@ -85,7 +85,7 @@ const store = createStore({
     getEvents({ state }, { catgID }) {
       state.loading = true;
       setTimeout(() => {
-          fetch(`https://www.kideduc.com/portal/services/events.php?catgID=${catgID}`)
+          fetch(`https://www.kideduc.com/adverse/services/events.php?catgID=${catgID}`)
             .then((res) => res.json())
             .then((events) => {
               state.loading = false;
@@ -96,7 +96,7 @@ const store = createStore({
     getArtiDaily({ state }, { userID }) {
       state.loading = true;
       setTimeout(() => {
-          fetch(`https://www.kideduc.com/portal/services/articles_daily.php?userID=${userID}`)
+          fetch(`https://www.kideduc.com/adverse/services/articles_daily.php?userID=${userID}`)
             .then((res) => res.json())
             .then((artidaily) => {
               state.loading = false;
@@ -107,7 +107,7 @@ const store = createStore({
     getMyArrange({ state }, { userID, f7 }) {
       state.loading = true;
       setTimeout(() => {
-          fetch(`https://www.kideduc.com/portal/services/articles_arrg.php?userID=${userID}`)
+          fetch(`https://www.kideduc.com/adverse/services/articles_arrg.php?userID=${userID}`)
             .then((res) => res.json())
             .then((myarrange) => {
               state.loading = false;
@@ -119,7 +119,7 @@ const store = createStore({
     getMySuggest({ state }, { userID, f7 }) {
       state.loading = true;
       setTimeout(() => {
-          fetch(`https://www.kideduc.com/portal/services/articles_sugg.php?userID=${userID}`)
+          fetch(`https://www.kideduc.com/adverse/services/articles_sugg.php?userID=${userID}`)
             .then((res) => res.json())
             .then((mysuggest) => {
               state.loading = false;
@@ -139,17 +139,17 @@ const store = createStore({
       state.products = [
                           {
                             id: '1',
-                            title: 'Apple iPhone 8',
+                            title: '不良事件上报历史-记录1',
                             description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis.'
                           },
                           {
                             id: '2',
-                            title: 'Apple iPhone 8 Plus',
+                            title: '不良事件上报历史-记录2',
                             description: 'Velit odit autem modi saepe ratione totam minus, aperiam, labore quia provident temporibus quasi est ut aliquid blanditiis beatae suscipit odio vel! Nostrum porro sunt sint eveniet maiores, dolorem itaque!'
                           },
                           {
                             id: '3',
-                            title: 'Apple iPhone X',
+                            title: '不良事件上报历史-记录3',
                             description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.'
                           },
                         ];
@@ -157,7 +157,7 @@ const store = createStore({
     resetMyArrange({ state }, { userID }) { // Dom should refresh, otherwise deleted-itme will be always exist ! 
       state.loading = true;
       setTimeout(() => {
-          fetch(`https://www.kideduc.com/portal/services/articles_arrg.php?userID=${userID}`)
+          fetch(`https://www.kideduc.com/adverse/services/articles_arrg.php?userID=${userID}`)
             .then((res) => res.json())
             .then((myarrange) => {
               state.loading = false;

@@ -10,25 +10,17 @@
           <div class="navbar">
             <div class="navbar-bg"></div>
             <div class="navbar-inner sliding">
-              <div class="title">甲板</div>
+              <div class="title">制度</div>
             </div>
           </div>
           <div class="page-content">
-            <div class="block-title">查看各层平面布局</div>
+            <div class="block-title">医院不良事件管理制度规范</div>
             <div class="list links-list">
               <ul>
-                <li><a id="Biz_Link_1" @click="${showPhotoBrowser}" href="#">甲板 4</a></li>
-                <li><a id="Biz_Link_2" @click="${showPhotoBrowser}" href="#">甲板 5</a></li>
-                <li><a id="Biz_Link_3" @click="${showPhotoBrowser}" href="#">甲板 6</a></li>
-                <li><a id="Biz_Link_4" @click="${showPhotoBrowser}" href="#">甲板 7</a></li>
-                <li><a id="Biz_Link_5" @click="${showPhotoBrowser}" href="#">甲板 8</a></li>
-                <li><a id="Biz_Link_6" @click="${showPhotoBrowser}" href="#">甲板 10</a></li>
-                <li><a id="Biz_Link_7" @click="${showPhotoBrowser}" href="#">甲板 11</a></li>
-                <li><a id="Biz_Link_8" @click="${showPhotoBrowser}" href="#">甲板 12</a></li>
-                <li><a id="Biz_Link_9" @click="${showPhotoBrowser}" href="#">甲板 13</a></li>
-                <li><a id="Biz_Link_10" @click="${showPhotoBrowser}" href="#">甲板 14</a></li>
-                <li><a id="Biz_Link_11" @click="${showPhotoBrowser}" href="#">甲板 15</a></li>
-                <li><a id="Biz_Link_12" @click="${showPhotoBrowser}" href="#">甲板 16</a></li>
+                <li><a id="Biz_Link_1" @click="${showPhotoBrowser}" href="#">不良事件报告和处理制度</a></li>
+                <li><a id="Biz_Link_2" @click="${showPhotoBrowser}" href="#">可疑医疗器械不良事件处理</a></li>
+                <li><a id="Biz_Link_3" @click="${showPhotoBrowser}" href="#">药品不良反应、事件报告</a></li>
+                <li><a id="Biz_Link_4" @click="${showPhotoBrowser}" href="#">根因分析指导规范</a></li>
               </ul>
             </div>
             <div class="block-title">救援小知识</div>
@@ -60,24 +52,16 @@
           <div class="navbar">
             <div class="navbar-bg"></div>
             <div class="navbar-inner">
-              <div class="title">14 Night Nonrev Repositioning</div>
+              <div class="title">工具箱</div>
             </div>
           </div>
           <div class="page-content">
-            <div class="block">第1天 - 干尼亚(克里特岛)，希腊</div>
-            <div class="block">第2天 - 雅典(比雷埃夫斯)，希腊</div>
-            <div class="block">第3天 - 海上巡游</div>
-            <div class="block">第4天 - 海上巡游</div>
-            <div class="block">第5天 - 海上巡游</div>
-            <div class="block">第6天 - 海上巡游</div>
-            <div class="block">第7天 - 海上巡游</div>
-            <div class="block">第8天 - 海上巡游</div>
-            <div class="block">第9天 - 海上巡游</div>
-            <div class="block">第10天 - 海上巡游</div>
-            <div class="block">第11天 - 海上巡游</div>
-            <div class="block">第12天 - 海上巡游</div>
-            <div class="block">第13天 - Poole Bay，UK</div>
-            <div class="block">第14天 - Poole Bay，UK</div>
+            <div class="block">不良事件报告表</div>
+            <div class="block">可疑医疗器械不良事件报告表</div>
+            <div class="block">药品不良反应、事件报告表</div>
+            <div class="block">医疗器械不良事件补充报告表</div>
+            <div class="block">医疗器械不良事件年度汇总表</div>
+            <div class="block">根因分析工具表</div>
           </div>
         </div>
       </div>
@@ -96,12 +80,12 @@
           <a href="#view-catalog" class="tab-link">
             <i class="icon f7-icons if-not-md">square_list_fill</i>
             <i class="icon material-icons if-md">view_list</i>
-            <span class="tabbar-label">历史</span>
+            <span class="tabbar-label">上报</span>
           </a>
           <a href="#view-schedule" class="tab-link">
             <i class="icon f7-icons if-not-md">today_fill<span class="badge color-red">5</span></i>
             <i class="icon material-icons if-md">today<span class="badge color-red">5</span></i>
-            <span class="tabbar-label">日程</span>
+            <span class="tabbar-label">受理</span>
           </a>
           <a href="#view-settings" class="tab-link">
             <i class="icon f7-icons if-not-md">gear_alt_fill</i>
@@ -152,7 +136,7 @@
               <p>Popup content goes here.</p>
             </div> -->
             <!-- questionnaire form here -->
-<form action="https://www.kideduc.com/portal/api/EditQuestionnaire.php?user_id=${users.value.length > 0 ? users.value[0].id : -1}&ccsForm=questionnaire" method="POST" class="list form-ajax-submit" id="helen-form">
+<form action="https://www.kideduc.com/adverse/api/EditQuestionnaire.php?user_id=${users.value.length > 0 ? users.value[0].id : -1}&ccsForm=questionnaire" method="POST" class="list form-ajax-submit" id="helen-form">
             <div class="block-title">1 您对本次航程的服务是否满意？</div>
             <div class="list">
               <ul>
@@ -595,7 +579,7 @@
 
                 </li>
               </ul>
-              <div class="block-footer">欢迎您使用《医院不良事件管理系统App》<br/>请点击 "Sign In" 按钮进入系统。 <!-- and click here to <a href="#" class="login-screen-close">Close Login Screen</a> --></div>
+              <div class="block-footer">欢迎您使用《医院不良事件上报与分析系统App》<br/>请点击 "Sign In" 按钮进入系统。 <!-- and click here to <a href="#" class="login-screen-close">Close Login Screen</a> --></div>
             </div>
           </div>
         </div>
@@ -757,7 +741,7 @@
       };
 
       // Simulate Ajax Request
-      app.request.get('https://www.kideduc.com/portal/services/auth.php', { login: username, password: password })
+      app.request.get('https://www.kideduc.com/adverse/services/auth.php', { login: username, password: password })
       .then(function (res) {
 //////  $$('.login').html(res.data);
         console.log(res.data);

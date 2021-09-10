@@ -59,7 +59,7 @@ var routes = [
           ]
         };
         // Tony Adding Main Logic of AJAX :  1. Larabel 2. CCS Studio
-        app.request.get('https://www.kideduc.com/portal/services/view_link.php?link_id='+linkId, function(data) {
+        app.request.get('https://www.kideduc.com/adverse/services/view_link.php?link_id='+linkId, function(data) {
               // Hide Preloader
               app.preloader.hide();
 
@@ -208,7 +208,7 @@ var routes = [
         };
         // Tony Adding Main Logic of AJAX :  1. Larabel 2. CCS Studio
 //      app.request.get('https://localhost:8083/products', function(data) {
-        app.request.get('https://www.kideduc.com/portal/services/link_categories.php?node='+cateId, function(data) {
+        app.request.get('https://www.kideduc.com/adverse/services/link_categories.php?node='+cateId, function(data) {
               // Hide Preloader
               app.preloader.hide();
 
@@ -277,7 +277,7 @@ var routes = [
         };
         // Tony Adding Main Logic of AJAX :  1. Larabel 2. CCS Studio
 //      app.request.get('https://localhost:8083/products', function(data) {
-        app.request.get('https://www.kideduc.com/portal/services/links.php?node='+cateId, function(data) {
+        app.request.get('https://www.kideduc.com/adverse/services/links.php?node='+cateId, function(data) {
               // Hide Preloader
               app.preloader.hide();
 

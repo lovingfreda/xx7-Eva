@@ -3,7 +3,7 @@
     <div class="navbar">
       <div class="navbar-bg"></div>
       <div class="navbar-inner sliding">
-        <div class="title">Schedule</div>
+        <div class="title">Approval</div>
         <div class="right">
           <a class="link" @click=${togglePosition}>
             <i class="md-only icon material-icons rotate-icon">compare_arrows</i>
@@ -21,10 +21,10 @@
         <i class="icon material-icons md-only">close</i>
       </a>
       <div class="fab-buttons fab-buttons-center">
-        <a href="#" @click="${toggleJoinin}">预订</a>
+        <a href="#" @click="${toggleJoinin}">受理</a>
         <a href="#" @click="${toggleDetail}">详情</a>
         <a href="#" @click="${toggleClose}" class="fab-close" id="wei_href" >关闭</a>
-        <a href="#" @click="${toggleMore}">更多..</a>
+        <a href="#" @click="${toggleMore}">拒绝</a>
       </div>
     </div>
     <!-- FAB With Backdrop -->
@@ -37,8 +37,9 @@
         <i class="icon material-icons md-only">close</i>
       </a>
       <div class="fab-buttons fab-buttons-top">
-        <a class="fab-label-button fab-close" href="#" @click="${toggleClose2nd}" id="ron_href" ><span>1</span><span class="fab-label">关闭</span></a>
-        <a class="fab-label-button" href="#" @click="${toggleCancle}"><span>2</span><span class="fab-label">退订</span></a>
+        <a class="fab-label-button fab-close" href="#" @click="${toggleClose2nd}" id="ron_href" ><span>1</span><span class="fab-label">关闭返回</span></a>
+        <a class="fab-label-button" href="#" @click="${toggleCancle}"><span>2</span><span class="fab-label">批复整改</span></a>
+        <a class="fab-label-button" href="#" @click="${toggleCancle}"><span>3</span><span class="fab-label">根因分析</span></a>
       </div>
     </div>
 
@@ -46,19 +47,19 @@
     <div class="toolbar tabbar-labels toolbar-top">
       <div class="toolbar-inner">
         <a href="#tab-1" class="tab-link tab-link-active">
-          <i class="icon f7-icons if-not-md">today</i><!-- envelope_fill -->
-          <i class="icon material-icons md-only">today</i><!-- email -->
-          <span class="tabbar-label">活动日程</span>
+          <i class="icon f7-icons if-not-md">today<span class="badge color-red">23</span></i><!-- envelope_fill -->
+          <i class="icon material-icons md-only">today<span class="badge color-red">23</span></i><!-- email -->
+          <span class="tabbar-label">本月上报</span>
         </a>
         <a href="#tab-2" class="tab-link" @click=${toggleMyArrange}>
-          <i class="icon f7-icons if-not-md">today_fill</i>
-          <i class="icon material-icons md-only">today</i>
-          <span class="tabbar-label">我的安排</span>
+          <i class="icon f7-icons if-not-md">today_fill<span class="badge color-red">17</span></i>
+          <i class="icon material-icons md-only">today<span class="badge color-red">17</span></i>
+          <span class="tabbar-label">受理任务</span>
         </a>
         <a href="#tab-3" class="tab-link" @click=${toggleMySuggestion}>
           <i class="icon f7-icons if-not-md">cloud_upload_fill<span class="badge color-red">5</span></i>
           <i class="icon material-icons md-only">file_upload<span class="badge color-red">5</span></i>
-          <span class="tabbar-label">推荐</span>
+          <span class="tabbar-label">根因分析</span>
         </a>
       </div>
     </div>
@@ -209,7 +210,7 @@
         <!-- ============================================== -->
       </div>
       <div class="page-content tab" id="tab-3">
-<form action="https://www.kideduc.com/portal/api/EditSuggestion.php?user_id=${users.value.length > 0 ? users.value[0].id : -1}&ccsForm=suggestion%3AEdit" method="POST" class="list form-ajax-submit" id="kitty-form">
+<form action="https://www.kideduc.com/adverse/api/EditSuggestion.php?user_id=${users.value.length > 0 ? users.value[0].id : -1}&ccsForm=suggestion%3AEdit" method="POST" class="list form-ajax-submit" id="kitty-form">
         <div class="block">
           <p><b>Tab 3 content</b></p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque quos asperiores ut, odio numquam ab, qui,
@@ -465,7 +466,7 @@
       let paraUserID    = (1==users.value.length ? users.value[0].id:'-1');
       let paraUserLogin = (1==users.value.length ? users.value[0].login:'WEI');
 
-      app.request.post('https://www.kideduc.com/portal/api/EditArticleArrange.php?ccsForm=articles_daily_arrange', { event_id: evtID, user_id_add: paraUserID, user_login: paraUserLogin })
+      app.request.post('https://www.kideduc.com/adverse/api/EditArticleArrange.php?ccsForm=articles_daily_arrange', { event_id: evtID, user_id_add: paraUserID, user_login: paraUserLogin })
           .then(function (res) {
 //          $$('.login').html(res.data);                        // init examples code, let it be here. WAIST & NOT CHANGED
             console.log('Ajax Saving was performed');
@@ -498,7 +499,7 @@
       let paraUserID    = (1==users.value.length ? users.value[0].id:'-1');
       let paraUserLogin = (1==users.value.length ? users.value[0].login:'WEI');
 
-      app.request.post('https://www.kideduc.com/portal/api/EditArticleArrange.php?arrange_id='+argID+'&ccsForm=articles_daily_arrange%3AEdit', { user_id_add: paraUserID, Button_Delete: 'Delete' })
+      app.request.post('https://www.kideduc.com/adverse/api/EditArticleArrange.php?arrange_id='+argID+'&ccsForm=articles_daily_arrange%3AEdit', { user_id_add: paraUserID, Button_Delete: 'Delete' })
           .then(function (res) {
 //          $$('.login').html(res.data);                        // init examples code, let it be here. WAIST & NOT CHANGED
             console.log('Ajax Removing was performed');

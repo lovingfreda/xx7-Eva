@@ -3,7 +3,7 @@
     <div class="navbar">
       <div class="navbar-bg"></div>
       <div class="navbar-inner sliding">
-        <div class="title">History</div>
+        <div class="title">Reported</div>
       </div>
     </div>
     <div class="page-content">
@@ -16,7 +16,7 @@
       </div>
       ${products.value.length === 3 && $h`
         <div class="block">
-          <button class="button button-fill" @click=${addProduct}>Add Record Line</Button>
+          <button class="button button-fill" @click=${addProduct}>不良事件上报</Button>
         </div>
       `}
     <!-- </div>
@@ -48,7 +48,7 @@
       `}
       <!-- ---------------   Post Session Variables   -------------------- -->
         <div class="block block-strong">
-          <button class="button button-fill" @click=${postSession}>Post To Server</Button>
+          <button class="button button-fill" @click=${postSession}>根因分析授权</Button>
         </div>
       <!-- ---------------   Post Session Variables   -------------------- -->
     </div>
@@ -74,7 +74,7 @@
     const addProduct = () => {
       $store.dispatch('addProduct', {
         id: '4',
-        title: 'Apple iPhone 12',
+        title: '不良事件上报历史-记录4',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis.'
       });
     }
@@ -109,7 +109,7 @@
         // AJAX Post Jason
         var app = $f7;
 
-        app.request.post('https://www.kideduc.com/portal/api/EditKeywords.php?ccsForm=user_keywords', {user_login:paraUserName, key_desc: paraKeywords} )
+        app.request.post('https://www.kideduc.com/adverse/api/EditKeywords.php?ccsForm=user_keywords', {user_login:paraUserName, key_desc: paraKeywords} )
           .then(function (res) {
 //          $$('.login').html(res.data);                        // init examples code, let it be here. WAIST & NOT CHANGED
             console.log('Load was performed');
