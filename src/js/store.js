@@ -5,6 +5,7 @@ const store = createStore({
   state: {
     loading: false,
     users: [],
+    calendar: [],
     events: [],
     artidaily: [],
     myarrange: [],
@@ -41,6 +42,9 @@ const store = createStore({
     },
     events({ state }) {
       return state.events;
+    },
+    calendar({ state }) {
+      return state.calendar;
     },
     artidaily({ state }) {
       return state.artidaily;
@@ -90,6 +94,17 @@ const store = createStore({
             .then((events) => {
               state.loading = false;
               state.events = events['events'];
+            })
+      }, 3000);
+    },
+    getCalendar({ state }, { catgID }) { // Clone from above function
+      state.loading = true;
+      setTimeout(() => {
+          fetch(`https://www.kideduc.com/adverse/services/calendar.php?catgID=${catgID}`)
+            .then((res) => res.json())
+            .then((calendar) => {
+              state.loading = false;
+              state.calendar = calendar['calendar'];
             })
       }, 3000);
     },

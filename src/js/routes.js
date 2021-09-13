@@ -6,6 +6,7 @@ import CatalogPage from '../pages/catalog.f7.html';
 import SchedulePage from '../pages/schedule.f7.html';
 import ProductPage from '../pages/product.f7.html';
 import SettingsPage from '../pages/settings.f7.html';
+import ProfilePage from '../pages/settings/profile.f7.html';
 
 import DynamicRoutePage from '../pages/dynamic-route.f7.html';
 import RequestAndLoad from '../pages/request-and-load.f7.html';
@@ -124,7 +125,10 @@ var routes = [
     path: '/settings/',
     component: SettingsPage,
   },
-
+  {
+    path: '/profile/',
+    component: ProfilePage,
+  },
   {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
     component: DynamicRoutePage,

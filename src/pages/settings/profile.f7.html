@@ -3,6 +3,12 @@
   <div class="navbar">
     <div class="navbar-bg"></div>
     <div class="navbar-inner sliding">
+      <div class="left">
+        <a href="#" class="link back">
+          <i class="icon icon-back"></i>
+          <span class="if-not-md">Back</span>
+        </a>
+      </div>
       <div class="title">Settings</div>
     </div>
   </div>
@@ -232,7 +238,7 @@ export default (props, { $, $on, $f7, $store }) => {
     // Page Events
     $on('pageInit', () => {
         // ------------------------------    Request Data from AJAX   -----------------------------------------
-        console.log("xxxxx Pretty Girls! " + users.value.length);
+        console.log("profile.f7 pageInit! " + users.value.length);
 
         // -------------------------------------    DOM Events  -----------------------------------------
         $('.fill-form-from-data-a').on('click', function(){
@@ -288,7 +294,38 @@ export default (props, { $, $on, $f7, $store }) => {
           console.log("Form Action URL:! " + $f7.$('form#my-form').attr('action'));
         }); 
 
+        // Framework7::Ajax Form Submit Events
+        // Sometimes we need to get actual XHR repsonse from the file/url where we send form data with Ajax. We can use special events for that
+        $('form.form-ajax-submit').on('formajax:success', function (e) {
+          var xhr = e.detail.xhr; // actual XHR object
+
+          var data = e.detail.data; // Ajax response from action file
+          // do something with response data
+          // -------------------------------------------------------DEBUG---------
+          console.log("---Ajax Feedback : Saving Success!!");
+          console.log("xhr status==|" + xhr.status + "|");              // 200
+//        console.log("xhr responseText==|" + xhr.responseText + "|");  // response Text
+          console.log("data post::phone_home==|" + data.phone_home + "|");    // From Data in POST Method , before Submit
+          // -------------------------------------------------------BEGIN---------
+          // Actual Logic of Our Business 
+          if (xhr.status == 200) {
+              var newUsers = JSON.parse(xhr.responseText)['users'];
+              console.log("tesing xhr.responseText => user's firstname = "+newUsers[0]["first_name"]);
+              $store.state.users = newUsers;
+              console.log("---Re-Write into Session Success!");
+          }else {
+              console.log("Error! Unknown status code [" + xhr.status + "]");
+          }
+          // -------------------------------------------------------END-----------
+        });
+
         // -------------------------------------    App Events  -----------------------------------------
+        // ==================================================================================
+        // Important !!! Important !!! Important !!! Important !!! Important !!! Important !!! 2021.07.05 15:49 Tony: Coding many many times!
+        console.log("Trigger Button CLick|Automatic Loading!!");
+        $('.fill-form-from-data-c').click();
+        // ==================================================================================
+
     });
 
     $on('pageBeforeRemove', () => {

@@ -641,7 +641,7 @@
 
     $f7.on('tabShow', function (tabEL) {
       if (tabEL) {
-        //console.log('Tab becomes visible/active : ' + tabEL.id);
+        console.log('Tab becomes visible/active : ' + tabEL.id);
         // if come into Tab <Settings>, we should do Login operator if necessary
         if ((tabEL.id == 'view-settings') /*|| (tabEL.id == 'view-schedule')*/) {
              // -----------------------  Step.1 Login Necessary --------------------------------
@@ -686,13 +686,16 @@
     // ==================================================================================
     $f7.on('loginScreenClosed', function (loginScreen) {
       // do something on popup close
-      console.log('login screen closed..... id=|' + loginScreen.el.id +'|');
+      console.log('login screen closed. id=|' + loginScreen.el.id +'|');
 
       const flag = $store.getters.users.value.length;
       if (flag > 0)
       {   // Dymatic Automatic Click Button <Load Store> in Tab-Settings
           //------------------------------------------------------------
-          loginScreen.app.$('.fill-form-from-data-c').click();      //  BUTTON Click ******
+          console.log("trigger BUTTON Click of profile page!!");
+          //loginScreen.app.$('.fill-form-from-data-c').click();      //  BUTTON Click ******  REM it at 2021/09/10 by tony, can ReOpen Later !!
+          console.log("//loginScreen.app.$('.fill-form-from-data-c').click()");
+          console.log("can reopen it later!!");
       }
 
     }); 
