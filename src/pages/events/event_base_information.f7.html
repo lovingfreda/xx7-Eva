@@ -1,0 +1,2487 @@
+<template>
+<div class="page" data-name="about">
+  <div class="navbar">
+    <div class="navbar-bg"></div>
+    <div class="navbar-inner sliding">
+      <div class="left">
+        <a href="/evn-type-chooser/" class="link back">
+          <i class="icon icon-back"></i>
+          <span class="if-not-md">上一步</span>
+        </a>
+      </div>
+      <div class="title">不良事件报告表</div>
+      <div class="right">
+        <a href="/evn-info-summary/" class="link">
+          <span class="if-not-md">下一步</span>
+          <i class="icon icon-next"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="block block-strong">
+      <div class="block-title">基本信息 / Base Information</div>
+      <div class="list no-hairlines-md">
+        <ul>
+            <li>
+              <div class="item-content item-input">
+                <div class="item-inner">
+                  <div class="item-title item-label">部门</div>
+                  <div class="item-input-wrap">
+                    <input type="text" name="first_name" placeholder="Your Department"/>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content item-input">
+                <div class="item-inner">
+                  <div class="item-title item-label">事件发生时间</div>
+                  <div class="item-input-wrap">
+                    <input type="text" name="title" placeholder="Occur Times"/>
+                  </div>
+                </div>
+                <div class="item-inner">
+                  <div class="item-title item-label">事件发生地点</div>
+                  <div class="item-input-wrap">
+                    <input type="text" name="title" placeholder="Occur Location"/>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content item-input">
+                <div class="item-inner">
+                  <div class="item-title item-label">涉及患者姓名</div>
+                  <div class="item-input-wrap">
+                    <input type="text" name="title" placeholder="Illness Name"/>
+                  </div>
+                </div>
+                <div class="item-inner">
+                  <div class="item-title item-label">涉及患者病历号</div>
+                  <div class="item-input-wrap">
+                    <input type="text" name="title" placeholder="Illness Docs-ID"/>
+                  </div>
+                </div>
+              </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <!-- <div class="block-title">事件类型</div> -->
+    <!-- <div class="block block-strong">
+      <div class="block-title">事件类型(Event Types)</div>
+      <div class="list">
+
+      </div>
+    </div> -->
+    <!-- <div class="block block-strong">
+      <div class="block-title">关联工作人员(Persons Involes)</div>
+      <div class="list no-hairlines-md">
+
+      </div>
+    </div> -->
+    <!-- <div class="block block-strong">
+      <div class="block-title">产生影响与处置(Effective and Dealwith)</div>
+      <div class="list no-hairlines-md">
+
+      </div>
+    </div> -->
+    <!-- <div class="block block-strong">
+      <div class="block-title">预防措施(Manager Suggestion)</div>
+      <div class="list no-hairlines-md">
+
+      </div>
+    </div> -->
+    <div class="block block-strong">
+      <div class="block-title">属性与特征 / Property And Features)</div>
+      <div class="list no-hairlines-md">
+        <ul>
+          <li>
+            <a href="#" class="item-link item-content popup-open" data-popup="#my-popup-1st">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">已设置</div>事件类型 (可多选)<div class="item-footer">药物事件、跌倒事件、手术事件</div>
+                </div>
+                <div class="item-after">Setup</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content popup-open" data-popup="#my-popup-2nd">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">未设置</div>关联工作人员 (可多选)<div class="item-footer"></div>
+                </div>
+                <div class="item-after">Setup</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content popup-open" data-popup="#my-popup-3rd">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">未设置</div>受影响的对象 (可多选)<div class="item-footer"></div>
+                </div>
+                <div class="item-after">Setup</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content popup-open" data-popup="#my-popup-4th">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">已设置</div>对病人健康的影响程度 (可多选)<div class="item-footer">无伤害、几近过失</div>
+                </div>
+                <div class="item-after">Setup</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content popup-open" data-popup="#my-popup-5th">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">已设置</div>发生后的立即处理 (可多选)<div class="item-footer">医疗干预、其他干预</div>
+                </div>
+                <div class="item-after">Setup</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="item-link item-content popup-open" data-popup="#my-popup-6th">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">
+                  <div class="item-header">已设置</div>预防此类事件再发生的措施或方法 (可多选)<div class="item-footer">加强教育培训、改变行政管理、加强沟通方式</div>
+                </div>
+                <div class="item-after">Setup</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="block block-strong">
+      <div class="block-title">发生经过与上报 / Procedure And Reporter</div>
+      <div class="list no-hairlines-md">
+        <ul>
+            <li>
+              <div class="item-content item-input">
+                <div class="item-inner">
+                  <div class="item-title item-label">事件经过描述</div>
+                  <div class="item-input-wrap">
+                    <input type="text" name="first_name" placeholder="Event Details & Description"/>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content item-input">
+                <div class="item-inner">
+                  <div class="item-title item-label">报告人姓名(选填)</div>
+                  <div class="item-input-wrap">
+                    <input type="text" name="first_name" placeholder="Reporter's Name"/>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item-content item-input">
+                <div class="item-inner">
+                  <div class="item-title item-label">上报日期</div>
+                  <div class="item-input-wrap">
+                    <input type="text" name="first_name" placeholder="Reported Date/Time"/>
+                  </div>
+                </div>
+              </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+    <!-- <div class="block block-strong">
+      <div class="block-title"></div>
+    </div> -->
+  </div>
+
+    <!-- Popup 1st-->
+    <div class="popup" id="my-popup-1st">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+              <div class="title">选择事件类型</div>
+              <div class="right">
+                <a href="#" class="link popup-close">Close</a>
+              </div>
+            </div>
+          </div>
+          <div class="page-content">
+            <!-- treeview start... -->
+            <div class="block block-strong">
+              <div class="block-title">事件类型(Event Types)</div>
+              <div class="list">
+                <ul>
+                  <li>
+                    <div class="row">
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>药物事件</small></div>
+                          </div>
+                        </label>
+                      </div>
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>跌倒事件</small></div>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" checked="checked" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>手术事件</small></div>
+                          </div>
+                        </label>
+                      </div>
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>输血事件</small></div>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>医疗护理事件</small></div>
+                          </div>
+                        </label>
+                      </div>
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>公共意外事件</small></div>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>治安事件</small></div>
+                          </div>
+                        </label>
+                      </div>
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" checked="checked" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>伤害行为事件</small></div>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>管路事件</small></div>
+                          </div>
+                        </label>
+                      </div>
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>院内非预期心跳骤停事件</small></div>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>麻醉事件</small></div>
+                          </div>
+                        </label>
+                      </div>
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>检查/检验/病理切片事件</small></div>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>感控事件</small></div>
+                          </div>
+                        </label>
+                      </div>
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>信息系统相关不良事件</small></div>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>医疗设备/医疗耗材相关不良事件</small></div>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <input type="checkbox" name="demo-checkbox" value="Books" />
+                          <i class="icon icon-checkbox"></i>
+                          <div class="item-inner">
+                            <div class="item-title"><small>其他请说明</small></div>
+                            <div class="item-input">
+                              <input type="text" name="first_name" placeholder="Filling Your Description Here"/>
+                            </div>
+                          </div>
+                        </label>
+                      </div>
+                      <div class="col-20"></div>
+                      <!-- <div class="col">
+                        <div class="item-input-wrap">
+                            <input type="text" name="first_name" placeholder="Your Description"/>
+                        </div>
+                      </div> -->
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- treeview ending.. -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Popup 1st ending... -->
+
+    <!-- Popup 2nd-->
+    <div class="popup" id="my-popup-2nd">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+              <div class="title">选择关联工作人员</div>
+              <div class="right">
+                <a href="#" class="link popup-close">Close</a>
+              </div>
+            </div>
+          </div>
+          <div class="page-content">
+            <!-- treeview start... -->
+            <div class="block block-strong">
+              <div class="block-title">关联工作人员(Persons Involes)</div>
+              <div class="list no-hairlines-md">
+                <ul>
+                    <li>
+                      <div class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label">关联人员姓名</div>
+                          <div class="item-input-wrap">
+                            <input type="text" name="first_name" placeholder="请在此处填写事件发生过程中有关联的工作人员姓名"/>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label">关联人员类别 (可多选)</div>
+                          <div class="item-input-wrap">
+                            <!-- Treewiew with checkboxes -->
+                                <div class="treeview">
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-toggle"></div>
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">folder_fill</i>
+                                        <div class="treeview-item-label">聘任类别</div>
+                                      </div>
+                                    </div>
+                                    <div class="treeview-item-children">
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">本院全职人员</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">兼职人员</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-toggle"></div>
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">folder_fill</i>
+                                        <div class="treeview-item-label">职业类别</div>
+                                      </div>
+                                    </div>
+                                    <div class="treeview-item-children">
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-toggle"></div>
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">医生</div>
+                                          </div>
+                                        </div>
+                                        <div class="treeview-item-children">
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">肺癌中心</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">乳腺癌中心</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">妇科肿瘤中心</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">胃肠肿瘤中心</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">泌尿肿瘤中心</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">早诊早筛中心</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">病理科</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">麻醉科</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">放射影像中心</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">放疗中心</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">超声科</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">病理科</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">放射影像中心</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">放疗中心</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">其他，请说明</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-toggle"></div>
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">医技科室</div>
+                                          </div>
+                                        </div>
+                                        <div class="treeview-item-children">
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">药剂师</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">病理科</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">检验师</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">放射影像中心</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">物理师</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">其他，请说明</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                        <div class="treeview-toggle"></div>
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">护理人员</div>
+                                          </div>
+                                        </div>
+                                        <div class="treeview-item-children">
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">门诊护士</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">病房护士</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">手术室护士</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">供应室护士</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">其他，请说明</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">个案管理师</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                        <div class="treeview-toggle"></div>
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">行政后勤人员</div>
+                                          </div>
+                                        </div>
+                                        <div class="treeview-item-children">
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">行政办公室人员</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">工程物业人员</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">信息技术人员</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">客服</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">保安</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">保洁</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">餐饮</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">logo_github</i>
+                                        <div class="treeview-item-label">其他,请说明</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">doc_text_fill</i>
+                                        <div class="treeview-item-label">无</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            <!-- Ending of Treewiew with checkboxes -->
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                </ul>
+              </div>
+            </div>
+            <!-- treeview ending.. -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Popup 2nd ending... -->
+
+    <!-- Popup 3rd-->
+    <div class="popup" id="my-popup-3rd">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+              <div class="title">选择受影响的对象</div>
+              <div class="right">
+                <a href="#" class="link popup-close">Close</a>
+              </div>
+            </div>
+          </div>
+          <div class="page-content">
+            <!-- treeview start... -->
+            <div class="block block-strong">
+              <div class="block-title">受影响的对象(Effective Object)</div>
+              <div class="list no-hairlines-md">
+                <ul>
+                    <li>
+                      <div class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label">受影响的对象 (可多选)</div>
+                          <div class="item-input-wrap">
+                            <!-- Treewiew with checkboxes -->
+                                <div class="treeview">
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-toggle"></div>
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">folder_fill</i>
+                                        <div class="treeview-item-label">患者</div>
+                                      </div>
+                                    </div>
+                                    <div class="treeview-item-children">
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-toggle"></div>
+                                          <div class="treeview-item-content">
+                                            <!-- checkboxd deleted -->
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">性别</div>
+                                          </div>
+                                        </div>
+                                        <div class="treeview-item-children">
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label">男性</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label">女性</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-toggle"></div>
+                                          <div class="treeview-item-content">
+                                            <!-- checkboxd deleted -->
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">年龄层</div>
+                                          </div>
+                                        </div>
+                                        <div class="treeview-item-children">
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label">成年(19-64)</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label">老年(65岁以上)</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label">不详</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-toggle"></div>
+                                          <div class="treeview-item-content">
+                                            <!-- checkboxd deleted -->
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">就医类别</div>
+                                          </div>
+                                        </div>
+                                        <div class="treeview-item-children">
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label">住院</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label">门诊</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label">留观</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label">急诊</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label">其它，请说明</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-toggle"></div>
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">folder_fill</i>
+                                        <div class="treeview-item-label">访客/家属</div>
+                                      </div>
+                                    </div>
+                                    <div class="treeview-item-children">
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-toggle"></div>
+                                          <div class="treeview-item-content">
+                                            <!-- checkboxd deleted -->
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">性别</div>
+                                          </div>
+                                        </div>
+                                        <div class="treeview-item-children">
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">男性</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">女性</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-toggle"></div>
+                                          <div class="treeview-item-content">
+                                            <!-- checkboxd deleted -->
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">年龄层</div>
+                                          </div>
+                                        </div>
+                                        <div class="treeview-item-children">
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">婴儿(1岁以下)</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">幼儿(1-3岁)</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">学龄前期(4-6岁)</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">学龄期(7-12岁)</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">青少年(13-18岁)</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">成年(19-64岁)</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">老年(65岁以上)</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">不详</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-toggle"></div>
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">folder_fill</i>
+                                        <div class="treeview-item-label">员工</div>
+                                      </div>
+                                    </div>
+                                    <div class="treeview-item-children">
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-toggle"></div>
+                                          <div class="treeview-item-content">
+                                            <!-- checkboxd deleted -->
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">所在科室</div>
+                                          </div>
+                                        </div>
+                                        <div class="treeview-item-children">
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">临床</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">护理</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">行政</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">其他，请说明</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">logo_github</i>
+                                        <div class="treeview-item-label">仪器设备</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">logo_github</i>
+                                        <div class="treeview-item-label">不详</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">doc_text_fill</i>
+                                        <div class="treeview-item-label">其它，请说明</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            <!-- Ending of Treewiew with checkboxes -->
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                </ul>
+              </div>
+            </div>
+            <!-- treeview ending.. -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Popup 3rd ending... -->
+
+    <!-- Popup 4th-->
+    <div class="popup" id="my-popup-4th">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+              <div class="title">选择对病人的影响程度</div>
+              <div class="right">
+                <a href="#" class="link popup-close">Close</a>
+              </div>
+            </div>
+          </div>
+          <div class="page-content">
+            <!-- treeview start... -->
+            <div class="block block-strong">
+              <div class="block-title">对病人的影响程度(Effective Level)</div>
+              <div class="list no-hairlines-md">
+                <ul>
+                    <li>
+                      <div class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label">对病人健康的影响程度 (可多选)</div>
+                          <div class="item-input-wrap">
+                            <!-- Treewiew with checkboxes -->
+                                <div class="treeview">
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-toggle"></div>
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">folder_fill</i>
+                                        <div class="treeview-item-label">有伤害</div>
+                                      </div>
+                                    </div>
+                                    <div class="treeview-item-children">
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">死亡：造成病人死亡</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">极重度：造成病人永久性残障或永久性功能障碍</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">重度：事件造成病人伤害，除需额外的看诊、评估或观察外，还需手术、住院或延长住院处理</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">中度：事件造成病人伤害，需额外的看诊、评估、观察或处置</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">轻度：事件虽然造成伤害，但不需或只需稍微处理，不需增加额外医疗护理</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">logo_github</i>
+                                        <div class="treeview-item-label">无伤害：事件发生在病人身上，但是没有造成任何的伤害</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">doc_text_fill</i>
+                                        <div class="treeview-item-label">无法判定伤害严重程度</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-toggle"></div>
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">folder_fill</i>
+                                        <div class="treeview-item-label">几近过失＊：由于不经意或实时的干预，使可能发生的事件并未真正发生于病人身上</div>
+                                      </div>
+                                    </div>
+                                    <div class="treeview-item-children">
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-toggle"></div>
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">有伤害</div>
+                                          </div>
+                                        </div>
+                                        <div class="treeview-item-children">
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">死亡：造成病人死亡</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">极重度：造成病人永久性残障或永久性功能障碍</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">重度：事件造成病人伤害，除需额外的看诊、评估或观察外，还需手术、住院或延长住院处理</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">中度：事件造成病人伤害，需额外的看诊、评估、观察或处置</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="treeview-item">
+                                            <div class="treeview-item-root">
+                                              <div class="treeview-item-content">
+                                                <label class="checkbox">
+                                                  <input type="checkbox" />
+                                                  <i class="icon-checkbox"></i>
+                                                </label>
+                                                <i class="icon f7-icons">photo_fill</i>
+                                                <div class="treeview-item-label">轻度：事件虽然造成伤害，但不需或只需稍微处理，不需增加额外医疗护理</div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">无伤害：事件发生在病人身上，但是没有造成任何的伤害</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">无法判定伤害严重程度</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            <!-- Ending of Treewiew with checkboxes -->
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                </ul>
+              </div>
+            </div>
+            <!-- treeview ending.. -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Popup 4th ending... -->
+
+    <!-- Popup 5th-->
+    <div class="popup" id="my-popup-5th">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+              <div class="title">选择发生后的立即处理</div>
+              <div class="right">
+                <a href="#" class="link popup-close">Close</a>
+              </div>
+            </div>
+          </div>
+          <div class="page-content">
+            <!-- treeview start... -->
+            <div class="block block-strong">
+              <div class="block-title">立即处理方式(Action Of Handing)</div>
+              <div class="list no-hairlines-md">
+                <ul>
+                    <li>
+                      <div class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label">发生后的立即处理 (可多选)</div>
+                          <div class="item-input-wrap">
+                            <!-- Treewiew with checkboxes -->
+                                <div class="treeview">
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-toggle"></div>
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">folder_fill</i>
+                                        <div class="treeview-item-label">无干预</div>
+                                      </div>
+                                    </div>
+                                    <div class="treeview-item-children">
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">不需任何处置</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">事件受累者拒绝处置</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">其他，请说明</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-toggle"></div>
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">folder_fill</i>
+                                        <div class="treeview-item-label">医疗干预</div>
+                                      </div>
+                                    </div>
+                                    <div class="treeview-item-children">
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">持续观察</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">加强护理防范</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">监测生命体征</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">给予额外的药物治疗或医疗处置</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">伤口处理</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">停止与事件有关的用药或治疗</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">转诊或转院治疗</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">急救</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">其他，请说明</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-toggle"></div>
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">folder_fill</i>
+                                        <div class="treeview-item-label">其他干预</div>
+                                      </div>
+                                    </div>
+                                    <div class="treeview-item-children">
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">给予病人家属慰问及支持</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">移除与危害相关的设备或离开相关环境</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">报警</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">上报卫生行政管理机构</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">医疗团队进行沟通</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">其他，请说明</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">doc_text_fill</i>
+                                        <div class="treeview-item-label">不详</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            <!-- Ending of Treewiew with checkboxes -->
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                </ul>
+              </div>
+            </div>
+            <!-- treeview ending.. -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Popup 5th ending... -->
+
+    <!-- Popup 6th-->
+    <div class="popup" id="my-popup-6th">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+              <div class="title">选择预防再发生的措施</div>
+              <div class="right">
+                <a href="#" class="link popup-close">Close</a>
+              </div>
+            </div>
+          </div>
+          <div class="page-content">
+            <!-- treeview start... -->
+            <div class="block block-strong">
+              <div class="block-title">预防措施(Manager Suggestion)</div>
+              <div class="list no-hairlines-md">
+                <ul>
+                    <li>
+                      <div class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label">预防此类事件再发生的措施或方法 (可多选)</div>
+                          <div class="item-input-wrap">
+                            <!-- Treewiew with checkboxes -->
+                                <div class="treeview">
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-toggle"></div>
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">folder_fill</i>
+                                        <div class="treeview-item-label">加强教育培训</div>
+                                      </div>
+                                    </div>
+                                    <div class="treeview-item-children">
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">提供医疗人员临床教育训练</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">改变医疗人员行为态度</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">提供病人及家属适当宣教</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">改变病人及家属行为态度</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">其他，请说明</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-toggle"></div>
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">folder_fill</i>
+                                        <div class="treeview-item-label">改变医疗护理工作流程</div>
+                                      </div>
+                                    </div>
+                                    <div class="treeview-item-children">
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">制定工作流程</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">临床诊疗流程改善</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">临床信息系统修订</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">其他，请说明</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-toggle"></div>
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">folder_fill</i>
+                                        <div class="treeview-item-label">改变行政管理</div>
+                                      </div>
+                                    </div>
+                                    <div class="treeview-item-children">
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">医院政策制度改变</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">医院行政流程改变</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">监控制度建立（如报告、指标）</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">人力配置改善</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">环境设备改善</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">其他，请说明</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-toggle"></div>
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">folder_fill</i>
+                                        <div class="treeview-item-label">加强沟通方式</div>
+                                      </div>
+                                    </div>
+                                    <div class="treeview-item-children">
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">增加医疗人员间沟通</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">改变行政管理沟通系统</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">改变与病人沟通模式</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="treeview-item">
+                                        <div class="treeview-item-root">
+                                          <div class="treeview-item-content">
+                                            <label class="checkbox">
+                                              <input type="checkbox" />
+                                              <i class="icon-checkbox"></i>
+                                            </label>
+                                            <i class="icon f7-icons">doc_text_fill</i>
+                                            <div class="treeview-item-label">其他，请说明</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">logo_github</i>
+                                        <div class="treeview-item-label">不详</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">doc_text_fill</i>
+                                        <div class="treeview-item-label">其他,请说明</div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            <!-- Ending of Treewiew with checkboxes -->
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                </ul>
+              </div>
+            </div>
+            <!-- treeview ending.. -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Popup 6th ending... -->
+</div>
+</template>
+<script>
+export default (props, { $f7, $el, $, $on, $update }) => {
+  //-----------------------------------------------------------
+  //Export DOM7 to local variable to make it easy accessible
+  var app = $f7;
+  var $$ = app.$;
+  const testfunc = (e) => { 
+     $$('h1, h2').toggleClass('small');
+  }
+  //-----------------------------------------------------------
+  // Simulate Ajax Request
+  /*
+  app.request.get('https://www.kideduc.com/adverse/services/auth.php', { login:'yangy', password: 'lovingme' })
+  .then(function (res) {
+//  $$('.login').html(res.data);
+    console.log(res.data);
+    var users = JSON.parse(res.data)['users'];
+    console.log('Girl = |' + users[0]["login"] + '|');
+    console.log('Address2 = |' + users[0]['address2'] + '|');
+    console.log('Load was performed');
+  });
+  */
+  const toggleSelectable = (e) => {
+      var $targetEl = $(e.target);
+      if ($targetEl.closest('.treeview-item-selected').length) return;
+      if ($targetEl.is('.treeview-toggle')) return;
+      $targetEl.parents('.treeview').find('.treeview-item-selected').removeClass('treeview-item-selected')
+      $targetEl.closest('.treeview-item-selectable').addClass('treeview-item-selected')
+  }
+
+  $on('pageInit', () => {
+      $($el.value).find('input[type="checkbox"]').on('change', function (e) {
+        var $rootEl = $(e.target).closest('.treeview-item-root');
+        var $itemEl = $rootEl.parent('.treeview-item');
+        var $childrenCheckboxes = $itemEl.find('.treeview-item-children input[type="checkbox"]');
+        var $parentItemEl = $itemEl.parents('.treeview-item');
+        var $parentCheckbox = $parentItemEl.children('.treeview-item-root').find('input[type="checkbox"]');
+        if ($childrenCheckboxes.length) {
+          $childrenCheckboxes.prop('checked', e.target.checked);
+        }
+        if ($parentItemEl) {
+          var checkedChildren = $parentItemEl.find('.treeview-item-children input[type="checkbox"]:checked').length;
+          $parentCheckbox.prop('checked', checkedChildren > 0);
+          $parentCheckbox.prop('indeterminate', checkedChildren === 1);
+        }
+      })
+  });
+
+  //-----------------------------------------------------------
+  return $render;
+};
+</script>

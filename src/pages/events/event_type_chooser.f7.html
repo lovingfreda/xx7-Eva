@@ -1,0 +1,117 @@
+<template>
+<div class="page" data-name="about">
+  <div class="navbar">
+    <div class="navbar-bg"></div>
+    <div class="navbar-inner sliding">
+      <div class="left">
+        <a href="#" class="link back">
+          <i class="icon icon-back"></i>
+          <span class="if-not-md">Back</span>
+        </a>
+      </div>
+      <div class="title">上报不良事件</div>
+    </div>
+  </div>
+
+  <div class="page-content">
+    <div class="block-title">Step.1> 请选择待填写的表单类型</div>
+      <div class="list">
+        <ul>
+          <li>
+            <label class="item-checkbox item-content">
+              <input type="checkbox" name="demo-checkbox-movies" />
+              <i class="icon icon-checkbox"></i>
+              <div class="item-inner">
+                <div class="item-title">不良事件报告表</div>
+              </div>
+            </label>
+            <ul>
+              <li>
+                <label class="item-checkbox item-content">
+                  <input type="checkbox" name="demo-checkbox-movie" value="Movie 1" />
+                  <i class="icon icon-checkbox"></i>
+                  <div class="item-inner">
+                    <div class="item-title">涉及药品、药物不良反应</div>
+                  </div>
+                </label>
+              </li>
+              <li>
+                <label class="item-checkbox item-content">
+                  <input type="checkbox" name="demo-checkbox-movie" value="Movie 2" />
+                  <i class="icon icon-checkbox"></i>
+                  <div class="item-inner">
+                    <div class="item-title">涉及医疗器械不良事件</div>
+                  </div>
+                </label>
+              </li>
+              <li>
+                <label class="item-checkbox item-content">
+                  <input type="checkbox" name="demo-checkbox-movie" value="Movie 3" />
+                  <i class="icon icon-checkbox"></i>
+                  <div class="item-inner">
+                    <div class="item-title">包含补充报告表附件</div>
+                  </div>
+                </label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    <!-- <div class="block">
+        <h1 class="small">This is first title</h1>
+        <h2>This is subtitle</h2>
+        <h3><a @click="${testfunc}" href="#">toggle</a></h3>
+    </div> -->
+    <div class="block-title">扩展功能</div>
+    <div class="list media-list">
+        <ul>
+          <li>
+            <label class="item-checkbox item-content">
+              <input type="checkbox" name="demo-media-checkbox" value="1" />
+              <i class="icon icon-checkbox"></i>
+              <div class="item-inner">
+                <div class="item-title-row">
+                  <div class="item-title">根因分析</div>
+                  <div class="item-after">已启用</div>
+                </div>
+                <div class="item-subtitle">允许将该事件与同类事件合并，进行汇总统计与根因分析</div>
+                <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis
+                  tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
+              </div>
+            </label>
+          </li>
+          <li>
+            <a class="button button-fill"  href="/evn-base-information/">开始填写</a>
+          </li>
+        </ul>
+    </div>
+
+  </div>
+</div>
+</template>
+<script>
+export default (props, { $f7, $update }) => {
+  //-----------------------------------------------------------
+  //Export DOM7 to local variable to make it easy accessible
+  var app = $f7;
+  var $$ = app.$;
+  const testfunc = (e) => { 
+     $$('h1, h2').toggleClass('small');
+  }
+  //-----------------------------------------------------------
+  // Simulate Ajax Request
+  /*
+  app.request.get('https://www.kideduc.com/adverse/services/auth.php', { login:'yangy', password: 'lovingme' })
+  .then(function (res) {
+//  $$('.login').html(res.data);
+    console.log(res.data);
+    var users = JSON.parse(res.data)['users'];
+    console.log('Girl = |' + users[0]["login"] + '|');
+    console.log('Address2 = |' + users[0]['address2'] + '|');
+    console.log('Load was performed');
+  });
+  */
+  //-----------------------------------------------------------
+  return $render;
+};
+</script>

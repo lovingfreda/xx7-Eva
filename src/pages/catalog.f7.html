@@ -16,9 +16,12 @@
       </div>
       ${products.value.length === 3 && $h`
         <div class="block">
-          <button class="button button-fill" @click=${addProduct}>不良事件上报</Button>
+          <button class="button button-fill" @click=${addProduct}>更多历史...</Button>
         </div>
       `}
+        <div class="block">
+          <a class="button button-fill"  href="/evn-type-chooser/">上报不良事件</a>
+        </div>
     <!-- </div>
 
     <div class="page-content"> -->
@@ -77,6 +80,9 @@
         title: '不良事件上报历史-记录4',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis.'
       });
+    }
+    const creatEvent = () => {
+      ;
     }
     //----------------------------------------------------
     const loading = $store.getters.loading;
