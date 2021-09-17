@@ -22,47 +22,150 @@
   <div class="page-content">
     <div class="block block-strong">
       <div class="block-title">基本信息 / Base Information</div>
-      <div class="list no-hairlines-md">
+      <div class="list inline-labels no-hairlines-md">
         <ul>
             <li>
-              <div class="item-content item-input">
-                <div class="item-inner">
-                  <div class="item-title item-label">部门</div>
-                  <div class="item-input-wrap">
-                    <input type="text" name="first_name" placeholder="Your Department"/>
+              <a class="item-link smart-select smart-select-init" data-open-in="popup" data-searchbar="true"
+                data-searchbar-placeholder="Search car">
+                <select name="car" multiple>
+                  <optgroup label="非手术科室">
+                    <option value="8" selected>心血管内科</option>
+                    <option value="9">内分泌科</option>
+                    <option value="10">肿瘤中心</option>
+                    <option value="11">急诊科</option>
+                    <option value="12">康复医学科</option>
+                    <option value="13">核医字科</option>
+                    <option value="14">消化内科</option>
+                    <option value="15">血液内科</option>
+                    <option value="16">神经内科</option>
+                    <option value="21">重症医学科</option>
+                    <option value="22">中医科</option>
+                    <option value="23">肾病内科</option>
+                    <option value="24">老年病科</option>
+                    <option value="25">精神卫生中心</option>
+                    <option value="26">皮肤性病科</option>
+                    <option value="27">针灸科</option>
+                    <option value="28">呼吸与危重症医学科</option>
+                    <option value="29">感染性疾病科</option>
+                    <option value="30" selected>儿科</option>
+                    <option value="31">口腔科</option>
+                    <option value="32">风湿内科</option>
+                    <option value="33">心电图室</option>
+                  </optgroup>
+                  <optgroup label="手术科室">
+                    <option value="34" selected>心血管外科</option>
+                    <option value="35">胰腺外科</option>
+                    <option value="36">泌尿外科</option>
+                    <option value="37">血管外科</option>
+                    <option value="38">麻醉科/麻醉门诊/疼痛门诊</option>
+                    <option value="39">减肥与糖尿病外科</option>
+                    <option value="40" selected>胸外科</option>
+                    <option value="41" selected>肝胆外科</option>
+                    <option value="42">神经外科</option>
+                    <option value="43">妇科</option>
+                    <option value="44">眼科中心</option>
+                    <option value="45">耳鼻咽喉头颈外科中心</option>
+                    <option value="46">胃肠外科</option>
+                    <option value="47">整形美容外科</option>
+                    <option value="48">产科</option>
+                    <option value="49">准分子激光治疗室</option>
+                    <option value="50">G外科</option>
+                    <option value="51">乳腺甲状腺外科</option>
+                    <option value="52">器官移植科</option>
+                    <option value="53">生殖医学中心</option>
+                    <option value="54">医疗美容科</option>
+                  </optgroup>
+                  <optgroup label="更多..">
+                    <option value="101" selected>其他，请说明</option>
+                  </optgroup>
+                </select>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">部门</div>
                   </div>
+                </div>
+              </a>
+            </li>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">发生时间</div>
+                <div class="item-input-wrap">
+                  <input type="datetime-local" placeholder="Please choose..." readonly="readonly" id="take-place-date-time" />
                 </div>
               </div>
             </li>
             <li>
-              <div class="item-content item-input">
-                <div class="item-inner">
-                  <div class="item-title item-label">事件发生时间</div>
-                  <div class="item-input-wrap">
-                    <input type="text" name="title" placeholder="Occur Times"/>
+              <a class="item-link smart-select smart-select-init" data-open-in="popup" data-searchbar="true"
+                data-searchbar-placeholder="Search car">
+                <select name="car" multiple>
+                  <optgroup label="全部可用地点">
+                    <option value="1" selected>门诊区域</option>
+                    <option value="2">急诊区域</option>
+                    <option value="3">早诊早筛中心</option>
+                    <option value="4">住院病房（含病房、病房走廊、治疗室等病房所涵盖的区域）</option>
+                    <option value="5">日间化疗区域</option>
+                    <option value="6">放疗区域</option>
+                    <option value="7">重症监护ICU区域</option>
+                    <option value="8">内镜中心区域</option>
+                    <option value="9">放射诊疗部门</option>
+                    <option value="10" selected>手术区域</option>
+                    <option value="11">检验检查部门</option>
+                    <option value="12">药房</option>
+                    <option value="13" selected>公共区域</option>
+                    <option value="14">行政楼</option>
+                    <option value="15">不详</option>
+                    <option value="16">其他，请说明</option>
+                  </optgroup>
+                  <!-- <optgroup label="09-放射诊疗部门">
+                    <option value="21" selected>DR</option>
+                    <option value="22">CT</option>
+                    <option value="23">MR</option>
+                    <option value="24" selected>核医学</option>
+                    <option value="25">介入</option>
+                    <option value="26">其他，请说明</option>
+                  </optgroup> -->
+                  <optgroup label="其中-手术区域">
+                    <option value="27" selected>门诊手术室</option>
+                    <option value="28">住院手术室</option>
+                    <option value="29">麻醉恢复室</option>
+                  </optgroup>
+                  <!-- <optgroup label="11-检验检查部门">
+                    <option value="30">病理科</option>
+                    <option value="31">检验科</option>
+                    <option value="32">超声检查室</option>
+                    <option value="33" selected>心电图室</option>
+                    <option value="34">其他，请说明</option>
+                  </optgroup> -->
+                  <optgroup label="其中-公共区域">
+                    <option value="35">前台大厅</option>
+                    <option value="36">楼梯间</option>
+                    <option value="37" selected>电梯</option>
+                    <option value="38" selected>停车场</option>
+                    <option value="39">收费处</option>
+                    <option value="40">就餐区</option>
+                    <option value="41">其他，请说明</option>
+                  </optgroup>
+                </select>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title">发生地点</div>
                   </div>
                 </div>
-                <div class="item-inner">
-                  <div class="item-title item-label">事件发生地点</div>
-                  <div class="item-input-wrap">
-                    <input type="text" name="title" placeholder="Occur Location"/>
-                  </div>
+              </a>
+            </li>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">患者姓名</div>
+                <div class="item-input-wrap">
+                  <input type="text" name="title" placeholder="Your Patient's Name"/>
                 </div>
               </div>
             </li>
-            <li>
-              <div class="item-content item-input">
-                <div class="item-inner">
-                  <div class="item-title item-label">涉及患者姓名</div>
-                  <div class="item-input-wrap">
-                    <input type="text" name="title" placeholder="Illness Name"/>
-                  </div>
-                </div>
-                <div class="item-inner">
-                  <div class="item-title item-label">涉及患者病历号</div>
-                  <div class="item-input-wrap">
-                    <input type="text" name="title" placeholder="Illness Docs-ID"/>
-                  </div>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">患者病历号</div>
+                <div class="item-input-wrap">
+                  <input type="text" name="title" placeholder="Your Patient's Medical Record ID"/>
                 </div>
               </div>
             </li>
@@ -169,35 +272,29 @@
     </div>
     <div class="block block-strong">
       <div class="block-title">发生经过与上报 / Procedure And Reporter</div>
-      <div class="list no-hairlines-md">
+      <div class="list inline-labels no-hairlines-md">
         <ul>
-            <li>
-              <div class="item-content item-input">
-                <div class="item-inner">
-                  <div class="item-title item-label">事件经过描述</div>
-                  <div class="item-input-wrap">
-                    <input type="text" name="first_name" placeholder="Event Details & Description"/>
-                  </div>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">事件经过</div>
+                <div class="item-input-wrap">
+                  <textarea placeholder="Enter Details..."></textarea>
                 </div>
               </div>
             </li>
-            <li>
-              <div class="item-content item-input">
-                <div class="item-inner">
-                  <div class="item-title item-label">报告人姓名(选填)</div>
-                  <div class="item-input-wrap">
-                    <input type="text" name="first_name" placeholder="Reporter's Name"/>
-                  </div>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">报告人员</div>
+                <div class="item-input-wrap">
+                  <input type="text" name="title" placeholder="Reporter's Name"/>
                 </div>
               </div>
             </li>
-            <li>
-              <div class="item-content item-input">
-                <div class="item-inner">
-                  <div class="item-title item-label">上报日期</div>
-                  <div class="item-input-wrap">
-                    <input type="text" name="first_name" placeholder="Reported Date/Time"/>
-                  </div>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label">上报时间</div>
+                <div class="item-input-wrap">
+                  <input type="datetime-local" placeholder="Please choose..." readonly="readonly" id="demo-calendar-date-time" />
                 </div>
               </div>
             </li>
@@ -402,19 +499,21 @@
                           <input type="checkbox" name="demo-checkbox" value="Books" />
                           <i class="icon icon-checkbox"></i>
                           <div class="item-inner">
-                            <div class="item-title"><small>其他请说明</small></div>
-                            <div class="item-input">
-                              <input type="text" name="first_name" placeholder="Filling Your Description Here"/>
-                            </div>
+                            <div class="item-title"><small>其他，请说明</small></div>
                           </div>
                         </label>
                       </div>
-                      <div class="col-20"></div>
-                      <!-- <div class="col">
-                        <div class="item-input-wrap">
-                            <input type="text" name="first_name" placeholder="Your Description"/>
-                        </div>
-                      </div> -->
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row">
+                      <div class="col">
+                        <label class="item-checkbox item-content">
+                          <div class="item-input-wrap">
+                            <input type="text" name="first_name" placeholder="Filling Your Description Here"/>
+                          </div>
+                        </label>
+                      </div>
                     </div>
                   </li>
                 </ul>
@@ -472,7 +571,7 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">folder_fill</i>
-                                        <div class="treeview-item-label">聘任类别</div>
+                                        <div class="treeview-item-label"><small>聘任类别</small></div>
                                       </div>
                                     </div>
                                     <div class="treeview-item-children">
@@ -484,7 +583,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">本院全职人员</div>
+                                            <div class="treeview-item-label"><small>本院全职人员</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -496,7 +595,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">兼职人员</div>
+                                            <div class="treeview-item-label"><small>兼职人员</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -511,7 +610,7 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">folder_fill</i>
-                                        <div class="treeview-item-label">职业类别</div>
+                                        <div class="treeview-item-label"><small>职业类别</small></div>
                                       </div>
                                     </div>
                                     <div class="treeview-item-children">
@@ -523,8 +622,8 @@
                                               <input type="checkbox" />
                                               <i class="icon-checkbox"></i>
                                             </label>
-                                            <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">医生</div>
+                                            <i class="icon f7-icons">logo_github</i>
+                                            <div class="treeview-item-label"><small>医生</small></div>
                                           </div>
                                         </div>
                                         <div class="treeview-item-children">
@@ -535,8 +634,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">肺癌中心</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>肺癌中心</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -547,8 +646,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">乳腺癌中心</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>乳腺癌中心</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -559,8 +658,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">妇科肿瘤中心</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>妇科肿瘤中心</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -571,8 +670,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">胃肠肿瘤中心</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>胃肠肿瘤中心</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -583,8 +682,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">泌尿肿瘤中心</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>泌尿肿瘤中心</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -595,8 +694,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">早诊早筛中心</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>早诊早筛中心</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -607,8 +706,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">病理科</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>病理科</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -619,8 +718,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">麻醉科</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>麻醉科</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -631,8 +730,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">放射影像中心</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>放射影像中心</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -643,8 +742,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">放疗中心</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>放疗中心</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -655,8 +754,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">超声科</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>超声科</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -667,8 +766,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">病理科</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>病理科</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -679,8 +778,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">放射影像中心</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>放射影像中心</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -691,8 +790,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">放疗中心</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>放疗中心</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -703,8 +802,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">其他，请说明</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>其他，请说明</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -718,8 +817,8 @@
                                               <input type="checkbox" />
                                               <i class="icon-checkbox"></i>
                                             </label>
-                                            <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">医技科室</div>
+                                            <i class="icon f7-icons">logo_github</i>
+                                            <div class="treeview-item-label"><small>医技科室</small></div>
                                           </div>
                                         </div>
                                         <div class="treeview-item-children">
@@ -730,8 +829,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">药剂师</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>药剂师</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -742,8 +841,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">病理科</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>病理科</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -754,8 +853,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">检验师</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>检验师</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -766,8 +865,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">放射影像中心</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>放射影像中心</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -778,8 +877,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">物理师</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>物理师</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -790,8 +889,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">其他，请说明</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>其他，请说明</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -805,8 +904,8 @@
                                               <input type="checkbox" />
                                               <i class="icon-checkbox"></i>
                                             </label>
-                                            <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">护理人员</div>
+                                            <i class="icon f7-icons">logo_github</i>
+                                            <div class="treeview-item-label"><small>护理人员</small></div>
                                           </div>
                                         </div>
                                         <div class="treeview-item-children">
@@ -817,8 +916,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">门诊护士</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>门诊护士</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -829,8 +928,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">病房护士</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>病房护士</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -841,8 +940,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">手术室护士</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>手术室护士</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -853,8 +952,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">供应室护士</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>供应室护士</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -865,8 +964,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">其他，请说明</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>其他，请说明</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -880,7 +979,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">个案管理师</div>
+                                            <div class="treeview-item-label"><small>个案管理师</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -892,8 +991,8 @@
                                               <input type="checkbox" />
                                               <i class="icon-checkbox"></i>
                                             </label>
-                                            <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">行政后勤人员</div>
+                                            <i class="icon f7-icons">logo_github</i>
+                                            <div class="treeview-item-label"><small>行政后勤人员</small></div>
                                           </div>
                                         </div>
                                         <div class="treeview-item-children">
@@ -904,8 +1003,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">行政办公室人员</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>行政办公室人员</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -916,8 +1015,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">工程物业人员</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>工程物业人员</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -928,8 +1027,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">信息技术人员</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>信息技术人员</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -940,8 +1039,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">客服</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>客服</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -952,8 +1051,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">保安</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>保安</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -964,8 +1063,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">保洁</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>保洁</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -976,24 +1075,12 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">餐饮</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>餐饮</small></div>
                                               </div>
                                             </div>
                                           </div>
                                         </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="treeview-item">
-                                    <div class="treeview-item-root">
-                                      <div class="treeview-item-content">
-                                        <label class="checkbox">
-                                          <input type="checkbox" />
-                                          <i class="icon-checkbox"></i>
-                                        </label>
-                                        <i class="icon f7-icons">logo_github</i>
-                                        <div class="treeview-item-label">其他,请说明</div>
                                       </div>
                                     </div>
                                   </div>
@@ -1005,7 +1092,19 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">doc_text_fill</i>
-                                        <div class="treeview-item-label">无</div>
+                                        <div class="treeview-item-label"><small>其他,请说明</small></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">doc_text_fill</i>
+                                        <div class="treeview-item-label"><small>无</small></div>
                                       </div>
                                     </div>
                                   </div>
@@ -1060,7 +1159,7 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">folder_fill</i>
-                                        <div class="treeview-item-label">患者</div>
+                                        <div class="treeview-item-label"><small>患者</small></div>
                                       </div>
                                     </div>
                                     <div class="treeview-item-children">
@@ -1069,8 +1168,8 @@
                                           <div class="treeview-toggle"></div>
                                           <div class="treeview-item-content">
                                             <!-- checkboxd deleted -->
-                                            <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">性别</div>
+                                            <i class="icon f7-icons">logo_github</i>
+                                            <div class="treeview-item-label"><small>性别</small></div>
                                           </div>
                                         </div>
                                         <div class="treeview-item-children">
@@ -1082,7 +1181,7 @@
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
-                                                <div class="treeview-item-label">男性</div>
+                                                <div class="treeview-item-label"><small>男性</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1094,7 +1193,7 @@
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
-                                                <div class="treeview-item-label">女性</div>
+                                                <div class="treeview-item-label"><small>女性</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1105,8 +1204,8 @@
                                           <div class="treeview-toggle"></div>
                                           <div class="treeview-item-content">
                                             <!-- checkboxd deleted -->
-                                            <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">年龄层</div>
+                                            <i class="icon f7-icons">logo_github</i>
+                                            <div class="treeview-item-label"><small>年龄层</small></div>
                                           </div>
                                         </div>
                                         <div class="treeview-item-children">
@@ -1118,7 +1217,7 @@
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
-                                                <div class="treeview-item-label">成年(19-64)</div>
+                                                <div class="treeview-item-label"><small>成年(19-64)</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1130,7 +1229,7 @@
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
-                                                <div class="treeview-item-label">老年(65岁以上)</div>
+                                                <div class="treeview-item-label"><small>老年(65岁以上)</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1142,7 +1241,7 @@
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
-                                                <div class="treeview-item-label">不详</div>
+                                                <div class="treeview-item-label"><small>不详</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1153,8 +1252,8 @@
                                           <div class="treeview-toggle"></div>
                                           <div class="treeview-item-content">
                                             <!-- checkboxd deleted -->
-                                            <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">就医类别</div>
+                                            <i class="icon f7-icons">logo_github</i>
+                                            <div class="treeview-item-label"><small>就医类别</small></div>
                                           </div>
                                         </div>
                                         <div class="treeview-item-children">
@@ -1166,7 +1265,7 @@
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
-                                                <div class="treeview-item-label">住院</div>
+                                                <div class="treeview-item-label"><small>住院</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1178,7 +1277,7 @@
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
-                                                <div class="treeview-item-label">门诊</div>
+                                                <div class="treeview-item-label"><small>门诊</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1190,7 +1289,7 @@
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
-                                                <div class="treeview-item-label">留观</div>
+                                                <div class="treeview-item-label"><small>留观</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1202,7 +1301,7 @@
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
-                                                <div class="treeview-item-label">急诊</div>
+                                                <div class="treeview-item-label"><small>急诊</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1214,7 +1313,7 @@
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
-                                                <div class="treeview-item-label">其它，请说明</div>
+                                                <div class="treeview-item-label"><small>其它，请说明</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1231,7 +1330,7 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">folder_fill</i>
-                                        <div class="treeview-item-label">访客/家属</div>
+                                        <div class="treeview-item-label"><small>访客/家属</small></div>
                                       </div>
                                     </div>
                                     <div class="treeview-item-children">
@@ -1240,8 +1339,8 @@
                                           <div class="treeview-toggle"></div>
                                           <div class="treeview-item-content">
                                             <!-- checkboxd deleted -->
-                                            <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">性别</div>
+                                            <i class="icon f7-icons">logo_github</i>
+                                            <div class="treeview-item-label"><small>性别</small></div>
                                           </div>
                                         </div>
                                         <div class="treeview-item-children">
@@ -1252,8 +1351,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">男性</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>男性</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1264,8 +1363,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">女性</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>女性</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1276,8 +1375,8 @@
                                           <div class="treeview-toggle"></div>
                                           <div class="treeview-item-content">
                                             <!-- checkboxd deleted -->
-                                            <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">年龄层</div>
+                                            <i class="icon f7-icons">logo_github</i>
+                                            <div class="treeview-item-label"><small>年龄层</small></div>
                                           </div>
                                         </div>
                                         <div class="treeview-item-children">
@@ -1288,8 +1387,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">婴儿(1岁以下)</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>婴儿(1岁以下)</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1300,8 +1399,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">幼儿(1-3岁)</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>幼儿(1-3岁)</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1312,8 +1411,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">学龄前期(4-6岁)</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>学龄前期(4-6岁)</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1324,8 +1423,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">学龄期(7-12岁)</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>学龄期(7-12岁)</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1336,8 +1435,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">青少年(13-18岁)</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>青少年(13-18岁)</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1348,8 +1447,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">成年(19-64岁)</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>成年(19-64岁)</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1360,8 +1459,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">老年(65岁以上)</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>老年(65岁以上)</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1372,8 +1471,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">不详</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>不详</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1390,7 +1489,7 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">folder_fill</i>
-                                        <div class="treeview-item-label">员工</div>
+                                        <div class="treeview-item-label"><small>员工</small></div>
                                       </div>
                                     </div>
                                     <div class="treeview-item-children">
@@ -1399,8 +1498,8 @@
                                           <div class="treeview-toggle"></div>
                                           <div class="treeview-item-content">
                                             <!-- checkboxd deleted -->
-                                            <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">所在科室</div>
+                                            <i class="icon f7-icons">logo_github</i>
+                                            <div class="treeview-item-label"><small>所在科室</small></div>
                                           </div>
                                         </div>
                                         <div class="treeview-item-children">
@@ -1411,8 +1510,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">临床</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>临床</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1423,8 +1522,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">护理</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>护理</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1435,8 +1534,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">行政</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>行政</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1447,36 +1546,12 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">其他，请说明</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>其他，请说明</small></div>
                                               </div>
                                             </div>
                                           </div>
                                         </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="treeview-item">
-                                    <div class="treeview-item-root">
-                                      <div class="treeview-item-content">
-                                        <label class="checkbox">
-                                          <input type="checkbox" />
-                                          <i class="icon-checkbox"></i>
-                                        </label>
-                                        <i class="icon f7-icons">logo_github</i>
-                                        <div class="treeview-item-label">仪器设备</div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="treeview-item">
-                                    <div class="treeview-item-root">
-                                      <div class="treeview-item-content">
-                                        <label class="checkbox">
-                                          <input type="checkbox" />
-                                          <i class="icon-checkbox"></i>
-                                        </label>
-                                        <i class="icon f7-icons">logo_github</i>
-                                        <div class="treeview-item-label">不详</div>
                                       </div>
                                     </div>
                                   </div>
@@ -1488,7 +1563,31 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">doc_text_fill</i>
-                                        <div class="treeview-item-label">其它，请说明</div>
+                                        <div class="treeview-item-label"><small>仪器设备</small></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">doc_text_fill</i>
+                                        <div class="treeview-item-label"><small>不详</small></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">doc_text_fill</i>
+                                        <div class="treeview-item-label"><small>其它，请说明</small></div>
                                       </div>
                                     </div>
                                   </div>
@@ -1542,8 +1641,8 @@
                                           <input type="checkbox" />
                                           <i class="icon-checkbox"></i>
                                         </label>
-                                        <i class="icon f7-icons">folder_fill</i>
-                                        <div class="treeview-item-label">有伤害</div>
+                                        <i class="icon f7-icons">logo_github</i>
+                                        <div class="treeview-item-label"><small>有伤害</small></div>
                                       </div>
                                     </div>
                                     <div class="treeview-item-children">
@@ -1555,7 +1654,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">死亡：造成病人死亡</div>
+                                            <div class="treeview-item-label"><small>死亡：造成病人死亡</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1567,7 +1666,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">极重度：造成病人永久性残障或永久性功能障碍</div>
+                                            <div class="treeview-item-label"><small>极重度：造成病人永久性残障或永久性功能障碍</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1579,7 +1678,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">重度：事件造成病人伤害，除需额外的看诊、评估或观察外，还需手术、住院或延长住院处理</div>
+                                            <div class="treeview-item-label"><small>重度：事件造成病人伤害，除需额外的看诊、评估或观察外，还需手术、住院或延长住院处理</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1591,7 +1690,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">中度：事件造成病人伤害，需额外的看诊、评估、观察或处置</div>
+                                            <div class="treeview-item-label"><small>中度：事件造成病人伤害，需额外的看诊、评估、观察或处置</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1603,21 +1702,9 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">轻度：事件虽然造成伤害，但不需或只需稍微处理，不需增加额外医疗护理</div>
+                                            <div class="treeview-item-label"><small>轻度：事件虽然造成伤害，但不需或只需稍微处理，不需增加额外医疗护理</small></div>
                                           </div>
                                         </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="treeview-item">
-                                    <div class="treeview-item-root">
-                                      <div class="treeview-item-content">
-                                        <label class="checkbox">
-                                          <input type="checkbox" />
-                                          <i class="icon-checkbox"></i>
-                                        </label>
-                                        <i class="icon f7-icons">logo_github</i>
-                                        <div class="treeview-item-label">无伤害：事件发生在病人身上，但是没有造成任何的伤害</div>
                                       </div>
                                     </div>
                                   </div>
@@ -1629,7 +1716,19 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">doc_text_fill</i>
-                                        <div class="treeview-item-label">无法判定伤害严重程度</div>
+                                        <div class="treeview-item-label"><small>无伤害：事件发生在病人身上，但是没有造成任何的伤害</small></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">doc_text_fill</i>
+                                        <div class="treeview-item-label"><small>无法判定伤害严重程度</small></div>
                                       </div>
                                     </div>
                                   </div>
@@ -1642,7 +1741,7 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">folder_fill</i>
-                                        <div class="treeview-item-label">几近过失＊：由于不经意或实时的干预，使可能发生的事件并未真正发生于病人身上</div>
+                                        <div class="treeview-item-label"><small>几近过失＊：由于不经意或实时的干预，使可能发生的事件并未真正发生于病人身上</small></div>
                                       </div>
                                     </div>
                                     <div class="treeview-item-children">
@@ -1654,8 +1753,8 @@
                                               <input type="checkbox" />
                                               <i class="icon-checkbox"></i>
                                             </label>
-                                            <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">有伤害</div>
+                                            <i class="icon f7-icons">logo_github</i>
+                                            <div class="treeview-item-label"><small>有伤害</small></div>
                                           </div>
                                         </div>
                                         <div class="treeview-item-children">
@@ -1666,8 +1765,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">死亡：造成病人死亡</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>死亡：造成病人死亡</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1678,8 +1777,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">极重度：造成病人永久性残障或永久性功能障碍</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>极重度：造成病人永久性残障或永久性功能障碍</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1690,8 +1789,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">重度：事件造成病人伤害，除需额外的看诊、评估或观察外，还需手术、住院或延长住院处理</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>重度：事件造成病人伤害，除需额外的看诊、评估或观察外，还需手术、住院或延长住院处理</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1702,8 +1801,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">中度：事件造成病人伤害，需额外的看诊、评估、观察或处置</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>中度：事件造成病人伤害，需额外的看诊、评估、观察或处置</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1714,8 +1813,8 @@
                                                   <input type="checkbox" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
-                                                <i class="icon f7-icons">photo_fill</i>
-                                                <div class="treeview-item-label">轻度：事件虽然造成伤害，但不需或只需稍微处理，不需增加额外医疗护理</div>
+                                                <i class="icon f7-icons">doc_text_fill</i>
+                                                <div class="treeview-item-label"><small>轻度：事件虽然造成伤害，但不需或只需稍微处理，不需增加额外医疗护理</small></div>
                                               </div>
                                             </div>
                                           </div>
@@ -1729,7 +1828,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">无伤害：事件发生在病人身上，但是没有造成任何的伤害</div>
+                                            <div class="treeview-item-label"><small>无伤害：事件发生在病人身上，但是没有造成任何的伤害</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1741,7 +1840,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">无法判定伤害严重程度</div>
+                                            <div class="treeview-item-label"><small>无法判定伤害严重程度</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1798,7 +1897,7 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">folder_fill</i>
-                                        <div class="treeview-item-label">无干预</div>
+                                        <div class="treeview-item-label"><small>无干预</small></div>
                                       </div>
                                     </div>
                                     <div class="treeview-item-children">
@@ -1810,7 +1909,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">不需任何处置</div>
+                                            <div class="treeview-item-label"><small>不需任何处置</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1822,7 +1921,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">事件受累者拒绝处置</div>
+                                            <div class="treeview-item-label"><small>事件受累者拒绝处置</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1834,7 +1933,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">其他，请说明</div>
+                                            <div class="treeview-item-label"><small>其他，请说明</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1849,7 +1948,7 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">folder_fill</i>
-                                        <div class="treeview-item-label">医疗干预</div>
+                                        <div class="treeview-item-label"><small>医疗干预</small></div>
                                       </div>
                                     </div>
                                     <div class="treeview-item-children">
@@ -1861,7 +1960,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">持续观察</div>
+                                            <div class="treeview-item-label"><small>持续观察</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1873,7 +1972,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">加强护理防范</div>
+                                            <div class="treeview-item-label"><small>加强护理防范</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1885,7 +1984,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">监测生命体征</div>
+                                            <div class="treeview-item-label"><small>监测生命体征</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1897,7 +1996,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">给予额外的药物治疗或医疗处置</div>
+                                            <div class="treeview-item-label"><small>给予额外的药物治疗或医疗处置</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1909,7 +2008,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">伤口处理</div>
+                                            <div class="treeview-item-label"><small>伤口处理</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1921,7 +2020,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">停止与事件有关的用药或治疗</div>
+                                            <div class="treeview-item-label"><small>停止与事件有关的用药或治疗</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1933,7 +2032,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">转诊或转院治疗</div>
+                                            <div class="treeview-item-label"><small>转诊或转院治疗</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1945,7 +2044,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">急救</div>
+                                            <div class="treeview-item-label"><small>急救</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1957,7 +2056,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">其他，请说明</div>
+                                            <div class="treeview-item-label"><small>其他，请说明</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1972,7 +2071,7 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">folder_fill</i>
-                                        <div class="treeview-item-label">其他干预</div>
+                                        <div class="treeview-item-label"><small>其他干预</small></div>
                                       </div>
                                     </div>
                                     <div class="treeview-item-children">
@@ -1984,7 +2083,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">给予病人家属慰问及支持</div>
+                                            <div class="treeview-item-label"><small>给予病人家属慰问及支持</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -1996,7 +2095,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">移除与危害相关的设备或离开相关环境</div>
+                                            <div class="treeview-item-label"><small>移除与危害相关的设备或离开相关环境</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2008,7 +2107,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">报警</div>
+                                            <div class="treeview-item-label"><small>报警</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2020,7 +2119,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">上报卫生行政管理机构</div>
+                                            <div class="treeview-item-label"><small>上报卫生行政管理机构</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2032,7 +2131,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">医疗团队进行沟通</div>
+                                            <div class="treeview-item-label"><small>医疗团队进行沟通</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2044,7 +2143,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">其他，请说明</div>
+                                            <div class="treeview-item-label"><small>其他，请说明</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2058,7 +2157,7 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">doc_text_fill</i>
-                                        <div class="treeview-item-label">不详</div>
+                                        <div class="treeview-item-label"><small>不详</small></div>
                                       </div>
                                     </div>
                                   </div>
@@ -2113,7 +2212,7 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">folder_fill</i>
-                                        <div class="treeview-item-label">加强教育培训</div>
+                                        <div class="treeview-item-label"><small>加强教育培训</small></div>
                                       </div>
                                     </div>
                                     <div class="treeview-item-children">
@@ -2125,7 +2224,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">提供医疗人员临床教育训练</div>
+                                            <div class="treeview-item-label"><small>提供医疗人员临床教育训练</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2137,7 +2236,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">改变医疗人员行为态度</div>
+                                            <div class="treeview-item-label"><small>改变医疗人员行为态度</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2149,7 +2248,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">提供病人及家属适当宣教</div>
+                                            <div class="treeview-item-label"><small>提供病人及家属适当宣教</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2161,7 +2260,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">改变病人及家属行为态度</div>
+                                            <div class="treeview-item-label"><small>改变病人及家属行为态度</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2173,7 +2272,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">其他，请说明</div>
+                                            <div class="treeview-item-label"><small>其他，请说明</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2188,7 +2287,7 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">folder_fill</i>
-                                        <div class="treeview-item-label">改变医疗护理工作流程</div>
+                                        <div class="treeview-item-label"><small>改变医疗护理工作流程</small></div>
                                       </div>
                                     </div>
                                     <div class="treeview-item-children">
@@ -2200,7 +2299,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">制定工作流程</div>
+                                            <div class="treeview-item-label"><small>制定工作流程</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2212,7 +2311,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">临床诊疗流程改善</div>
+                                            <div class="treeview-item-label"><small>临床诊疗流程改善</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2224,7 +2323,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">临床信息系统修订</div>
+                                            <div class="treeview-item-label"><small>临床信息系统修订</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2236,7 +2335,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">其他，请说明</div>
+                                            <div class="treeview-item-label"><small>其他，请说明</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2251,7 +2350,7 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">folder_fill</i>
-                                        <div class="treeview-item-label">改变行政管理</div>
+                                        <div class="treeview-item-label"><small>改变行政管理</small></div>
                                       </div>
                                     </div>
                                     <div class="treeview-item-children">
@@ -2263,7 +2362,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">医院政策制度改变</div>
+                                            <div class="treeview-item-label"><small>医院政策制度改变</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2275,7 +2374,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">医院行政流程改变</div>
+                                            <div class="treeview-item-label"><small>医院行政流程改变</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2287,7 +2386,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">监控制度建立（如报告、指标）</div>
+                                            <div class="treeview-item-label"><small>监控制度建立（如报告、指标）</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2299,7 +2398,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">人力配置改善</div>
+                                            <div class="treeview-item-label"><small>人力配置改善</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2311,7 +2410,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">环境设备改善</div>
+                                            <div class="treeview-item-label"><small>环境设备改善</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2323,7 +2422,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">其他，请说明</div>
+                                            <div class="treeview-item-label"><small>其他，请说明</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2338,7 +2437,7 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">folder_fill</i>
-                                        <div class="treeview-item-label">加强沟通方式</div>
+                                        <div class="treeview-item-label"><small>加强沟通方式</small></div>
                                       </div>
                                     </div>
                                     <div class="treeview-item-children">
@@ -2350,7 +2449,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">增加医疗人员间沟通</div>
+                                            <div class="treeview-item-label"><small>增加医疗人员间沟通</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2362,7 +2461,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">改变行政管理沟通系统</div>
+                                            <div class="treeview-item-label"><small>改变行政管理沟通系统</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2374,7 +2473,7 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">改变与病人沟通模式</div>
+                                            <div class="treeview-item-label"><small>改变与病人沟通模式</small></div>
                                           </div>
                                         </div>
                                       </div>
@@ -2386,21 +2485,9 @@
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
-                                            <div class="treeview-item-label">其他，请说明</div>
+                                            <div class="treeview-item-label"><small>其他，请说明</small></div>
                                           </div>
                                         </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="treeview-item">
-                                    <div class="treeview-item-root">
-                                      <div class="treeview-item-content">
-                                        <label class="checkbox">
-                                          <input type="checkbox" />
-                                          <i class="icon-checkbox"></i>
-                                        </label>
-                                        <i class="icon f7-icons">logo_github</i>
-                                        <div class="treeview-item-label">不详</div>
                                       </div>
                                     </div>
                                   </div>
@@ -2412,7 +2499,19 @@
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">doc_text_fill</i>
-                                        <div class="treeview-item-label">其他,请说明</div>
+                                        <div class="treeview-item-label"><small>不详</small></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="treeview-item">
+                                    <div class="treeview-item-root">
+                                      <div class="treeview-item-content">
+                                        <label class="checkbox">
+                                          <input type="checkbox" />
+                                          <i class="icon-checkbox"></i>
+                                        </label>
+                                        <i class="icon f7-icons">doc_text_fill</i>
+                                        <div class="treeview-item-label"><small>其他,请说明</small></div>
                                       </div>
                                     </div>
                                   </div>
@@ -2433,9 +2532,38 @@
     <!-- Popup 6th ending... -->
 </div>
 </template>
+<style>
+  .demo-list-icon,
+  .icon-f7 {
+    background: #ccc;
+    display: block;
+    position: relative;
+  }
+
+  .ios .demo-list-icon {
+    width: 29px;
+    height: 29px;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+
+  .md .demo-list-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+  }
+
+  .aurora .demo-list-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+  }
+</style>
 <script>
 export default (props, { $f7, $el, $, $on, $update }) => {
   //-----------------------------------------------------------
+  let calendarDateTime;
+  let takeplaceDateTime;
   //Export DOM7 to local variable to make it easy accessible
   var app = $f7;
   var $$ = app.$;
@@ -2479,6 +2607,19 @@ export default (props, { $f7, $el, $, $on, $update }) => {
           $parentCheckbox.prop('indeterminate', checkedChildren === 1);
         }
       })
+
+      // Date + Time
+      calendarDateTime = $f7.calendar.create({
+        inputEl: '#demo-calendar-date-time',
+        timePicker: true,
+        dateFormat: { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' },
+      });
+      takeplaceDateTime = $f7.calendar.create({
+        inputEl: '#take-place-date-time',
+        timePicker: true,
+        dateFormat: { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' },
+      });
+
   });
 
   //-----------------------------------------------------------

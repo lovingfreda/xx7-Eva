@@ -19,37 +19,37 @@
         <ul>
           <li>
             <label class="item-checkbox item-content">
-              <input type="checkbox" name="demo-checkbox-movies" />
+              <input type="checkbox" name="demo-checkbox-movies" value="Books" checked="checked" />
               <i class="icon icon-checkbox"></i>
               <div class="item-inner">
-                <div class="item-title">不良事件报告表</div>
+                <div class="item-title">不良事件报告表 (必选)</div>
               </div>
             </label>
             <ul>
               <li>
                 <label class="item-checkbox item-content">
-                  <input type="checkbox" name="demo-checkbox-movie" value="Movie 1" />
+                  <input type="checkbox" name="demo-checkbox-movie" value="Movies" />
                   <i class="icon icon-checkbox"></i>
                   <div class="item-inner">
-                    <div class="item-title">涉及药品、药物不良反应</div>
+                    <div class="item-title">涉及药品、药物不良反应 (可选)</div>
                   </div>
                 </label>
               </li>
               <li>
                 <label class="item-checkbox item-content">
-                  <input type="checkbox" name="demo-checkbox-movie" value="Movie 2" />
+                  <input type="checkbox" name="demo-checkbox-movie" value="Food" />
                   <i class="icon icon-checkbox"></i>
                   <div class="item-inner">
-                    <div class="item-title">涉及医疗器械不良事件</div>
+                    <div class="item-title">涉及医疗器械不良事件 (可选)</div>
                   </div>
                 </label>
               </li>
               <li>
                 <label class="item-checkbox item-content">
-                  <input type="checkbox" name="demo-checkbox-movie" value="Movie 3" />
+                  <input type="checkbox" name="demo-checkbox-movie" value="Drinks" />
                   <i class="icon icon-checkbox"></i>
                   <div class="item-inner">
-                    <div class="item-title">包含补充报告表附件</div>
+                    <div class="item-title">附件-补充报告表 (可选)</div>
                   </div>
                 </label>
               </li>
@@ -67,18 +67,26 @@
         <ul>
           <li>
             <label class="item-checkbox item-content">
-              <input type="checkbox" name="demo-media-checkbox" value="1" />
+              <input type="checkbox" name="demo-media-checkbox" value="Reasons" checked="checked" />
               <i class="icon icon-checkbox"></i>
               <div class="item-inner">
                 <div class="item-title-row">
                   <div class="item-title">根因分析</div>
-                  <div class="item-after">已启用</div>
+                  <div class="item-after">
+                    <span>已启用</span>
+                    <label class="toggle toggle-init color-green">
+                      <input type="checkbox" checked disabled />
+                      <span class="toggle-icon"></span>
+                    </label>
+                  </div>
                 </div>
                 <div class="item-subtitle">允许将该事件与同类事件合并，进行汇总统计与根因分析</div>
                 <div class="item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis
                   tellus ut turpis condimentum, ut dignissim lacus tincidunt. Cras dolor metus, ultrices condimentum sodales sit amet, pharetra sodales eros. Phasellus vel felis tellus. Mauris rutrum ligula nec dapibus feugiat. In vel dui laoreet, commodo augue id, pulvinar lacus.</div>
               </div>
             </label>
+          </li>
+          <li>
           </li>
           <li>
             <a class="button button-fill"  href="/evn-base-information/">开始填写</a>
