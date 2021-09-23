@@ -24,6 +24,7 @@ import EvnTypeChooser from '../pages/events/event_type_chooser.f7.html';
 import EvnBaseInformation from '../pages/events/event_base_information.f7.html';
 import EvnAddiMedicine from '../pages/events/event_addi_medicine.f7.html';
 import EvnAddiEquipment from '../pages/events/event_addi_equipment.f7.html';
+import EvnAddiAttachment from '../pages/events/event_addi_attachment.f7.html';
 import EvnInfoSummary from '../pages/events/event_info_summary.f7.html';
 
 var routes = [
@@ -339,6 +340,10 @@ var routes = [
   {
     path: '/evn-addi-equipment/',
     component: EvnAddiEquipment,
+  },
+  {
+    path: '/evn-addi-attachment/',
+    component: EvnAddiAttachment,
   },
   {
     path: '/evn-info-summary/',
