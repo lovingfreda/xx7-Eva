@@ -36,6 +36,15 @@
               </div>
             </a>
           </li>
+          <li>
+            <a href="#" class="item-link item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title">管理员权限</div>
+                <div class="item-after">设置</div>
+              </div>
+            </a>
+          </li>
         </ul>
     </div>
     <div class="block-title">高级设置</div>
@@ -121,134 +130,171 @@
         </ul>
     </div>
     <div class="block-title">第三方接入</div>
-    <div class="list">
-        <ul>
-          <li>
-            <a href="#" class="item-link item-content">
-              <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner">
-                <div class="item-title">管理员权限</div>
-                <div class="item-after">设置</div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="item-link item-content">
-              <div class="item-media"><i class="icon icon-f7"></i><i class="icon icon-f7"></i></div>
-              <div class="item-inner">
-                <div class="item-title">生效策略</div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <div class="item-content">
-              <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner">
-                <div class="item-title">钉钉接入</div>
-                <div class="item-after">
-                  <label class="toggle toggle-init">
-                    <input type="checkbox" />
-                    <span class="toggle-icon"></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="item-content">
-              <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner">
-                <div class="item-title">微信接入</div>
-                <div class="item-after">
-                  <label class="toggle toggle-init">
-                    <input type="checkbox" />
-                    <span class="toggle-icon"></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="item-content">
-              <div class="item-inner">
-                <div class="item-title">相关参数设置</div>
-              </div>
-            </div>
-            <ul>
-              <li>
-                <a href="#" class="item-link item-content">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">企业账号</div>
-                    <div class="item-after">设置</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="item-link item-content">
-                  <div class="item-media"><i class="icon icon-f7"></i><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">服务器&.IP地址</div>
-                  </div>
-                </a>
-              </li>
-              <li>
+    <div class="list accordion-list">
+      <ul>
+        <li>
+              <a class="item-link smart-select smart-select-init" data-open-in="popover">
+                <select name="sel_3rd">
+                    <option value="1">钉钉</option>
+                    <option value="2">微信</option>
+                </select>
                 <div class="item-content">
                   <div class="item-inner">
-                    <div class="item-title">员工/部门信息</div>
+                    <div class="item-title">接入第三方</div>
                   </div>
                 </div>
-              </li>
-              <li>
-                <a href="#" class="item-link item-content">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">初始导入</div>
-                    <div class="item-after">已执行</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <div class="item-content">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">实时同步</div>
-                    <div class="item-after">
-                      <label class="toggle toggle-init">
-                        <input type="checkbox" />
-                        <span class="toggle-icon"></span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" class="item-link item-content">
-              <div class="item-media"><i class="icon icon-f7"></i></div>
+              </a>
+        </li>
+        <li class="accordion-item"><a class="item-content item-link" href="#">
               <div class="item-inner">
-                <div class="item-title">异常与错误处理</div>
-                <div class="item-after">设置</div>
+                <div class="item-title">钉钉接入设置</div>
               </div>
             </a>
-          </li>
-          <li>
-            <div class="item-content">
-              <div class="item-media"><i class="icon icon-f7"></i></div>
-              <div class="item-inner">
-                <div class="item-title">定时任务</div>
-                <div class="item-after">
-                  <label class="toggle toggle-init">
-                    <input type="checkbox" />
-                    <span class="toggle-icon"></span>
-                  </label>
+            <div class="accordion-item-content">
+              <div class="block">
+                <div class="list">
+                  <ul>
+                    <li>
+                        <a href="#" class="item-link item-content">
+                          <div class="item-media"><i class="icon icon-f7"></i></div>
+                          <div class="item-inner">
+                            <div class="item-title">企业账号</div>
+                            <div class="item-after">Helen</div>
+                          </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="item-link item-content">
+                          <div class="item-media"><i class="icon icon-f7"></i></div>
+                          <div class="item-inner">
+                            <div class="item-title">服务器IP地址</div>
+                            <div class="item-after">102.25.187.33</div>
+                          </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-title">员工/部门信息</div>
+                          </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="item-link item-content">
+                          <div class="item-media"><i class="icon icon-f7"></i></div>
+                          <div class="item-inner">
+                            <div class="item-title">初始导入</div>
+                            <div class="item-after">已执行</div>
+                          </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                          <div class="item-media"><i class="icon icon-f7"></i></div>
+                          <div class="item-inner">
+                            <div class="item-title">实时同步</div>
+                            <div class="item-after">
+                              <label class="toggle toggle-init">
+                                <input type="checkbox" />
+                                <span class="toggle-icon"></span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-          </li>
-        </ul>
-    </div>
+        </li>
+        <li class="accordion-item"><a class="item-content item-link" href="#">
+            <div class="item-inner">
+                <div class="item-title">微信接入设置</div>
+            </div>
+            </a>
+            <div class="accordion-item-content">
+              <div class="block">
+                <div class="list">
+                  <ul>
+                    <li>
+                        <a href="#" class="item-link item-content">
+                          <div class="item-media"><i class="icon icon-f7"></i></div>
+                          <div class="item-inner">
+                            <div class="item-title">企业账号</div>
+                            <div class="item-after">Helen</div>
+                          </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="item-link item-content">
+                          <div class="item-media"><i class="icon icon-f7"></i></div>
+                          <div class="item-inner">
+                            <div class="item-title">服务器IP地址</div>
+                            <div class="item-after">102.25.187.33</div>
+                          </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                          <div class="item-inner">
+                            <div class="item-title">员工/部门信息</div>
+                          </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="item-link item-content">
+                          <div class="item-media"><i class="icon icon-f7"></i></div>
+                          <div class="item-inner">
+                            <div class="item-title">初始导入</div>
+                            <div class="item-after">已执行</div>
+                          </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                          <div class="item-media"><i class="icon icon-f7"></i></div>
+                          <div class="item-inner">
+                            <div class="item-title">实时同步</div>
+                            <div class="item-after">
+                              <label class="toggle toggle-init">
+                                <input type="checkbox" />
+                                <span class="toggle-icon"></span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </li>
+        <li>
+          <a href="#" class="item-link item-content">
+            <div class="item-media"><i class="icon icon-f7"></i></div>
+            <div class="item-inner">
+              <div class="item-title">异常与错误处理</div>
+              <div class="item-after">设置</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-media"><i class="icon icon-f7"></i></div>
+            <div class="item-inner">
+              <div class="item-title">定时同步数据</div>
+              <div class="item-after">
+                <label class="toggle toggle-init">
+                  <input type="checkbox" />
+                  <span class="toggle-icon"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div><!-- Separate collapsibles - omit "accordion-list" class-->
+
     <div class="block-title">常规功能</div>
     <div class="list">
         <ul>

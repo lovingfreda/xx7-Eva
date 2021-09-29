@@ -10,7 +10,7 @@
             <i class="icon material-icons if-md">menu</i>
           </a>
         </div>
-        <div class="title sliding"><small><span>当前时间：</span><span id="lisa">waitting...</span></small></div>
+        <div class="title sliding"><small><!-- <span>当前时间：</span> --><span id="lisa">Current Time...</span></small></div>
         <div class="right">
           <a href="#" class="link icon-only panel-open" data-panel="right">
             <i class="icon f7-icons if-not-md">menu</i>
@@ -25,6 +25,17 @@
 
     <!-- Scrollable page content-->
     <div class="page-content">
+      <div class="block-title">Trial Version : 30 days available</div>
+      <div class="card demo-card-header-pic">
+        <div style="background-image:url(https://cdn.framework7.io/placeholder/nature-1000x600-3.jpg)"
+          class="card-header align-items-flex-end">Adverse Events Systerm</div>
+        <div class="card-content card-content-padding">
+          <p class="date">Published on January 21, 2021</p>
+          <p>“医院不良事件上报与分析管理系统”是专门服务于医院不良事件......的系统，它重点专注......，为院内XXX部门提供....的工具与平台，最终实现......！</p>
+        </div>
+        <div class="card-footer"><a href="#" class="link panel-open" data-panel="left">管理制度</a><a href="#" class="link panel-open" data-panel="right">工具表格</a><a href="#" class="button button-raised button-fill color-green">购买正式版</a></div>
+      </div>
+<!-- 
       <div class="block block-strong">
         <p><img src="static/images/addi_iceland.png" width="100%" height="80px" border="0" alt="addi_iceland.png is missing" /></p>
         <p>“医院不良事件上报与分析管理系统”是专门服务于医院不良事件......的系统，它重点专注......，为院内XXX部门提供....的工具与平台，最终实现......！</p>
@@ -43,14 +54,15 @@
             <div class="col-10"></div>
           </div>
         </p>
-      </div>
+      </div> -->
+
       <div class="block-title">请选择您希望进行的服务与操作：</div>
       <!-- <img src="static/images/addi_room.jpeg" width="100%" height="150px" border="0" alt="addi_room.jpeg is missing" /> -->
       <div class="block block-strong">
         <div class="row">
           <div class="col-30">
             <!-- <a href="#" class="button button-raised button-fill login-screen-open" data-login-screen="#my-login-screen">bbbb</a> -->
-            <a href="/request-and-load/catg/2/" class="tab-link">
+            <a href="#view-catalog" class="tab-link">
               <i class="icon f7-icons if-not-md">location_fill</i><!-- layers_alt_fill -->
               <i class="icon material-icons if-md">view_list</i><!-- repeat -->
               <span class="tabbar-label">事件上报</span>
@@ -66,7 +78,7 @@
           </div>
           <div class="col-30">
             <!-- <a href="#" class="button button-raised button-fill popup-open" data-popup="#my-popup">Page "my-popup"</a> -->
-            <a href="/request-and-load/catg/1/" class="tab-link tab-link-active popup-open">
+            <a href="/profile/" class="tab-link tab-link-active popup-open">
               <i class="icon f7-icons if-not-md">person_2_fill</i><!-- person_2_fill -->
               <i class="icon material-icons if-md">home</i><!-- person_2 -->
               <span class="tabbar-label">我的账户</span>
@@ -95,7 +107,7 @@
           </div>
           <div class="col-30">
             <!-- <a href="#" class="button button-raised button-fill login-screen-open" data-login-screen="#my-login-screen">bbbb</a> -->
-            <a href="/request-and-load/catg/7/" class="tab-link">
+            <a href="#view-settings" class="tab-link">
               <i class="icon f7-icons if-not-md">film_fill</i><!-- shield_lefthalf_fill -->
               <i class="icon material-icons if-md">home</i><!-- explict -->
               <span class="tabbar-label">高级设置</span>
@@ -140,7 +152,7 @@
       </div>
  -->
       <div class="block-title">请您抽出宝贵时间参与问卷调查服务提出宝贵意见</div>
-      <div class="block block-strong">
+      <div class="block">
         <div class="row">
           <div class="col-50">
             <a href="#" class="button button-raised button-fill popup-open" data-popup="#my-popup">问卷调查</a>
@@ -152,6 +164,9 @@
         </div>
         <div class="row">
           <p>7x24小时服务热线：400-870-3211</p>
+        </div>
+        <div class="row">
+          <p><span></span></p>
         </div>
       </div>
 
@@ -203,6 +218,59 @@
     width: 24px;
     height: 24px;
     line-height: 24px;
+  }
+
+  .demo-card-header-pic .card-header {
+    height: 40vw;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+  }
+
+  .demo-card-header-pic .card-content-padding .date {
+    color: #8e8e93;
+  }
+
+  .demo-facebook-card .card-header {
+    display: block;
+    padding: 10px;
+  }
+
+  .demo-facebook-card .demo-facebook-avatar {
+    float: left;
+  }
+
+  .demo-facebook-card .demo-facebook-name {
+    margin-left: 44px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .demo-facebook-card .demo-facebook-date {
+    margin-left: 44px;
+    font-size: 13px;
+    color: #8e8e93;
+  }
+
+  .demo-facebook-card .card-footer {
+    background: #fafafa;
+  }
+
+  .demo-facebook-card .card-footer a {
+    color: #81848b;
+    font-weight: 500;
+  }
+
+  .demo-facebook-card .card-content img {
+    display: block;
+  }
+
+  .demo-facebook-card .card-content-padding {
+    padding: 15px 10px;
+  }
+
+  .demo-facebook-card .card-content-padding .likes {
+    color: #8e8e93;
   }
 </style>
 <script>

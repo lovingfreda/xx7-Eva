@@ -6,13 +6,13 @@
       <div class="left">
         <a href="/evn-type-chooser/" class="link back">
           <i class="icon icon-back"></i>
-          <span class="if-not-md">上一步</span>
+          <span class="if-not-md">Back</span>
         </a>
       </div>
       <div class="title">不良事件报告表</div>
       <div class="right">
         <a href="/evn-info-summary/" class="link">
-          <span class="if-not-md">下一步</span>
+          <span class="if-not-md">Next</span>
           <i class="icon icon-next"></i>
         </a>
       </div>
@@ -20,14 +20,15 @@
   </div>
 
   <div class="page-content">
+    <div class="block-title">步骤二. 请填写不良事件的详细信息.</div>
     <div class="block block-strong">
-      <div class="block-title">基本信息 / Base Information</div>
+      <div class="block-title">基本信息</div>
       <div class="list inline-labels no-hairlines-md">
         <ul>
             <li>
               <a class="item-link smart-select smart-select-init" data-open-in="popup" data-searchbar="true"
                 data-searchbar-placeholder="Search car">
-                <select name="car" multiple>
+                <select name="department" multiple>
                   <optgroup label="非手术科室">
                     <option value="8" selected>心血管内科</option>
                     <option value="9">内分泌科</option>
@@ -97,7 +98,7 @@
             <li>
               <a class="item-link smart-select smart-select-init" data-open-in="popup" data-searchbar="true"
                 data-searchbar-placeholder="Search car">
-                <select name="car" multiple>
+                <select name="location" multiple>
                   <optgroup label="全部可用地点">
                     <option value="1" selected>门诊区域</option>
                     <option value="2">急诊区域</option>
@@ -157,7 +158,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">患者姓名</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="title" placeholder="Your Patient's Name"/>
+                  <input type="text" name="patient_name" placeholder="Your Patient's Name"/>
                 </div>
               </div>
             </li>
@@ -165,7 +166,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">患者病历号</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="title" placeholder="Your Patient's Medical Record ID"/>
+                  <input type="text" name="patient_recordid" placeholder="Your Patient's Medical Record ID"/>
                 </div>
               </div>
             </li>
@@ -176,29 +177,29 @@
     <!-- <div class="block block-strong">
       <div class="block-title">事件类型(Event Types)</div>
       <div class="list">
-
+        Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
       </div>
     </div> -->
     <!-- <div class="block block-strong">
       <div class="block-title">关联工作人员(Persons Involes)</div>
       <div class="list no-hairlines-md">
-
+        Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
       </div>
     </div> -->
     <!-- <div class="block block-strong">
-      <div class="block-title">产生影响与处置(Effective and Dealwith)</div>
+      <div class="block-title block-title-small">产生影响与处置(Effective and Dealwith)</div>
       <div class="list no-hairlines-md">
-
+        Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
       </div>
     </div> -->
     <!-- <div class="block block-strong">
-      <div class="block-title">预防措施(Manager Suggestion)</div>
+      <div class="block-title block-title-medium">预防措施(Manager Suggestion)</div>
       <div class="list no-hairlines-md">
-
+        Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
       </div>
     </div> -->
     <div class="block block-strong">
-      <div class="block-title">属性与特征 / Property And Features)</div>
+      <div class="block-title">属性与特征</div>
       <div class="list no-hairlines-md">
         <ul>
           <li>
@@ -270,8 +271,9 @@
         </ul>
       </div>
     </div>
+
     <div class="block block-strong">
-      <div class="block-title">发生经过与上报 / Procedure And Reporter</div>
+      <div class="block-title">事件发生经过</div>
       <div class="list inline-labels no-hairlines-md">
         <ul>
             <li class="item-content item-input">
@@ -286,7 +288,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">报告人员</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="title" placeholder="Reporter's Name"/>
+                  <input type="text" name="reporter_name" placeholder="Reporter's Name"/>
                 </div>
               </div>
             </li>
@@ -298,12 +300,23 @@
                 </div>
               </div>
             </li>
+            <li>
+              <p><span> </span></p>
+            </li>
+            <li>
+              <a class="button button-fill"  href="/evn-info-summary/">保存，进入下一步</a>
+            </li>
         </ul>
       </div>
     </div>
-    <!-- <div class="block block-strong">
-      <div class="block-title"></div>
+
+    <!-- 
+    <div class="block-title block-title-medium">Block Title Medium</div>
+    <div class="block block-strong">
+      <p>Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
+        tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
     </div> -->
+
   </div>
 
     <!-- Popup 1st-->
