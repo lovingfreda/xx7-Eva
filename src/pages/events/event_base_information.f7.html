@@ -27,7 +27,7 @@
         <ul>
             <li>
               <a class="item-link smart-select smart-select-init" data-open-in="popup" data-searchbar="true"
-                data-searchbar-placeholder="Search car">
+                data-searchbar-placeholder="Search department">
                 <select name="department" multiple>
                   <optgroup label="非手术科室">
                     <option value="8" selected>心血管内科</option>
@@ -54,14 +54,14 @@
                     <option value="33">心电图室</option>
                   </optgroup>
                   <optgroup label="手术科室">
-                    <option value="34" selected>心血管外科</option>
+                    <option value="34">心血管外科</option>
                     <option value="35">胰腺外科</option>
                     <option value="36">泌尿外科</option>
                     <option value="37">血管外科</option>
                     <option value="38">麻醉科/麻醉门诊/疼痛门诊</option>
                     <option value="39">减肥与糖尿病外科</option>
                     <option value="40" selected>胸外科</option>
-                    <option value="41" selected>肝胆外科</option>
+                    <option value="41">肝胆外科</option>
                     <option value="42">神经外科</option>
                     <option value="43">妇科</option>
                     <option value="44">眼科中心</option>
@@ -77,30 +77,38 @@
                     <option value="54">医疗美容科</option>
                   </optgroup>
                   <optgroup label="更多..">
-                    <option value="101" selected>其他，请说明</option>
+                    <option value="101">其他，请说明</option>
                   </optgroup>
                 </select>
                 <div class="item-content">
+                  <div class="item-media">
+                    <i class="icon demo-list-icon"></i>
+                  </div>
                   <div class="item-inner">
-                    <div class="item-title">部门</div>
+                    <div class="item-title item-label">部门</div>
                   </div>
                 </div>
               </a>
             </li>
-            <li class="item-content item-input">
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-media">
+                <i class="icon demo-list-icon"></i>
+              </div>
               <div class="item-inner">
                 <div class="item-title item-label">发生时间</div>
                 <div class="item-input-wrap">
-                  <input type="datetime-local" placeholder="Please choose..." readonly="readonly" id="take-place-date-time" />
+                  <input type="datetime-local" placeholder="Please choose..." id="take-place-date-time" required validate />
+                  <span class="input-clear-button"></span>
+                  <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
               </div>
             </li>
             <li>
               <a class="item-link smart-select smart-select-init" data-open-in="popup" data-searchbar="true"
-                data-searchbar-placeholder="Search car">
+                data-searchbar-placeholder="Search location">
                 <select name="location" multiple>
                   <optgroup label="全部可用地点">
-                    <option value="1" selected>门诊区域</option>
+                    <option value="1">门诊区域</option>
                     <option value="2">急诊区域</option>
                     <option value="3">早诊早筛中心</option>
                     <option value="4">住院病房（含病房、病房走廊、治疗室等病房所涵盖的区域）</option>
@@ -109,105 +117,157 @@
                     <option value="7">重症监护ICU区域</option>
                     <option value="8">内镜中心区域</option>
                     <option value="9">放射诊疗部门</option>
-                    <option value="10" selected>手术区域</option>
+                    <option value="10">手术区域</option>
                     <option value="11">检验检查部门</option>
                     <option value="12">药房</option>
-                    <option value="13" selected>公共区域</option>
+                    <option value="13">公共区域</option>
                     <option value="14">行政楼</option>
                     <option value="15">不详</option>
                     <option value="16">其他，请说明</option>
                   </optgroup>
-                  <!-- <optgroup label="09-放射诊疗部门">
+                  <optgroup label="09-放射诊疗部门">
                     <option value="21" selected>DR</option>
                     <option value="22">CT</option>
                     <option value="23">MR</option>
                     <option value="24" selected>核医学</option>
                     <option value="25">介入</option>
                     <option value="26">其他，请说明</option>
-                  </optgroup> -->
+                  </optgroup>
                   <optgroup label="其中-手术区域">
-                    <option value="27" selected>门诊手术室</option>
+                    <option value="27">门诊手术室</option>
                     <option value="28">住院手术室</option>
                     <option value="29">麻醉恢复室</option>
                   </optgroup>
-                  <!-- <optgroup label="11-检验检查部门">
+                  <optgroup label="11-检验检查部门">
                     <option value="30">病理科</option>
                     <option value="31">检验科</option>
                     <option value="32">超声检查室</option>
                     <option value="33" selected>心电图室</option>
                     <option value="34">其他，请说明</option>
-                  </optgroup> -->
+                  </optgroup>
                   <optgroup label="其中-公共区域">
                     <option value="35">前台大厅</option>
                     <option value="36">楼梯间</option>
-                    <option value="37" selected>电梯</option>
-                    <option value="38" selected>停车场</option>
+                    <option value="37">电梯</option>
+                    <option value="38">停车场</option>
                     <option value="39">收费处</option>
                     <option value="40">就餐区</option>
                     <option value="41">其他，请说明</option>
                   </optgroup>
                 </select>
                 <div class="item-content">
+                  <div class="item-media">
+                    <i class="icon demo-list-icon"></i>
+                  </div>
                   <div class="item-inner">
-                    <div class="item-title">发生地点</div>
+                    <div class="item-title item-label">发生地点</div>
                   </div>
                 </div>
               </a>
             </li>
-            <li class="item-content item-input">
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-media">
+                <i class="icon demo-list-icon"></i>
+              </div>
               <div class="item-inner">
                 <div class="item-title item-label">患者姓名</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="patient_name" placeholder="Your Patient's Name"/>
+                  <input type="text" name="patient_name" placeholder="Your Patient's Name" required validate />
+                  <span class="input-clear-button"></span>
+                  <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
               </div>
             </li>
-            <li class="item-content item-input">
+            <!-- <li class="item-content item-input item-input-with-info">
+              <div class="item-media">
+                <i class="icon demo-list-icon"></i>
+              </div>
+              <div class="item-inner">
+                <div class="item-title item-label">患者性别</div>
+                <div class="item-input-wrap input-dropdown-wrap">
+                  <select placeholder="Please choose...">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-media">
+                <i class="icon demo-list-icon"></i>
+              </div>
+              <div class="item-inner">
+                <div class="item-title item-label">出生日期</div>
+                <div class="item-input-wrap">
+                  <input type="date" value="2014-04-30" placeholder="Please choose..." />
+                </div>
+              </div>
+            </li> -->
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-media"><i class="icon demo-list-icon"></i></div>
               <div class="item-inner">
                 <div class="item-title item-label">患者病历号</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="patient_recordid" placeholder="Your Patient's Medical Record ID"/>
+                  <input type="text" name="patient_recordid" placeholder="Your Patient's Medical Record ID" required validate />
+                  <span class="input-clear-button"></span>
+                  <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
               </div>
             </li>
+            <!-- <li class="item-content item-input item-input-with-info">
+              <div class="item-media"><i class="icon demo-list-icon"></i></div>
+              <div class="item-inner">
+                <div class="item-title item-label">Password</div>
+                <div class="item-input-wrap">
+                  <input type="password" placeholder="Your password" />
+                  <span class="input-clear-button"></span>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-media"><i class="icon demo-list-icon"></i></div>
+              <div class="item-inner">
+                <div class="item-title item-label">E-mail</div>
+                <div class="item-input-wrap">
+                  <input type="email" placeholder="Your e-mail" required validate />
+                  <span class="input-clear-button"></span>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-media"><i class="icon demo-list-icon"></i></div>
+              <div class="item-inner">
+                <div class="item-title item-label">URL</div>
+                <div class="item-input-wrap">
+                  <input type="url" placeholder="URL" required validate />
+                  <span class="input-clear-button"></span>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-media"><i class="icon demo-list-icon"></i></div>
+              <div class="item-inner">
+                <div class="item-title item-label">Phone</div>
+                <div class="item-input-wrap">
+                  <input type="tel" placeholder="Your phone number" required validate />
+                  <span class="input-clear-button"></span>
+                </div>
+              </div>
+            </li> -->
         </ul>
       </div>
     </div>
-    <!-- <div class="block-title">事件类型</div> -->
-    <!-- <div class="block block-strong">
-      <div class="block-title">事件类型(Event Types)</div>
-      <div class="list">
-        Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
-      </div>
-    </div> -->
-    <!-- <div class="block block-strong">
-      <div class="block-title">关联工作人员(Persons Involes)</div>
-      <div class="list no-hairlines-md">
-        Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
-      </div>
-    </div> -->
-    <!-- <div class="block block-strong">
-      <div class="block-title block-title-small">产生影响与处置(Effective and Dealwith)</div>
-      <div class="list no-hairlines-md">
-        Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
-      </div>
-    </div> -->
-    <!-- <div class="block block-strong">
-      <div class="block-title block-title-medium">预防措施(Manager Suggestion)</div>
-      <div class="list no-hairlines-md">
-        Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
-      </div>
-    </div> -->
+
     <div class="block block-strong">
       <div class="block-title">属性与特征</div>
       <div class="list no-hairlines-md">
         <ul>
           <li>
             <a href="#" class="item-link item-content popup-open" data-popup="#my-popup-1st">
-              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-media"><i class="icon demo-list-icon"></i></div>
               <div class="item-inner">
                 <div class="item-title">
-                  <div class="item-header">已设置</div>事件类型 (可多选)<div class="item-footer">药物事件、跌倒事件、手术事件</div>
+                  <div class="item-header"><!-- 已设置 --></div>事件类型<div class="item-footer">例：药物事件、跌倒事件、手术事件</div>
                 </div>
                 <div class="item-after">Setup</div>
               </div>
@@ -215,10 +275,10 @@
           </li>
           <li>
             <a href="#" class="item-link item-content popup-open" data-popup="#my-popup-2nd">
-              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-media"><i class="icon demo-list-icon"></i></div>
               <div class="item-inner">
                 <div class="item-title">
-                  <div class="item-header">未设置</div>关联工作人员 (可多选)<div class="item-footer"></div>
+                  <div class="item-header"><!-- 已设置 --></div>关联工作人员<div class="item-footer"></div>
                 </div>
                 <div class="item-after">Setup</div>
               </div>
@@ -226,10 +286,10 @@
           </li>
           <li>
             <a href="#" class="item-link item-content popup-open" data-popup="#my-popup-3rd">
-              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-media"><i class="icon demo-list-icon"></i></div>
               <div class="item-inner">
                 <div class="item-title">
-                  <div class="item-header">未设置</div>受影响的对象 (可多选)<div class="item-footer"></div>
+                  <div class="item-header"><!-- 已设置 --></div>受影响的对象<div class="item-footer"></div>
                 </div>
                 <div class="item-after">Setup</div>
               </div>
@@ -237,10 +297,10 @@
           </li>
           <li>
             <a href="#" class="item-link item-content popup-open" data-popup="#my-popup-4th">
-              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-media"><i class="icon demo-list-icon"></i></div>
               <div class="item-inner">
                 <div class="item-title">
-                  <div class="item-header">已设置</div>对病人健康的影响程度 (可多选)<div class="item-footer">无伤害、几近过失</div>
+                  <div class="item-header"><!-- 已设置 --></div>对病人健康的影响程度<div class="item-footer">例：无伤害、几近过失</div>
                 </div>
                 <div class="item-after">Setup</div>
               </div>
@@ -251,7 +311,7 @@
               <div class="item-media"><i class="icon icon-f7"></i></div>
               <div class="item-inner">
                 <div class="item-title">
-                  <div class="item-header">已设置</div>发生后的立即处理 (可多选)<div class="item-footer">医疗干预、其他干预</div>
+                  <div class="item-header"><!-- 未设置 --></div>发生后的立即处理<div class="item-footer">例：医疗干预、其他干预</div>
                 </div>
                 <div class="item-after">Setup</div>
               </div>
@@ -259,10 +319,10 @@
           </li>
           <li>
             <a href="#" class="item-link item-content popup-open" data-popup="#my-popup-6th">
-              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-media"><i class="icon demo-list-icon"></i></div>
               <div class="item-inner">
                 <div class="item-title">
-                  <div class="item-header">已设置</div>预防此类事件再发生的措施或方法 (可多选)<div class="item-footer">加强教育培训、改变行政管理、加强沟通方式</div>
+                  <div class="item-header"><!-- 已设置 --></div>预防此类事件再发生的措施或方法<div class="item-footer">例：加强教育培训、改变行政管理、加强沟通方式</div>
                 </div>
                 <div class="item-after">Setup</div>
               </div>
@@ -276,27 +336,36 @@
       <div class="block-title">事件发生经过</div>
       <div class="list inline-labels no-hairlines-md">
         <ul>
-            <li class="item-content item-input">
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-media"><i class="icon demo-list-icon"></i></div>
               <div class="item-inner">
                 <div class="item-title item-label">事件经过</div>
                 <div class="item-input-wrap">
                   <textarea placeholder="Enter Details..."></textarea>
+                  <span class="input-clear-button"></span>
+                  <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
               </div>
             </li>
-            <li class="item-content item-input">
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-media"><i class="icon demo-list-icon"></i></div>
               <div class="item-inner">
                 <div class="item-title item-label">报告人员</div>
                 <div class="item-input-wrap">
                   <input type="text" name="reporter_name" placeholder="Reporter's Name"/>
+                  <span class="input-clear-button"></span>
+                  <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
               </div>
             </li>
-            <li class="item-content item-input">
+            <li class="item-content item-input item-input-with-info">
+              <div class="item-media"><i class="icon demo-list-icon"></i></div>
               <div class="item-inner">
                 <div class="item-title item-label">上报时间</div>
                 <div class="item-input-wrap">
-                  <input type="datetime-local" placeholder="Please choose..." readonly="readonly" id="demo-calendar-date-time" />
+                  <input type="date" value="2014-04-30" placeholder="Please choose..." />
+                  <span class="input-clear-button"></span>
+                  <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
               </div>
             </li>
@@ -571,7 +640,7 @@
                     <li>
                       <div class="item-content item-input">
                         <div class="item-inner">
-                          <div class="item-title item-label">关联人员类别 (可多选)</div>
+                          <div class="item-title item-label">关联人员类别</div>
                           <div class="item-input-wrap">
                             <!-- Treewiew with checkboxes -->
                                 <div class="treeview">
@@ -1159,7 +1228,7 @@
                     <li>
                       <div class="item-content item-input">
                         <div class="item-inner">
-                          <div class="item-title item-label">受影响的对象 (可多选)</div>
+                          <div class="item-title item-label">受影响的对象</div>
                           <div class="item-input-wrap">
                             <!-- Treewiew with checkboxes -->
                                 <div class="treeview">
@@ -1642,7 +1711,7 @@
                     <li>
                       <div class="item-content item-input">
                         <div class="item-inner">
-                          <div class="item-title item-label">对病人健康的影响程度 (可多选)</div>
+                          <div class="item-title item-label">对病人健康的影响程度</div>
                           <div class="item-input-wrap">
                             <!-- Treewiew with checkboxes -->
                                 <div class="treeview">
@@ -1897,7 +1966,7 @@
                     <li>
                       <div class="item-content item-input">
                         <div class="item-inner">
-                          <div class="item-title item-label">发生后的立即处理 (可多选)</div>
+                          <div class="item-title item-label">发生后的立即处理</div>
                           <div class="item-input-wrap">
                             <!-- Treewiew with checkboxes -->
                                 <div class="treeview">
@@ -2212,7 +2281,7 @@
                     <li>
                       <div class="item-content item-input">
                         <div class="item-inner">
-                          <div class="item-title item-label">预防此类事件再发生的措施或方法 (可多选)</div>
+                          <div class="item-title item-label">预防此类事件再发生的措施或方法</div>
                           <div class="item-input-wrap">
                             <!-- Treewiew with checkboxes -->
                                 <div class="treeview">
@@ -2548,6 +2617,12 @@
 <style>
   .demo-list-icon,
   .icon-f7 {
+    background: #ccc;
+    display: block;
+    position: relative;
+  }
+
+  .demo-list-icon-tony {
     background: #ccc;
     display: block;
     position: relative;
