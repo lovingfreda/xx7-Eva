@@ -20,8 +20,9 @@
   </div>
 
   <div class="page-content">
-    <div class="block-title">步骤二. 请填写不良事件的详细信息.</div>
-    <div class="block block-strong">
+    <!-- <div class="block-title">步骤二. 请填写不良事件的详细信息.</div> -->
+    <!-- <p>步骤二. 请填写不良事件的详细信息.</p> -->
+    <!-- <div class="block block-strong"> -->
       <div class="block-title">基本信息</div>
       <div class="list inline-labels no-hairlines-md">
         <ul>
@@ -97,9 +98,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">发生时间</div>
                 <div class="item-input-wrap">
-                  <input type="datetime-local" placeholder="Please choose..." id="take-place-date-time" required validate />
-                  <span class="input-clear-button"></span>
-                  <!-- <div class="item-input-info">Default "required" validation</div> -->
+                  <input type="date" value="2021-09-23" placeholder="Please choose..." />
                 </div>
               </div>
             </li>
@@ -256,9 +255,9 @@
             </li> -->
         </ul>
       </div>
-    </div>
+    <!-- </div> -->
 
-    <div class="block block-strong">
+    <!-- <div class="block block-strong"> -->
       <div class="block-title">属性与特征</div>
       <div class="list no-hairlines-md">
         <ul>
@@ -330,9 +329,9 @@
           </li>
         </ul>
       </div>
-    </div>
+    <!-- </div> -->
 
-    <div class="block block-strong">
+    <!-- <div class="block block-strong"> -->
       <div class="block-title">事件发生经过</div>
       <div class="list inline-labels no-hairlines-md">
         <ul>
@@ -363,7 +362,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">上报时间</div>
                 <div class="item-input-wrap">
-                  <input type="date" value="2014-04-30" placeholder="Please choose..." />
+                  <input type="date" value="2021-10-18" placeholder="Please choose..." />
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -377,7 +376,7 @@
             </li>
         </ul>
       </div>
-    </div>
+    <!-- </div> -->
 
     <!-- 
     <div class="block-title block-title-medium">Block Title Medium</div>
@@ -385,7 +384,6 @@
       <p>Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
         tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
     </div> -->
-
   </div>
 
     <!-- Popup 1st-->
@@ -2622,12 +2620,6 @@
     position: relative;
   }
 
-  .demo-list-icon-tony {
-    background: #ccc;
-    display: block;
-    position: relative;
-  }
-
   .ios .demo-list-icon {
     width: 29px;
     height: 29px;
@@ -2707,6 +2699,10 @@ export default (props, { $f7, $el, $, $on, $update }) => {
         timePicker: true,
         dateFormat: { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' },
       });
+
+      // Open Tree Node
+
+
 
   });
 
