@@ -25,10 +25,10 @@
 
     <!-- Scrollable page content-->
     <div class="page-content">
-      <div class="block-title">Trial Version : 30 days available</div>
+      <div class="block-title">Trial version : Expire in 30 days.</div>
       <div class="card demo-card-header-pic">
         <div style="background-image:url(https://cdn.framework7.io/placeholder/nature-1000x600-3.jpg)"
-          class="card-header align-items-flex-end">Adverse Events Systerm</div>
+          class="card-header align-items-flex-end">Adverse Events Reporting Systerm</div>
         <div class="card-content card-content-padding">
           <p class="date">Published on January 21, 2021</p>
           <p>“医院不良事件上报与分析管理系统”是专门服务于医院不良事件......的系统，它重点专注......，为院内XXX部门提供....的工具与平台，最终实现......！</p>
@@ -289,11 +289,12 @@ export default (props, {$, $f7, $on, $store}) => {
       // Time Clock on ship
       setInterval(function(){
             var today = new Date().getFullYear() +"/"+ (new Date().getMonth() + 1) +"/"+ new Date().getDate();
-            var hours = new Date().getHours() + 0;    // Two hours/2h later than CHINESE ~ +2;
+//          var hours = new Date().getHours() + 2;// Two hours/2h later than CHINESE ~ +2;
+            var hours = new Date().getHours();    // Correctly hours;
             var minutes = new Date().getMinutes();
             var seconds = new Date().getSeconds();
             if(hours<10){
-                hours = '0'+hour;
+                hours = '0'+hours;
             }
             if(minutes<10){
                 minutes = '0'+minutes;
