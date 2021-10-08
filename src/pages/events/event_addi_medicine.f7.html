@@ -2,7 +2,7 @@
 <div class="page" data-name="about">
   <div class="navbar">
     <div class="navbar-bg"></div>
-    <div class="navbar-inner sliding">
+    <div class="navbar-inner">
       <div class="left">
         <a href="#" class="link back">
           <i class="icon icon-back"></i>
@@ -20,7 +20,7 @@
         <ul>
             <li>
               <a class="item-link smart-select smart-select-init" data-open-in="popover">
-                <select name="car" multiple>
+                <select name="car">
                     <option value="1">首次报告</option>
                     <option value="2">跟踪报告</option>
                 </select>
@@ -29,7 +29,7 @@
                     <i class="icon demo-list-icon"></i>
                   </div>
                   <div class="item-inner">
-                    <div class="item-title item-label">首次or跟踪？</div>
+                    <div class="item-title item-label">首次|跟踪</div>
                   </div>
                 </div>
               </a>
@@ -179,7 +179,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">体重</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="weight" placeholder="Patient's Weigth"/>
+                  <input type="text" name="weight" placeholder="Weigth"/>
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -192,7 +192,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">联系方式</div>
                 <div class="item-input-wrap">
-                  <input type="tel" name="contact" placeholder="Patient's Telphone Number" required validate />
+                  <input type="tel" name="contact" placeholder="Telphone Number" required validate />
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -205,7 +205,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">原患疾病</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="orig_illness" placeholder="Patient's Original Illness"/>
+                  <input type="text" name="orig_illness" placeholder="Original Illness"/>
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -218,7 +218,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">医院名称</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="orig_hostipal" placeholder="Patient's Original Hospital Name"/>
+                  <input type="text" name="orig_hostipal" placeholder="Original Hospital Name"/>
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -231,7 +231,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">病历号/门诊号</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="medical_record_id" placeholder="Patient's Medical Record ID"  required validate />
+                  <input type="text" name="medical_record_id" placeholder="Medical Record ID"  required validate />
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -239,7 +239,7 @@
             </li>
             <li>
               <a class="item-link smart-select smart-select-init" data-open-in="popover">
-                <select name="car" multiple>
+                <select name="histy_self_medical" multiple>
                     <option value="1">有 ________</option>
                     <option value="2">无</option>
                     <option value="3">不详</option>
@@ -256,7 +256,7 @@
             </li>
             <li>
               <a class="item-link smart-select smart-select-init" data-open-in="popover">
-                <select name="car" multiple>
+                <select name="histy_family_medical" multiple>
                     <option value="1">有 ________</option>
                     <option value="2">无</option>
                     <option value="3">不详</option>
@@ -273,7 +273,7 @@
             </li>
             <li>
               <a class="item-link smart-select smart-select-init" data-open-in="popover">
-                <select name="car" multiple>
+                <select name="histy_typital_cause" multiple>
                     <option value="1">吸烟史</option>
                     <option value="2">饮酒史</option>
                     <option value="3">妊娠期</option>
@@ -297,7 +297,7 @@
     <!-- </div> -->
 
     <!-- <div class="block block-strong"> -->
-      <div class="block-title">涉及药品 / Property And Features)</div>
+      <div class="block-title">涉及药品 / Property And Features</div>
       <div class="list inline-labels no-hairlines-md">
         <ul>
             <li>
@@ -308,7 +308,7 @@
                 </select>
                 <div class="item-content">
                   <div class="item-inner">
-                    <div class="item-title">怀疑药品|并用药品？</div>
+                    <div class="item-title item-label">怀疑药品|并用药品？</div>
                   </div>
                 </div>
               </a>
@@ -365,7 +365,17 @@
               <div class="item-inner">
                 <div class="item-title item-label">用药起止时间</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="title" placeholder="Start & End Date/Time"/>
+                  <input type="date" value="2021-04-30" placeholder="Start & End Date/Time" />
+                  <span class="input-clear-button"></span>
+                </div>
+              </div>
+            </li>
+            <li class="item-content item-input">
+              <div class="item-inner">
+                <div class="item-title item-label"><!-- 用药起止时间 --></div>
+                <div class="item-input-wrap">
+                  <input type="date" value="2021-05-12" placeholder="End Date/Time" />
+                  <span class="input-clear-button"></span>
                 </div>
               </div>
             </li>
@@ -448,7 +458,7 @@
                     <i class="icon demo-list-icon"></i>
                   </div>
                   <div class="item-inner">
-                    <div class="item-title">不良反应/事件结果</div>
+                    <div class="item-title item-label">不良反应/事件结果</div>
                   </div>
                 </div>
               </a>
@@ -474,7 +484,7 @@
                     <i class="icon demo-list-icon"></i>
                   </div>
                   <div class="item-inner">
-                    <div class="item-title">停药或减量后，反应/事件是否消失或减轻？</div>
+                    <div class="item-title item-label">停药或减量后，反应/事件是否消失或减轻？</div>
                   </div>
                 </div>
               </a>
@@ -492,7 +502,7 @@
                     <i class="icon demo-list-icon"></i>
                   </div>
                   <div class="item-inner">
-                    <div class="item-title">再次使用可疑药品后是否再次出现同样反应/事件？</div>
+                    <div class="item-title item-label">再次使用可疑药品后是否再次出现同样反应/事件？</div>
                   </div>
                 </div>
               </a>
@@ -511,7 +521,7 @@
                     <i class="icon demo-list-icon"></i>
                   </div>
                   <div class="item-inner">
-                    <div class="item-title">对原患疾病的影响</div>
+                    <div class="item-title item-label">对原患疾病的影响</div>
                   </div>
                 </div>
               </a>
@@ -531,7 +541,7 @@
                     <i class="icon demo-list-icon"></i>
                   </div>
                   <div class="item-inner">
-                    <div class="item-title">关联性评价(来自报告人)</div>
+                    <div class="item-title item-label">关联性评价(来自报告人)</div>
                   </div>
                 </div>
               </a>
@@ -564,7 +574,7 @@
                     <i class="icon demo-list-icon"></i>
                   </div>
                   <div class="item-inner">
-                    <div class="item-title">关联性评价(来自报告单位)</div>
+                    <div class="item-title item-label">关联性评价(来自报告单位)</div>
                   </div>
                 </div>
               </a>
@@ -597,7 +607,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">报告人联系电话</div>
                 <div class="item-input-wrap">
-                  <input type="tel" placeholder="Your phone number" required validate />
+                  <input type="tel" name="reporter_name" placeholder="Your phone number" required validate />
                   <span class="input-clear-button"></span>
                 </div>
               </div>
@@ -609,7 +619,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">报告人电子邮箱</div>
                 <div class="item-input-wrap">
-                  <input type="email" placeholder="Your e-mail" required validate />
+                  <input type="email" name="reporter_email" placeholder="Your e-mail" required validate />
                   <span class="input-clear-button"></span>
                 </div>
               </div>
@@ -627,7 +637,7 @@
                     <i class="icon demo-list-icon"></i>
                   </div>
                   <div class="item-inner">
-                    <div class="item-title">报告人职业</div>
+                    <div class="item-title item-label">报告人职业</div>
                   </div>
                 </div>
               </a>
@@ -639,7 +649,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">报告单位名称</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="title" placeholder="Company Contacts Name"/>
+                  <input type="text" name="comp_name" placeholder="Company Name"/>
                   <span class="input-clear-button"></span>
                 </div>
               </div>
@@ -651,7 +661,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">单位联系人姓名</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="title" placeholder="Company Contacts Name"/>
+                  <input type="text" name="comp_cont_name" placeholder="Contacts Name"/>
                   <span class="input-clear-button"></span>
                 </div>
               </div>
@@ -663,7 +673,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">单位联系人电话</div>
                 <div class="item-input-wrap">
-                  <input type="tel" placeholder="Company phone number" required validate />
+                  <input type="tel" name="comp_cont_tel" placeholder="Contacts phone number" required validate />
                   <span class="input-clear-button"></span>
                 </div>
               </div>
@@ -695,7 +705,7 @@
                     <i class="icon demo-list-icon"></i>
                   </div>
                   <div class="item-inner">
-                    <div class="item-title">信息来源(生产企业请填写)</div>
+                    <div class="item-title item-label">信息来源(生产企业请填写)</div>
                     <div class="item-after">Show PlaceHolder</div>
                   </div>
                 </div>
@@ -716,27 +726,86 @@
         </ul>
       </div>
     <!-- </div> -->
+
     <div class="block block-strong">
-      <p>严重药品不良反应，是指因使用药品引起以下损害情形之一的反应：</p>
+      <div class="block-title">附：名词解释 / Dictionary</div>
+      <p><a class="link popover-open" href="#" data-popover=".popover-major">严重药品不良反应</a></p>
+      <!-- <p>严重药品不良反应，是指因使用药品引起以下损害情形之一的反应：</p>
       <p>1) 导致死亡；</p>
       <p>2）危及生命； </p>
       <p>3）致癌、致畸、致出生缺陷；</p>
       <p>4）导致显著的或者永久的人体伤残或者器官功能的损伤；</p>
       <p>5）导致住院或者住院时间延长；</p>
-      <p>6）导致其他重要医学事件，如不进行治疗可能出现上述所列情况的。</p>
-      <p>新的药品不良反应：</p>
-      <p>是指药品说明书中未载明的不良反应。说明书中已有描述，但不良反应发生的性质、程度、后果或者频率与说明书描述不一致或者更严重的，按照新的药品不良反应处理。</p>
-      <p>报告时限</p>
-      <p>新的、严重的药品不良反应应于发现或者获知之日起15日内报告，其中死亡病例须立即报告，其他药品不良反应 30日内报告。有随访信息的，应当及时报告。</p>
-      <p>其他说明</p>
+      <p>6）导致其他重要医学事件，如不进行治疗可能出现上述所列情况的。</p> -->
+      <p><a class="link popover-open" href="#" data-popover=".popover-new">新的药品不良反应</a></p>
+      <!-- <p>新的药品不良反应：</p>
+      <p>是指药品说明书中未载明的不良反应。说明书中已有描述，但不良反应发生的性质、程度、后果或者频率与说明书描述不一致或者更严重的，按照新的药品不良反应处理。</p> -->
+      <p><a class="link popover-open" href="#" data-popover=".popover-limit">报告时限</a></p>
+      <!-- <p>报告时限</p>
+      <p>新的、严重的药品不良反应应于发现或者获知之日起15日内报告，其中死亡病例须立即报告，其他药品不良反应 30日内报告。有随访信息的，应当及时报告。</p> -->
+      <p><a class="link popover-open" href="#" data-popover=".popover-other">其他说明</a></p>
+      <!-- <p>其他说明</p>
       <p>怀疑药品：是指患者使用的怀疑与不良反应发生有关的药品。</p>
       <p>并用药品：指发生此药品不良反应时患者除怀疑药品外的其他用药情况，包括患者自行购买的药品或中草药等。</p>
-      <p>用法用量：包括每次用药剂量、给药途径、每日给药次数，例如，5mg，口服，每日2次。</p>
-      <p>报告的处理</p>
-      <p>所有的报告将会录入数据库，专业人员会分析药品和不良反应/事件之间的关系。根据药品风险的普遍性或者严重程度，决定是否需要采取相关措施，如在药品说明书中加入警示信息，更新药品如何安全使用的信息等。在极少数情况下，当认为药品的风险大于效益时，药品也会撤市。</p>
+      <p>用法用量：包括每次用药剂量、给药途径、每日给药次数，例如，5mg，口服，每日2次。</p> -->
+      <p><a class="link popover-open" href="#" data-popover=".popover-dealwith">报告的处理</a></p>
+      <!-- <p>报告的处理</p>
+      <p>所有的报告将会录入数据库，专业人员会分析药品和不良反应/事件之间的关系。根据药品风险的普遍性或者严重程度，决定是否需要采取相关措施，如在药品说明书中加入警示信息，更新药品如何安全使用的信息等。在极少数情况下，当认为药品的风险大于效益时，药品也会撤市。</p> -->
     </div>
-    <!-- page-content END -->
+
+  <!-- page-content END -->
   </div>
+
+  <!-- Popover content -->
+  <div class="popover popover-major">
+    <div class="popover-inner">
+      <div class="block">
+        <p>严重药品不良反应</p>
+        <p>严重药品不良反应，是指因使用药品引起以下损害情形之一的反应：</p>
+        <p>1) 导致死亡；</p>
+        <p>2）危及生命； </p>
+        <p>3）致癌、致畸、致出生缺陷；</p>
+        <p>4）导致显著的或者永久的人体伤残或者器官功能的损伤；</p>
+        <p>5）导致住院或者住院时间延长；</p>
+        <p>6）导致其他重要医学事件，如不进行治疗可能出现上述所列情况的。</p>
+      </div>
+    </div>
+  </div>
+  <div class="popover popover-new">
+    <div class="popover-inner">
+      <div class="block">
+        <p>新的药品不良反应</p>
+        <p>是指药品说明书中未载明的不良反应。说明书中已有描述，但不良反应发生的性质、程度、后果或者频率与说明书描述不一致或者更严重的，按照新的药品不良反应处理。</p>
+      </div>
+    </div>
+  </div>
+  <div class="popover popover-limit">
+    <div class="popover-inner">
+      <div class="block">
+        <p>报告时限</p>
+        <p>新的、严重的药品不良反应应于发现或者获知之日起15日内报告，其中死亡病例须立即报告，其他药品不良反应 30日内报告。有随访信息的，应当及时报告。</p>
+      </div>
+    </div>
+  </div>
+  <div class="popover popover-other">
+    <div class="popover-inner">
+      <div class="block">
+        <p>其他说明</p>
+        <p>怀疑药品：是指患者使用的怀疑与不良反应发生有关的药品。</p>
+        <p>并用药品：指发生此药品不良反应时患者除怀疑药品外的其他用药情况，包括患者自行购买的药品或中草药等。</p>
+        <p>用法用量：包括每次用药剂量、给药途径、每日给药次数，例如，5mg，口服，每日2次。</p>
+      </div>
+    </div>
+  </div>
+  <div class="popover popover-dealwith">
+    <div class="popover-inner">
+      <div class="block">
+        <p>报告的处理</p>
+        <p>所有的报告将会录入数据库，专业人员会分析药品和不良反应/事件之间的关系。根据药品风险的普遍性或者严重程度，决定是否需要采取相关措施，如在药品说明书中加入警示信息，更新药品如何安全使用的信息等。在极少数情况下，当认为药品的风险大于效益时，药品也会撤市。</p>
+      </div>
+    </div>
+  </div>
+  <!-- Popover content -->
 </div>
 </template>
 <style>
@@ -770,8 +839,7 @@
 export default (props, { $f7, $el, $, $on, $update }) => {
   //-----------------------------------------------------------
   let calendarDateTime;
-  let takeplaceDateTime;
-  let birthdayDateTime;
+
   //Export DOM7 to local variable to make it easy accessible
   var app = $f7;
   var $$ = app.$;
@@ -794,21 +862,13 @@ export default (props, { $f7, $el, $, $on, $update }) => {
   $on('pageInit', () => {
 
       // Date + Time
-      birthdayDateTime = $f7.calendar.create({
-        inputEl: '#birthday-calendar-date-time',
-        timePicker: true,
-        dateFormat: { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' },
-      });
       calendarDateTime = $f7.calendar.create({
         inputEl: '#demo-calendar-date-time',
         timePicker: true,
         dateFormat: { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' },
       });
-      takeplaceDateTime = $f7.calendar.create({
-        inputEl: '#take-place-date-time',
-        timePicker: true,
-        dateFormat: { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' },
-      });
+
+      // Tooltip init
 
   });
 
