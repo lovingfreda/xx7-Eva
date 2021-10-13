@@ -20,6 +20,7 @@
   </div>
 
   <div class="page-content">
+  <form class="form-store-data" id="step-2-form">
     <!-- <div class="block-title">步骤二. 请填写不良事件的详细信息.</div> -->
     <!-- <p>步骤二. 请填写不良事件的详细信息.</p> -->
     <!-- <div class="block block-strong"> -->
@@ -29,7 +30,7 @@
             <li>
               <a class="item-link smart-select smart-select-init" data-open-in="popup" data-searchbar="true"
                 data-searchbar-placeholder="Search department">
-                <select name="department" multiple>
+                <select name="ref_dept_id" multiple>
                   <optgroup label="非手术科室">
                     <option value="8" selected>心血管内科</option>
                     <option value="9">内分泌科</option>
@@ -98,7 +99,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">发生时间</div>
                 <div class="item-input-wrap">
-                  <input type="date" value="2021-09-23" placeholder="Please choose..." />
+                  <input type="date" name="date_start" value="2021-09-23" placeholder="Please choose..." />
                 </div>
               </div>
             </li>
@@ -171,7 +172,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">患者姓名</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="patient_name" placeholder="Your Patient's Name" required validate />
+                  <input type="text" name="ref_ills_name" placeholder="Your Patient's Name" required validate />
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -207,7 +208,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">患者病历号</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="patient_recordid" placeholder="Your Patient's Medical Record ID" required validate />
+                  <input type="text" name="ref_ills_docs" placeholder="Your Patient's Medical Record ID" required validate />
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -340,7 +341,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">事件经过</div>
                 <div class="item-input-wrap">
-                  <textarea placeholder="Enter Details..."></textarea>
+                  <textarea name="event_desc" placeholder="Enter Details..."></textarea>
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -351,7 +352,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">报告人员</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="reporter_name" placeholder="Reporter's Name"/>
+                  <input type="text" name="presenter" placeholder="Reporter's Name"/>
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -362,7 +363,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">上报时间</div>
                 <div class="item-input-wrap">
-                  <input type="date" value="2021-10-18" placeholder="Please choose..." />
+                  <input type="date" name="date_add" value="2021-10-18" placeholder="Please choose..." />
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -372,7 +373,26 @@
               <p><span> </span></p>
             </li>
             <li>
-              <a class="button button-fill"  href="/evn-info-summary/">保存，进入下一步</a>
+              <!-- <a class="button button-fill convert-form-to-data"  href="/evn-info-summary/">保存，进入下一步</a> -->
+              <a class="button button-fill convert-form-to-data"  href="#">保存，进入下一步</a>
+            </li>
+            <li>
+              <p><span> </span></p>
+            </li>
+            <li>
+              <a class="button button-fill fill-form-from-data"  href="#">Fill Form</a>
+            </li>
+            <li>
+              <p><span> </span></p>
+            </li>
+            <li>
+              <a class="button button-fill test-form-from-data"  href="#">Test Form</a>
+            </li>
+            <li>
+              <p><span> </span></p>
+            </li>
+            <li>
+              <a class="button button-fill testlast-form-from-data"  href="#">Test Last Form</a>
             </li>
         </ul>
       </div>
@@ -384,6 +404,7 @@
       <p>Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
         tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
     </div>
+  </form>
   </div>
 
     <!-- Popup 1st-->
@@ -2640,7 +2661,7 @@
   }
 </style>
 <script>
-export default (props, { $f7, $el, $, $on, $update }) => {
+export default (props, { $f7, $store, $el, $, $on, $update }) => {
   //-----------------------------------------------------------
   let calendarDateTime;
   let takeplaceDateTime;
@@ -2702,7 +2723,41 @@ export default (props, { $f7, $el, $, $on, $update }) => {
 
       // Open Tree Node
 
+      // Form Storage
+      $('.convert-form-to-data').on('click', function () {
+        var formData = $f7.form.convertToData('#step-2-form');
+//      alert(JSON.stringify(formData));
 
+        $store.state.mylineadverse['step-2-data'] = formData;
+      });
+
+      $('.fill-form-from-data').on('click', function () {
+        var formData = {
+          'ref_dept_id' : '8,12',
+          'date_start': '2013-12-15',
+          'location': '1,6',
+          'ref_ills_name': 'YangY',
+          'ref_ills_docs': 'Saw Sexty Event',
+          'event_desc': 'Freda.Wei had been fucked by MAN!',
+          'presenter': 'Rainy',
+          'date_add': '2021-10-17',
+        }
+        $f7.form.fillFromData('#step-2-form', formData);
+        // don't forget reset session value
+        $store.state.mylineadverse['step-2-data'] = formData;
+      });
+
+      $('.testlast-form-from-data').on('click', function () {
+        console.log('testing store var LastStep....');
+        console.log(JSON.stringify($store.state.mylineadverse['step-1-data']));
+      });
+
+      $('.test-form-from-data').on('click', function () {
+        console.log('testing store var....');
+        console.log(JSON.stringify($store.state.mylineadverse['step-2-data']));
+      });
+
+      // Others
 
   });
 

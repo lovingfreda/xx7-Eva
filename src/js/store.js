@@ -11,6 +11,7 @@ const store = createStore({
     myarrange: [],
     mysuggest: [],
 
+    mylineadverse: [],
 
     synday: '2021/01/01',
     access: [],
@@ -54,6 +55,9 @@ const store = createStore({
     },
     mysuggest({ state }) {
       return state.mysuggest;
+    },
+    mylineadverse({ state }) {
+      return state.mylineadverse;
     },
 
     synday({ state }) {
@@ -140,6 +144,18 @@ const store = createStore({
               state.loading = false;
               f7.preloader.hide();  // hidden refresh icon...tony add
               state.mysuggest = mysuggest['suggestions'];
+            })
+      }, 3000);
+    },
+    getMyLineAdverse({ state }, { userID, f7 }) {   // to be continue    with BUG
+      state.loading = true;
+      setTimeout(() => {
+          fetch(`https://www.kideduc.com/adverse/services/articles_sugg.php?userID=${userID}`)
+            .then((res) => res.json())
+            .then((mylineadverse) => {
+              state.loading = false;
+              f7.preloader.hide();  // hidden refresh icon...tony add
+              state.mylineadverse = mylineadverse['suggestions'];
             })
       }, 3000);
     },

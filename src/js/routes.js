@@ -27,6 +27,8 @@ import EvnAddiEquipment from '../pages/events/event_addi_equipment.f7.html';
 import EvnAddiAttachment from '../pages/events/event_addi_attachment.f7.html';
 import EvnInfoSummary from '../pages/events/event_info_summary.f7.html';
 
+import AprvlTodoListPage from '../pages/approval/todo-list.f7.html';
+
 var routes = [
   {
     path: '/',
@@ -348,6 +350,10 @@ var routes = [
   {
     path: '/evn-info-summary/',
     component: EvnInfoSummary,
+  },
+  {
+    path: '/aprvl-todo-list/',
+    component: AprvlTodoListPage,
   },
   {
     path: '(.*)',

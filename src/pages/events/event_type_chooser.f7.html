@@ -14,49 +14,50 @@
   </div>
 
   <div class="page-content">
+  <form class="form-store-data" id="step-1-form">
     <div class="block-title">步骤一. 请选择待填写的表单类型</div>
-      <div class="list">
-        <ul>
-          <li>
-            <label class="item-checkbox item-content">
-              <input type="checkbox" name="demo-checkbox-movies" value="Books" checked="checked" />
+    <div class="list">
+      <ul>
+        <li>
+          <label class="item-checkbox item-content">
+              <input type="checkbox" name="doc-catgs" value="Main" checked="checked" />
               <i class="icon icon-checkbox"></i>
               <div class="item-inner">
                 <div class="item-title">不良事件报告表 (必选)</div>
               </div>
-            </label>
-            <ul>
-              <li>
-                <label class="item-checkbox item-content">
-                  <input type="checkbox" name="demo-checkbox-movie" value="Movies" />
-                  <i class="icon icon-checkbox"></i>
-                  <div class="item-inner">
-                    <div class="item-title">涉及药品、药物不良反应 (可选)</div>
-                  </div>
-                </label>
-              </li>
-              <li>
-                <label class="item-checkbox item-content">
-                  <input type="checkbox" name="demo-checkbox-movie" value="Food" />
-                  <i class="icon icon-checkbox"></i>
-                  <div class="item-inner">
-                    <div class="item-title">涉及医疗器械不良事件 (可选)</div>
-                  </div>
-                </label>
-              </li>
-              <li>
-                <label class="item-checkbox item-content">
-                  <input type="checkbox" name="demo-checkbox-movie" value="Drinks" />
-                  <i class="icon icon-checkbox"></i>
-                  <div class="item-inner">
-                    <div class="item-title">附件-医疗器械补充报告表 (可选)</div>
-                  </div>
-                </label>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+          </label>
+          <ul>
+            <li>
+              <label class="item-checkbox item-content">
+                <input type="checkbox" name="doc-catgs" value="Medical" />
+                <i class="icon icon-checkbox"></i>
+                <div class="item-inner">
+                  <div class="item-title">涉及药品、药物不良反应 (可选)</div>
+                </div>
+              </label>
+            </li>
+            <li>
+              <label class="item-checkbox item-content">
+                <input type="checkbox" name="doc-catgs" value="Equipment" />
+                <i class="icon icon-checkbox"></i>
+                <div class="item-inner">
+                  <div class="item-title">涉及医疗器械不良事件 (可选)</div>
+                </div>
+              </label>
+            </li>
+            <li>
+              <label class="item-checkbox item-content">
+                <input type="checkbox" name="doc-catgs" value="Additional" />
+                <i class="icon icon-checkbox"></i>
+                <div class="item-inner">
+                  <div class="item-title">附件-医疗器械补充报告表 (可选)</div>
+                </div>
+              </label>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
     <!-- <div class="block">
         <h1 class="small">This is first title</h1>
         <h2>This is subtitle</h2>
@@ -67,7 +68,7 @@
         <ul>
           <li>
             <label class="item-checkbox item-content">
-              <input type="checkbox" name="demo-media-checkbox" value="Reasons" checked="checked" />
+              <input type="checkbox" name="doc-plugin" value="Reasons" checked="checked" />
               <i class="icon icon-checkbox"></i>
               <div class="item-inner">
                 <div class="item-title-row">
@@ -90,16 +91,30 @@
             <p><span></span></p>
           </li>
           <li>
-            <a class="button button-fill"  href="/evn-base-information/">开始填写</a>
+            <a class="button button-fill convert-form-to-data"  href="/evn-base-information/">开始填写</a>
+            <!-- <a class="button button-fill convert-form-to-data"  href="#">开始填写</a> -->
           </li>
+          <!-- 
+          <li>
+            <p><span></span></p>
+          </li>
+          <li>
+            <a class="button button-fill fill-form-from-data"  href="#">Reset Form</a>
+          </li>
+          <li>
+            <p><span></span></p>
+          </li>
+          <li>
+            <a class="button button-fill test-form-from-data"  href="#">Debug Form</a>
+          </li> -->
         </ul>
     </div>
-
+  </form>
   </div>
 </div>
 </template>
 <script>
-export default (props, { $f7, $update }) => {
+export default (props, { $, $on, $f7, $store, $update }) => {
   //-----------------------------------------------------------
   //Export DOM7 to local variable to make it easy accessible
   var app = $f7;
@@ -120,6 +135,30 @@ export default (props, { $f7, $update }) => {
     console.log('Load was performed');
   });
   */
+  $on('pageInit', () => {
+      $('.convert-form-to-data').on('click', function () {
+        var formData = $f7.form.convertToData('#step-1-form');
+//      alert(JSON.stringify(formData));
+
+        $store.state.mylineadverse['step-1-data'] = formData;
+      });
+
+      $('.fill-form-from-data').on('click', function () {
+        var formData = {
+          'doc-catgs' : '',
+          'doc-plugin': '',
+        }
+        $f7.form.fillFromData('#step-1-form', formData);
+        // don't forget reset session value
+        $store.state.mylineadverse['step-1-data'] = formData;
+      });
+
+      $('.test-form-from-data').on('click', function () {
+        console.log('testing store var....');
+        console.log(JSON.stringify($store.state.mylineadverse['step-1-data']));
+      });
+
+  });
   //-----------------------------------------------------------
   return $render;
 };
