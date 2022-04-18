@@ -14,7 +14,7 @@
             </div>
           </div>
           <div class="page-content">
-            <div class="block-title">医院不良事件管理制度规范</div>
+            <div class="block-title">不良事件报告与处理制度</div>
             <div class="list links-list">
               <ul>
                 <li><a id="Biz_Link_1" @click="${showPhotoBrowser}" href="#">不良事件报告和处理制度</a></li>
@@ -23,11 +23,11 @@
                 <li><a id="Biz_Link_4" @click="${showPhotoBrowser}" href="#">根因分析指导规范</a></li>
               </ul>
             </div>
-            <div class="block-title">救援小知识</div>
+            <div class="block-title">操作小助手</div>
             <div class="list links-list">
               <ul>
-                <li><a href="/left-page-1/">意外医护</a></li>
-                <li><a href="/left-page-2/">救助指南</a></li>
+                <li><a href="/left-page-1/">快速入门</a></li>
+                <li><a href="/left-page-2/">使用指南</a></li>
               </ul>
             </div>
             <div class="block-title">应用程序</div>
@@ -37,7 +37,7 @@
                   <a href="/about/" data-view=".view-main" class="panel-close">About</a>
                 </li>
                 <li>
-                  <a href="#" data-view=".view-main" class="back panel-close">Back in history</a>
+                  <a href="#" data-view=".view-main" class="back panel-close">Back</a>
                 </li>
               </ul>
             </div>
@@ -57,10 +57,9 @@
           </div>
           <div class="page-content">
             <div class="block">不良事件报告表</div>
-            <div class="block">可疑医疗器械不良事件报告表</div>
             <div class="block">药品不良反应、事件报告表</div>
+            <div class="block">可疑医疗器械不良事件报告表</div>
             <div class="block">医疗器械不良事件补充报告表</div>
-            <div class="block">医疗器械不良事件年度汇总表</div>
             <div class="block">根因分析工具表</div>
           </div>
         </div>
@@ -137,7 +136,7 @@
             </div> -->
             <!-- questionnaire form here -->
 <form action="https://www.kideduc.com/adverse/api/EditQuestionnaire.php?user_id=${users.value.length > 0 ? users.value[0].id : -1}&ccsForm=questionnaire" method="POST" class="list form-ajax-submit" id="helen-form">
-            <div class="block-title">1 您对本次航程的服务是否满意？</div>
+            <div class="block-title">1 您对系统的外观设计是否满意？</div>
             <div class="list">
               <ul>
                 <li>
@@ -178,7 +177,7 @@
                 </li>
               </ul>
             </div>
-            <div class="block-title">2 您对游轮上的基础服务设施是否满意?</div>
+            <div class="block-title">2 您对系统的提供的基础功能是否满意?</div>
             <div class="list">
               <ul>
                 <li>
@@ -219,7 +218,7 @@
                 </li>
               </ul>
             </div>
-            <div class="block-title">3 您对游轮上工作人员的服务态度是否满意?</div>
+            <div class="block-title">3 您对系统的安装与下载是否满意?</div>
             <div class="list">
               <ul>
                 <li>
@@ -260,7 +259,7 @@
                 </li>
               </ul>
             </div>
-            <div class="block-title">4 您对船上的餐饮服务质量是否满意?</div>
+            <div class="block-title">4 您对系统的帮助文件详尽程度是否满意?</div>
             <div class="list">
               <ul>
                 <li>
@@ -301,7 +300,7 @@
                 </li>
               </ul>
             </div>
-            <div class="block-title">5 您对游轮上的娱乐活动及设施是否满意？</div>
+            <div class="block-title">5 您对系统的不良事件上报功能是否满意？</div>
             <div class="list">
               <ul>
                 <li>
@@ -342,7 +341,7 @@
                 </li>
               </ul>
             </div>
-            <div class="block-title">6 您对客舱基本生活设施及条件是否满意?</div>
+            <div class="block-title">6 您对系统的根因分析功能是否满意?</div>
             <div class="list">
               <ul>
                 <li>
@@ -383,7 +382,7 @@
                 </li>
               </ul>
             </div>
-            <div class="block-title">7 您对游轮上的音乐与艺术活动质量及场次安排是否满意?</div>
+            <div class="block-title">7 您对系统的行动计划的功能是否满意?</div>
             <div class="list">
               <ul>
                 <li>
@@ -424,7 +423,7 @@
                 </li>
               </ul>
             </div>
-            <div class="block-title">8 您的本次航程的日程活动安排是否满意?</div>
+            <div class="block-title">8 您的系统体验与使用总体说来是否满意?</div>
             <div class="list">
               <ul>
                 <li>
@@ -465,7 +464,7 @@
                 </li>
               </ul>
             </div>
-            <div class="block-title">9 您是否愿意下次仍然携带家人参与我们的海上航行?</div>
+            <div class="block-title">9 您是否愿意下次仍然使用我们的不良事件管理软件?</div>
             <div class="list">
               <ul>
                 <li>
@@ -602,18 +601,17 @@
 
     var myPhotoBrowserPage = $f7.photoBrowser.create({
         photos: [
-          'static/images/floor_4.jpg',      // 4--8
-          'static/images/floor_11.jpg',
-          'static/images/floor_4.jpg',
-          'static/images/floor_11.jpg',
-          'static/images/floor_4.jpg',
-          'static/images/floor_11.jpg',     // 10--16
-          'static/images/floor_4.jpg',
-          'static/images/floor_11.jpg',
+          'static/images/docs/file_1.jpg',      // 1--4
+          'static/images/docs/file_2.jpg',
+          'static/images/docs/file_3.jpg',
+          'static/images/docs/file_4.jpg',
+/*        'static/images/floor_11.jpg',     // 10--16
           'static/images/floor_4.jpg',
           'static/images/floor_11.jpg',
           'static/images/floor_4.jpg',
           'static/images/floor_11.jpg',
+          'static/images/floor_4.jpg',
+          'static/images/floor_11.jpg', */
           ],
         type: 'popup',
         pageBackLinkText: 'Back'
