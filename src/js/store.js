@@ -82,7 +82,7 @@ const store = createStore({
     getUsersBy({ state }, { login , password }) {
       state.loading = true;
       setTimeout(() => {
-          fetch(`https://www.kideduc.com/adverse/services/auth.php?login=${login}&password=${password}`)
+          fetch(`https://adverse.kideduc.com/services/auth.php?login=${login}&password=${password}`)
             .then((res) => res.json())
             .then((users) => {
               state.loading = false;
@@ -93,7 +93,7 @@ const store = createStore({
     getEvents({ state }, { catgID }) {
       state.loading = true;
       setTimeout(() => {
-          fetch(`https://www.kideduc.com/adverse/services/events.php?catgID=${catgID}`)
+          fetch(`https://adverse.kideduc.com/services/events.php?catgID=${catgID}`)
             .then((res) => res.json())
             .then((events) => {
               state.loading = false;
@@ -104,7 +104,7 @@ const store = createStore({
     getCalendar({ state }, { catgID }) { // Clone from above function
       state.loading = true;
       setTimeout(() => {
-          fetch(`https://www.kideduc.com/adverse/services/calendar.php?catgID=${catgID}`)
+          fetch(`https://adverse.kideduc.com/services/calendar.php?catgID=${catgID}`)
             .then((res) => res.json())
             .then((calendar) => {
               state.loading = false;
@@ -115,7 +115,7 @@ const store = createStore({
     getArtiDaily({ state }, { userID }) {
       state.loading = true;
       setTimeout(() => {
-          fetch(`https://www.kideduc.com/adverse/services/articles_daily.php?userID=${userID}`)
+          fetch(`https://adverse.kideduc.com/services/articles_daily.php?userID=${userID}`)
             .then((res) => res.json())
             .then((artidaily) => {
               state.loading = false;
@@ -126,7 +126,7 @@ const store = createStore({
     getMyArrange({ state }, { userID, f7 }) {
       state.loading = true;
       setTimeout(() => {
-          fetch(`https://www.kideduc.com/adverse/services/articles_arrg.php?userID=${userID}`)
+          fetch(`https://adverse.kideduc.com/services/articles_arrg.php?userID=${userID}`)
             .then((res) => res.json())
             .then((myarrange) => {
               state.loading = false;
@@ -138,7 +138,7 @@ const store = createStore({
     getMySuggest({ state }, { userID, f7 }) {
       state.loading = true;
       setTimeout(() => {
-          fetch(`https://www.kideduc.com/adverse/services/articles_sugg.php?userID=${userID}`)
+          fetch(`https://adverse.kideduc.com/services/articles_sugg.php?userID=${userID}`)
             .then((res) => res.json())
             .then((mysuggest) => {
               state.loading = false;
@@ -150,7 +150,7 @@ const store = createStore({
     getMyLineAdverse({ state }, { userID, f7 }) {   // to be continue    with BUG
       state.loading = true;
       setTimeout(() => {
-          fetch(`https://www.kideduc.com/adverse/services/articles_sugg.php?userID=${userID}`)
+          fetch(`https://adverse.kideduc.com/services/articles_sugg.php?userID=${userID}`)
             .then((res) => res.json())
             .then((mylineadverse) => {
               state.loading = false;
@@ -188,7 +188,7 @@ const store = createStore({
     resetMyArrange({ state }, { userID }) { // Dom should refresh, otherwise deleted-itme will be always exist ! 
       state.loading = true;
       setTimeout(() => {
-          fetch(`https://www.kideduc.com/adverse/services/articles_arrg.php?userID=${userID}`)
+          fetch(`https://adverse.kideduc.com/services/articles_arrg.php?userID=${userID}`)
             .then((res) => res.json())
             .then((myarrange) => {
               state.loading = false;

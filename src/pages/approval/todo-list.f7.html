@@ -232,7 +232,7 @@
           <p>1> 双击某一天的活动框<i style="font-size: 20px" class="icon f7-icons icon-tooltip if-not-md">info_circle_fill</i>
           <i style="font-size: 20px" class="icon material-icons icon-tooltip if-md">info</i>，将弹出快捷操作工具图标.</p>
           <p class="row">
-  <form action="https://www.kideduc.com/adverse/api/EditSuggestion.php?user_id=${users.value.length > 0 ? users.value[0].id : -1}&ccsForm=suggestion%3AEdit" method="POST" class="list form-ajax-submit" id="kitty-form">
+  <form action="https://adverse.kideduc.com/api/EditSuggestion.php?user_id=${users.value.length > 0 ? users.value[0].id : -1}&ccsForm=suggestion%3AEdit" method="POST" class="list form-ajax-submit" id="kitty-form">
             <div class="col"><button class="col button button-fill fill-form-from-data" type="submit">标记已读</button></div>
             <div class="col"></div>
             <div class="col"><!-- <a class="button button-fill fill-form-from-data"  href="#">debug..</a> --></div>
@@ -451,7 +451,7 @@
       let paraUserID    = (1==users.value.length ? users.value[0].id:'-1');
       let paraUserLogin = (1==users.value.length ? users.value[0].login:'WEI');
 
-      app.request.post('https://www.kideduc.com/adverse/api/EditArticleArrange.php?ccsForm=articles_daily_arrange', { event_id: evtID, user_id_add: paraUserID, user_login: paraUserLogin })
+      app.request.post('https://adverse.kideduc.com/api/EditArticleArrange.php?ccsForm=articles_daily_arrange', { event_id: evtID, user_id_add: paraUserID, user_login: paraUserLogin })
           .then(function (res) {
 //          $$('.login').html(res.data);                        // init examples code, let it be here. WAIST & NOT CHANGED
             console.log('Ajax Saving was performed');
@@ -484,7 +484,7 @@
       let paraUserID    = (1==users.value.length ? users.value[0].id:'-1');
       let paraUserLogin = (1==users.value.length ? users.value[0].login:'WEI');
 
-      app.request.post('https://www.kideduc.com/adverse/api/EditArticleArrange.php?arrange_id='+argID+'&ccsForm=articles_daily_arrange%3AEdit', { user_id_add: paraUserID, Button_Delete: 'Delete' })
+      app.request.post('https://adverse.kideduc.com/api/EditArticleArrange.php?arrange_id='+argID+'&ccsForm=articles_daily_arrange%3AEdit', { user_id_add: paraUserID, Button_Delete: 'Delete' })
           .then(function (res) {
 //          $$('.login').html(res.data);                        // init examples code, let it be here. WAIST & NOT CHANGED
             console.log('Ajax Removing was performed');

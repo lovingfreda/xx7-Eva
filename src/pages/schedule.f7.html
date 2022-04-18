@@ -210,7 +210,7 @@
         <!-- ============================================== -->
       </div>
       <div class="page-content tab" id="tab-3">
-<form action="https://www.kideduc.com/adverse/api/EditSuggestion.php?user_id=${users.value.length > 0 ? users.value[0].id : -1}&ccsForm=suggestion%3AEdit" method="POST" class="list form-ajax-submit" id="kitty-form">
+<form action="https://adverse.kideduc.com/api/EditSuggestion.php?user_id=${users.value.length > 0 ? users.value[0].id : -1}&ccsForm=suggestion%3AEdit" method="POST" class="list form-ajax-submit" id="kitty-form">
         <div class="block">
           <p><b>Tab 3 content</b></p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque quos asperiores ut, odio numquam ab, qui,
@@ -466,7 +466,7 @@
       let paraUserID    = (1==users.value.length ? users.value[0].id:'-1');
       let paraUserLogin = (1==users.value.length ? users.value[0].login:'WEI');
 
-      app.request.post('https://www.kideduc.com/adverse/api/EditArticleArrange.php?ccsForm=articles_daily_arrange', { event_id: evtID, user_id_add: paraUserID, user_login: paraUserLogin })
+      app.request.post('https://adverse.kideduc.com/api/EditArticleArrange.php?ccsForm=articles_daily_arrange', { event_id: evtID, user_id_add: paraUserID, user_login: paraUserLogin })
           .then(function (res) {
 //          $$('.login').html(res.data);                        // init examples code, let it be here. WAIST & NOT CHANGED
             console.log('Ajax Saving was performed');
@@ -499,7 +499,7 @@
       let paraUserID    = (1==users.value.length ? users.value[0].id:'-1');
       let paraUserLogin = (1==users.value.length ? users.value[0].login:'WEI');
 
-      app.request.post('https://www.kideduc.com/adverse/api/EditArticleArrange.php?arrange_id='+argID+'&ccsForm=articles_daily_arrange%3AEdit', { user_id_add: paraUserID, Button_Delete: 'Delete' })
+      app.request.post('https://adverse.kideduc.com/api/EditArticleArrange.php?arrange_id='+argID+'&ccsForm=articles_daily_arrange%3AEdit', { user_id_add: paraUserID, Button_Delete: 'Delete' })
           .then(function (res) {
 //          $$('.login').html(res.data);                        // init examples code, let it be here. WAIST & NOT CHANGED
             console.log('Ajax Removing was performed');
