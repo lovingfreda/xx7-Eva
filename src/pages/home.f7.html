@@ -309,12 +309,12 @@ export default (props, {$, $f7, $on, $store}) => {
                 var users = JSON.parse(res.data)['users'];
                 if ( (statu == 0) || (users.length < 1) )  { 
                     // sometimes we got users[0], sometimes got users[NULL], so check and verify
-                    $f7.loginScreen.open('.login-screen', true);        // need Login
+                    $f7.loginScreen.open('.login-screen', true);        // if ACL Failure, we need Login
                     return;
                 }  
 
                 vUser.firstName = users[0]["first_name"];
-                vUser.lastName  = users[0]["title"];
+                vUser.lastName  = users[0]["last_name"];
                 vUser.login     = users[0]["login"];
                 vUser.address   = users[0]["address"];
                 console.log('Girl 001 = |' + vUser.login + '|');
@@ -323,18 +323,16 @@ export default (props, {$, $f7, $on, $store}) => {
                 
                 if (statu == 1)
                 { /*
-                  $f7.dialog.alert('恭喜您登录成功 !', () => {
+                  $f7.dialog.alert('恭喜您登录成功 !', () => { */
                     // Saving data into Store-Storage  -------------------------
                     $store.state.users = users;
 
                     // Close Login Screen  -------------------------------------
-                    $f7.loginScreen.close();
+       //           $f7.loginScreen.close();
                     // ---------------------------------------------------------
-                  });*/
-                  $store.state.users = users;
-//                $f7.loginScreen.close();
+                  /*});*/
                 }else {
-                  console.log('->Unknow Error at line 332 !!'); 
+                  console.log('->Unknow Error at line 335 !!'); 
                 }
             });
 
