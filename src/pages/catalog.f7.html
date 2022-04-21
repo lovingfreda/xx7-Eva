@@ -3,20 +3,20 @@
     <div class="navbar">
       <div class="navbar-bg"></div>
       <div class="navbar-inner sliding">
-        <div class="title">Reported</div>
+        <div class="title">事件上报</div>
       </div>
     </div>
     <div class="page-content">
       <div class="list links-list">
         <ul>
           ${products.value.map((product) => $h`
-            <li><a href="/product/${product.id}/">${product.title}</a></li>
+            <li><a href="/product/${product.id}/">${product.date_add} - ${product.title}</a></li>
           `)}
         </ul>
       </div>
       ${products.value.length === 3 && $h`
         <div class="block">
-          <button class="button button-fill" @click=${addProduct}>更多历史...</Button>
+          <button class="button button-fill" @click=${addProduct}>我的历史...</Button>
         </div>
       `}
         <div class="block">
@@ -74,12 +74,14 @@
     // -------------------------------------    App Events  -----------------------------------------
     const products = $store.getters.products;
 
-    const addProduct = () => {
+    const addProduct = () => {/*
       $store.dispatch('addProduct', {
         id: '4',
         title: '不良事件上报历史-记录4',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis.'
-      });
+      });*/
+      console.log("okay! let loading our history of event-reported!!! ");
+      $store.dispatch('getProductsBy',{ userID: (1==users.value.length ? users.value[0].id:'-1')});
     }
     const creatEvent = () => {
       ;

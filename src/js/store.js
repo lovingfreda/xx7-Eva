@@ -19,17 +19,20 @@ const store = createStore({
     products: [
       {
         id: '1',
-        title: '不良事件上报历史-记录1',
+        title: '上报历史-示例1',
+        date_add: '04/04/2022',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis.'
       },
       {
         id: '2',
-        title: '不良事件上报历史-记录2',
+        title: '上报历史-示例2',
+        date_add: '03/12/2022',
         description: 'Velit odit autem modi saepe ratione totam minus, aperiam, labore quia provident temporibus quasi est ut aliquid blanditiis beatae suscipit odio vel! Nostrum porro sunt sint eveniet maiores, dolorem itaque!'
       },
       {
         id: '3',
-        title: '不良事件上报历史-记录3',
+        title: '上报历史-示例3',
+        date_add: '02/11/2022',
         description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.'
       },
     ]
@@ -98,6 +101,17 @@ const store = createStore({
             .then((events) => {
               state.loading = false;
               state.events = events['events'];
+            })
+      }, 3000);
+    },
+    getProductsBy({ state }, { userID }) {
+      state.loading = true;
+      setTimeout(() => {
+          fetch(`https://adverse.kideduc.com/services/events.php?userID=${userID}`)
+            .then((res) => res.json())
+            .then((events) => {
+              state.loading = false;
+              state.products = events['events'];
             })
       }, 3000);
     },
@@ -170,17 +184,20 @@ const store = createStore({
       state.products = [
                           {
                             id: '1',
-                            title: '不良事件上报历史-记录1',
+                            title: '上报历史-示例A',
+                            date_add: '04/04/2022',
                             description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis.'
                           },
                           {
                             id: '2',
-                            title: '不良事件上报历史-记录2',
+                            title: '上报历史-示例B',
+                            date_add: '03/12/2022',
                             description: 'Velit odit autem modi saepe ratione totam minus, aperiam, labore quia provident temporibus quasi est ut aliquid blanditiis beatae suscipit odio vel! Nostrum porro sunt sint eveniet maiores, dolorem itaque!'
                           },
                           {
                             id: '3',
-                            title: '不良事件上报历史-记录3',
+                            title: '上报历史-示例C',
+                            date_add: '02/11/2022',
                             description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.'
                           },
                         ];
