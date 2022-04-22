@@ -109,7 +109,8 @@
               <div class="item-inner">
                 <div class="item-title item-label">发生时间</div>
                 <div class="item-input-wrap">
-                  <input type="datetime-local" name="date_start" value="2022-04-13 21:12 PM" placeholder="Please choose..." />
+                  <input type="datetime-local" name="date_start" value="04/13/2022, 21:12 PM" placeholder="Please choose..." />
+                  <span class="input-clear-button"></span>
                 </div>
               </div>
             </li>
@@ -288,9 +289,9 @@
               <div class="item-media"><i class="icon demo-list-icon"></i></div>
               <div class="item-inner">
                 <div class="item-title">
-                  <div class="item-header"><!-- 已设置 --></div>关联工作人员<div class="item-footer"></div>
+                  <div class="item-header"><!-- 已设置 --></div>关联工作人员<div class="item-footer">例：张三 全职 医师</div>
                 </div>
-                <div class="item-after">Setup<input type="hidden" name="ref_invo_emp_catgs"/></div>
+                <div class="item-after">Setup<input type="hidden" name="ref_invo_emp_names"/><input type="hidden" name="ref_invo_emp_catgs"/></div>
               </div>
             </a>
           </li>
@@ -304,6 +305,16 @@
       <div class="list inline-labels no-hairlines-md">
         <ul>
             <li class="item-content item-input item-input-with-info">
+              <div class="item-media"><i class="icon demo-list-icon"></i></div>
+              <div class="item-inner">
+                <div class="item-title item-label">事件标题</div>
+                <div class="item-input-wrap">
+                  <input type="text" name="event_name" placeholder="Event Title"/>
+                  <span class="input-clear-button"></span>
+                  <!-- <div class="item-input-info">Default "required" validation</div> -->
+                </div>
+              </div>
+            </li><li class="item-content item-input item-input-with-info">
               <div class="item-media"><i class="icon demo-list-icon"></i></div>
               <div class="item-inner">
                 <div class="item-title item-label">事件描述</div>
@@ -330,7 +341,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">上报时间</div>
                 <div class="item-input-wrap">
-                  <input type="datetime-local" name="date_add" value="2021-10-18 09:12 PM" placeholder="Please choose..." />
+                  <input type="datetime-local" name="date_add" value="10/18/2021, 09:12 PM" placeholder="Please choose..." />
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -340,8 +351,8 @@
               <p><span> </span></p>
             </li>
             <li>
-              <!-- <a class="button button-fill convert-form-to-data"  href="/evn-info-summary/">保存，进入下一步</a> -->
-              <a class="button button-fill convert-form-to-data"  href="#">保存，进入下一步</a>
+              <a class="button button-fill convert-form-to-data"  href="/evn-info-summary/">继续，进入下一步</a>
+              <!-- <a class="button button-fill convert-form-to-data"  href="#">保存，进入下一步</a> -->
             </li>
             <li>
               <p><span> </span></p>
@@ -353,26 +364,23 @@
               <p><span> </span></p>
             </li>
             <li>
-              <a class="button button-fill test-form-from-data"  href="#">Test Store Session</a>
+              <a class="button button-fill test-form-from-data"  href="#">Test Form Store - this step</a>
             </li>
             <li>
               <p><span> </span></p>
             </li>
             <li>
-              <a class="button button-fill testlast-form-from-data"  href="#">Test Last Form</a>
+              <a class="button button-fill testlast-form-from-data"  href="#">Test Form Store - last step</a>
             </li>
         </ul>
       </div>
     <!-- </div> -->
     <div class="block block-strong">
       <p class="row">
-        <button class="col button button-fill color-red" type="submit">Test Store Session</button>
-      </p>
-      <p class="row">
-        <button class="col button button-fill color-red" type="submit">Test Last Form</button>
-      </p>
-      <p class="row">
-        <button class="col button button-fill color-red" type="submit">Save Data</button>
+        <button class="col-50 button button-fill color-gray" type="reset">Reset</button>
+      <!-- </p>
+      <p class="row"> -->
+        <button class="col-50 button button-fill color-red" type="submit">Save Data</button>
       </p>
       <p class="row"></p>
     </div>
@@ -394,7 +402,7 @@
             <div class="navbar-inner">
               <div class="title">选择事件类型</div>
               <div class="right">
-                <a @click="${setPopup1stHistory}" href="#" class="link popup-close">Close</a>
+                <a @click="${setPopup1stHistory}" href="#" class="link popup-close">Save & Close</a>
               </div>
             </div>
           </div>
@@ -638,7 +646,7 @@
             <div class="navbar-inner">
               <div class="title">选择关联工作人员</div>
               <div class="right">
-                <a href="#" class="link popup-close">Close</a>
+                <a @click="${setPopup2ndHistory}" href="#" class="link popup-close">Save & Close</a>
               </div>
             </div>
           </div>
@@ -653,7 +661,8 @@
                         <div class="item-inner">
                           <div class="item-title item-label">关联人员姓名</div>
                           <div class="item-input-wrap">
-                            <input type="text" name="first_name" placeholder="请在此处填写事件发生过程中有关联的工作人员姓名"/>
+                            <input type="text" name="tree-empnames-input" placeholder="请在此处填写事件发生过程中有关联的工作人员姓名" required validate/>
+                            <span class="input-clear-button"></span>
                           </div>
                         </div>
                       </div>
@@ -669,10 +678,10 @@
                                     <div class="treeview-item-root">
                                       <div class="treeview-toggle"></div>
                                       <div class="treeview-item-content">
-                                        <label class="checkbox">
+                                        <!-- <label class="checkbox">
                                           <input type="checkbox" />
                                           <i class="icon-checkbox"></i>
-                                        </label>
+                                        </label> -->
                                         <i class="icon f7-icons">folder_fill</i>
                                         <div class="treeview-item-label"><small>聘任类别</small></div>
                                       </div>
@@ -682,7 +691,7 @@
                                         <div class="treeview-item-root">
                                           <div class="treeview-item-content">
                                             <label class="checkbox">
-                                              <input type="checkbox" />
+                                              <input type="checkbox" name="tree-empcatgs-checkbox" value="11" />
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
@@ -694,7 +703,7 @@
                                         <div class="treeview-item-root">
                                           <div class="treeview-item-content">
                                             <label class="checkbox">
-                                              <input type="checkbox" />
+                                              <input type="checkbox" name="tree-empcatgs-checkbox" value="12" />
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
@@ -708,10 +717,10 @@
                                     <div class="treeview-item-root">
                                       <div class="treeview-toggle"></div>
                                       <div class="treeview-item-content">
-                                        <label class="checkbox">
+                                        <!-- <label class="checkbox">
                                           <input type="checkbox" />
                                           <i class="icon-checkbox"></i>
-                                        </label>
+                                        </label> -->
                                         <i class="icon f7-icons">folder_fill</i>
                                         <div class="treeview-item-label"><small>职业类别</small></div>
                                       </div>
@@ -721,10 +730,10 @@
                                         <div class="treeview-item-root">
                                           <div class="treeview-toggle"></div>
                                           <div class="treeview-item-content">
-                                            <label class="checkbox">
+                                            <!-- <label class="checkbox">
                                               <input type="checkbox" />
                                               <i class="icon-checkbox"></i>
-                                            </label>
+                                            </label> -->
                                             <i class="icon f7-icons">logo_github</i>
                                             <div class="treeview-item-label"><small>医生</small></div>
                                           </div>
@@ -734,7 +743,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="13" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -746,7 +755,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="14" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -758,7 +767,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="15" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -770,7 +779,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="16" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -782,7 +791,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="17" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -794,7 +803,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="18" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -806,7 +815,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="19" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -818,7 +827,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="20" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -830,7 +839,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="21" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -842,7 +851,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="22" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -854,7 +863,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="23" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -866,7 +875,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="24" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -878,7 +887,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="25" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -890,7 +899,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="26" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -902,7 +911,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="27" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -916,10 +925,10 @@
                                         <div class="treeview-item-root">
                                           <div class="treeview-toggle"></div>
                                           <div class="treeview-item-content">
-                                            <label class="checkbox">
+                                            <!-- <label class="checkbox">
                                               <input type="checkbox" />
                                               <i class="icon-checkbox"></i>
-                                            </label>
+                                            </label> -->
                                             <i class="icon f7-icons">logo_github</i>
                                             <div class="treeview-item-label"><small>医技科室</small></div>
                                           </div>
@@ -929,7 +938,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="28" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -941,7 +950,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="29" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -953,7 +962,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="30" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -965,7 +974,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="31" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -977,7 +986,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="32" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -989,7 +998,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="33" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -1003,10 +1012,10 @@
                                         <div class="treeview-item-root">
                                         <div class="treeview-toggle"></div>
                                           <div class="treeview-item-content">
-                                            <label class="checkbox">
+                                            <!-- <label class="checkbox">
                                               <input type="checkbox" />
                                               <i class="icon-checkbox"></i>
-                                            </label>
+                                            </label> -->
                                             <i class="icon f7-icons">logo_github</i>
                                             <div class="treeview-item-label"><small>护理人员</small></div>
                                           </div>
@@ -1016,7 +1025,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="34" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -1028,7 +1037,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="35" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -1040,7 +1049,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="36" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -1052,7 +1061,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="37" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -1064,7 +1073,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="38" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -1078,7 +1087,7 @@
                                         <div class="treeview-item-root">
                                           <div class="treeview-item-content">
                                             <label class="checkbox">
-                                              <input type="checkbox" />
+                                              <input type="checkbox" name="tree-empcatgs-checkbox" value="6" />
                                               <i class="icon-checkbox"></i>
                                             </label>
                                             <i class="icon f7-icons">doc_text_fill</i>
@@ -1090,10 +1099,10 @@
                                         <div class="treeview-item-root">
                                         <div class="treeview-toggle"></div>
                                           <div class="treeview-item-content">
-                                            <label class="checkbox">
+                                            <!-- <label class="checkbox">
                                               <input type="checkbox" />
                                               <i class="icon-checkbox"></i>
-                                            </label>
+                                            </label> -->
                                             <i class="icon f7-icons">logo_github</i>
                                             <div class="treeview-item-label"><small>行政后勤人员</small></div>
                                           </div>
@@ -1103,7 +1112,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="39" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -1115,7 +1124,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="40" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -1127,7 +1136,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="41" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -1139,7 +1148,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="42" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -1151,7 +1160,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="43" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -1163,7 +1172,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="44" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -1175,7 +1184,7 @@
                                             <div class="treeview-item-root">
                                               <div class="treeview-item-content">
                                                 <label class="checkbox">
-                                                  <input type="checkbox" />
+                                                  <input type="checkbox" name="tree-empcatgs-checkbox" value="45" />
                                                   <i class="icon-checkbox"></i>
                                                 </label>
                                                 <i class="icon f7-icons">doc_text_fill</i>
@@ -1191,7 +1200,7 @@
                                     <div class="treeview-item-root">
                                       <div class="treeview-item-content">
                                         <label class="checkbox">
-                                          <input type="checkbox" />
+                                          <input type="checkbox" name="tree-empcatgs-checkbox" value="8" />
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">doc_text_fill</i>
@@ -1203,7 +1212,7 @@
                                     <div class="treeview-item-root">
                                       <div class="treeview-item-content">
                                         <label class="checkbox">
-                                          <input type="checkbox" />
+                                          <input type="checkbox" name="tree-empcatgs-checkbox" value="9" />
                                           <i class="icon-checkbox"></i>
                                         </label>
                                         <i class="icon f7-icons">doc_text_fill</i>
@@ -1337,36 +1346,40 @@ export default (props, { $f7, $store, $el, $, $on, $update }) => {
       // Form Storage
       $('.convert-form-to-data').on('click', function () {
         var formData = $f7.form.convertToData('#step-2-form');
-//      alert(JSON.stringify(formData));
+        console.log(JSON.stringify(formData));
 
         $store.state.mylineadverse['step-2-data'] = formData;
       });
 
       $('.fill-form-from-data').on('click', function () {       // fill example data
-        console.log('demo data, saved both in form and store !');
+        console.log('demo data, saved both in form and store!');
         var formData = {
           'ref_dept_id' : '11',
-          'date_start': '2021-12-15 12:34 AM',
+          'date_start': '2022-01-15T12:34',
           'location': '1,6',
           'ref_ills_name': 'YangY',
-          'ref_ills_docs': 'Saw Sexty Lady',
-          'event_desc': 'YangYang had been fucked by MAN!',
+          'ref_ills_docs': 'Saw her at BeiJing',
+          'ref_evnt_catgs': '3,8',
+          'ref_invo_emp_names': '张无忌 赵敏 小昭',
+          'ref_invo_emp_catgs': '11,14,18',
+          'event_name': 'Fucking Girls',
+          'event_desc': 'When I saw YangY at the first time, I fall in love!',
           'presenter': 'Rainy',
-          'date_add': '2022-04-17 09:12 PM',
+          'date_add': '2022-04-12T09:18',
         }
         $f7.form.fillFromData('#step-2-form', formData);
         // don't forget reset store's session value
         $store.state.mylineadverse['step-2-data'] = formData;
       });
 
-      $('.testlast-form-from-data').on('click', function () {   // test last step's form value
-        console.log('testing Last-Step using store vars....');
-        console.log(JSON.stringify($store.state.mylineadverse['step-1-data']));
-      });
-
       $('.test-form-from-data').on('click', function () {       // test this form value
         console.log('testing store vars....');
         console.log(JSON.stringify($store.state.mylineadverse['step-2-data']));
+      });
+
+      $('.testlast-form-from-data').on('click', function () {   // test last step's form value
+        console.log('testing Last-Step using store vars....');
+        console.log(JSON.stringify($store.state.mylineadverse['step-1-data']));
       });
 
       // Others
@@ -1376,23 +1389,43 @@ export default (props, { $f7, $store, $el, $, $on, $update }) => {
   //Set Gobal Access History Flag
   const setPopup1stHistory = (e) => {
     console.log("closing..debug info");
-//        var str = new String(e.target.id);      // Biz_Link_4|Biz_Link_5|Biz_Link_6.....
-//        console.log("push...e.target.id = " + str);    // Debug..
-//        console.log("push...data:name = " + $('p#KKK-'+str).data('name'));    
-//        console.log("push...data:desc = " + $('p#KKK-'+str).data('desc'));    
-//        var tmpName = $('p#KKK-'+str).data('name');
-//        var tmpDesc = $('p#KKK-'+str).data('desc');
-//        var tmpNow  = $f7.utils.now();
-/*
-      $store.dispatch('addProduct', {
-        id: ''+str,  // MUST be string, so we using '' to + it
-        title: tmpName,
-        description: tmpDesc
-//      description: tmpNow + '|' + tmpDesc
-      });
-*/
-  }
 
+    // Get string like 1,3,6....etc.
+    var outstr = '';
+    var elmIn  = 'demo-checkbox';
+    var elmOut = 'ref_evnt_catgs';
+    $$("input[name='"+elmIn+"']:checked").each(function() {
+        if (! outstr == '') outstr += ',';
+        outstr += $(this).val();
+    });
+
+    // save 1,3,6..etc to parent input control
+    $$("input[name='"+elmOut+"']").val(outstr);
+
+  }
+  const setPopup2ndHistory = (e) => {
+    console.log("closing..debug info");
+
+    // Get string like 1,3,6....etc.
+    var outstr = '';
+    var elmIn1  = 'tree-empnames-input';
+    var elmIn2  = 'tree-empcatgs-checkbox';
+    var elmOut1 = 'ref_invo_emp_names';
+    var elmOut2 = 'ref_invo_emp_catgs';
+
+    // Elm-1 assign
+    $$("input[name='"+elmOut1+"']").val( $$("input[name='"+elmIn1+"']").val() );
+
+    // Elm-2 assign
+    $$("input[name='"+elmIn2+"']:checked").each(function() {
+        if (! outstr == '') outstr += ',';
+        outstr += $(this).val();
+    });
+
+    // save 1,3,6..etc to parent input control
+    $$("input[name='"+elmOut2+"']").val(outstr);
+
+  }
   //-----------------------------------------------------------
   return $render;
 };
