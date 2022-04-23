@@ -97,7 +97,10 @@
                     <i class="icon demo-list-icon"></i>
                   </div>
                   <div class="item-inner">
+                    <!-- Select label -->
                     <div class="item-title item-label">部门</div>
+                    <!-- Selected value, not required -->
+                    <div class="item-after" id="my-depart">心血管内科</div>
                   </div>
                 </div>
               </a>
@@ -109,7 +112,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">发生时间</div>
                 <div class="item-input-wrap">
-                  <input type="datetime-local" name="date_start" value="1982-03-09T12:56" placeholder="Please choose..." />
+                  <input type="datetime-local" name="date_start" value="" placeholder="Please choose..." required validate />
                   <span class="input-clear-button"></span>
                 </div>
               </div>
@@ -119,7 +122,7 @@
                 data-searchbar-placeholder="Search location..">
                 <select name="location" multiple>
                   <optgroup label="全部可用地点">
-                    <option value="1" selected>门诊区域</option>
+                    <option value="1">门诊区域</option>
                     <option value="2">急诊区域</option>
                     <option value="3">早诊早筛中心</option>
                     <option value="4">住院病房（含病房、病房走廊、治疗室等病房所涵盖的区域）</option>
@@ -171,7 +174,10 @@
                     <i class="icon demo-list-icon"></i>
                   </div>
                   <div class="item-inner">
+                    <!-- Select label -->
                     <div class="item-title item-label">发生地点</div>
+                    <!-- Selected value, not required -->
+                    <div class="item-after" id="my-location">Setup</div>
                   </div>
                 </div>
               </a>
@@ -183,7 +189,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">患者姓名</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="ref_ills_name" placeholder="Your Patient's Name" required validate />
+                  <input type="text" name="ref_ills_name" placeholder="Your Patient's Name" />
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -219,7 +225,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">患者病历号</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="ref_ills_docs" placeholder="Your Patient's Medical Record ID" required validate />
+                  <input type="text" name="ref_ills_docs" placeholder="Your Patient's Medical Record ID" />
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -278,22 +284,25 @@
               <div class="item-media"><i class="icon demo-list-icon"></i></div>
               <div class="item-inner">
                 <div class="item-title">
-                  <div class="item-header"><!-- 已设置 --></div>事件类型<div class="item-footer">例：药物事件、跌倒事件、手术事件</div>
+                  <div class="item-header" id="biz_hd_1st"><!-- 已设置 --></div>事件类型<div class="item-footer">例：药物事件、跌倒事件、手术事件</div>
                 </div>
-                <div class="item-after">Setup<input type="hidden" name="ref_evnt_catgs"/></div>
+                <div class="item-after" id="biz_ft_1st">Setup</div>
               </div>
             </a>
+            <input type="hidden" name="ref_evnt_catgs"/>
           </li>
           <li>
             <a href="#" class="item-link item-content popup-open" data-popup="#my-popup-2nd">
               <div class="item-media"><i class="icon demo-list-icon"></i></div>
               <div class="item-inner">
                 <div class="item-title">
-                  <div class="item-header"><!-- 已设置 --></div>关联工作人员<div class="item-footer">例：张三 全职 医师</div>
+                  <div class="item-header" id="biz_hd_2nd"><!-- 已设置 --></div>关联工作人员<div class="item-footer" >例：张三 全职 医师</div>
                 </div>
-                <div class="item-after">Setup<input type="hidden" name="ref_invo_emp_names"/><input type="hidden" name="ref_invo_emp_catgs"/></div>
+                <div class="item-after" id="biz_ft_2nd">Setup</div>
               </div>
             </a>
+            <input type="hidden" name="ref_invo_emp_names"/>
+            <input type="hidden" name="ref_invo_emp_catgs"/>
           </li>
 
         </ul>
@@ -309,7 +318,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">事件标题</div>
                 <div class="item-input-wrap">
-                  <input type="text" name="event_name" placeholder="Event Title"/>
+                  <input type="text" name="event_name" placeholder="Event Title" required validate />
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -319,7 +328,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">事件描述</div>
                 <div class="item-input-wrap">
-                  <textarea name="event_desc" placeholder="Enter Details..."></textarea>
+                  <textarea name="event_desc" placeholder="Enter Details..." required validate></textarea>
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -329,8 +338,10 @@
               <div class="item-media"><i class="icon demo-list-icon"></i></div>
               <div class="item-inner">
                 <div class="item-title item-label">报告人员</div>
-                <div class="item-input-wrap"><input type="hidden" name="user_id_add" value="${users.value.length > 0 ? users.value[0].id : -1}"/>
-                  <input type="text" name="presenter" placeholder="Reporter's Name"/>
+                <div class="item-input-wrap">
+                  <input type="hidden" name="user_id_add" value="${users.value.length > 0 ? users.value[0].id : -1}"/>
+                  <input type="hidden" name="is_approve" value="1"/>
+                  <input type="text" name="presenter" placeholder="Reporter's Name" required validate />
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -341,7 +352,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">上报时间</div>
                 <div class="item-input-wrap">
-                  <input type="datetime-local" name="date_add" value="10/18/2021, 09:12 PM" placeholder="Please choose..." />
+                  <input type="datetime-local" name="date_add" value="" placeholder="Please choose..." required validate />
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
                 </div>
@@ -364,6 +375,12 @@
               <p><span> </span></p>
             </li>
             <li>
+              <a class="button button-fill save-form-to-sess"  href="#">Synchro Form Value To Store</a>
+            </li>
+            <li>
+              <p><span> </span></p>
+            </li>
+            <li>
               <a class="button button-fill test-form-from-data"  href="#">Test Form Store - this step</a>
             </li>
             <li>
@@ -377,7 +394,7 @@
     <!-- </div> -->
     <div class="block block-strong">
       <p class="row">
-        <button class="col-50 button button-fill color-gray" type="reset">Reset</button>
+        <button @click="${resetAddi}" class="col-50 button button-fill color-gray" type="reset">Reset</button>
       <!-- </p>
       <p class="row"> -->
         <button class="col-50 button button-fill color-red" type="submit">Save Data</button>
@@ -402,7 +419,7 @@
             <div class="navbar-inner">
               <div class="title">选择事件类型</div>
               <div class="right">
-                <a @click="${setPopup1stHistory}" href="#" class="link popup-close">Save & Close</a>
+                <a @click="${setPopup1stHistory}" href="#" class="link popup-close">Close</a>
               </div>
             </div>
           </div>
@@ -646,7 +663,7 @@
             <div class="navbar-inner">
               <div class="title">选择关联工作人员</div>
               <div class="right">
-                <a @click="${setPopup2ndHistory}" href="#" class="link popup-close">Save & Close</a>
+                <a @click="${setPopup2ndHistory}" href="#" class="link popup-close">Close</a>
               </div>
             </div>
           </div>
@@ -1312,6 +1329,23 @@ export default (props, { $f7, $store, $el, $, $on, $update }) => {
       $targetEl.closest('.treeview-item-selectable').addClass('treeview-item-selected')
   }
 
+  const resetAddi = () => {
+      console.log("some data should reserved!");
+      // additional header and footer display...
+      $$('.item-header#biz_hd_1st').html('');
+      $$('.item-after#biz_ft_1st').html('Setup');
+      $$('.item-header#biz_hd_2nd').html('');
+      $$('.item-after#biz_ft_2nd').html('Setup');
+      // addition of smart-selector
+      $$('.item-after#my-depart').html('心血管内科');// default value is [8]-心血管内科
+      $$('.item-after#my-location').html('Setup');
+      // others value by default    reset clear that value by mistaken, we should ressign value to them
+      $$("input[name='ref_evnt_catgs']").val('');       // [pop 1st] : ref_evnt_catgs
+      $$("input[name='ref_invo_emp_names']").val('');   // [pop 2nd] : ref_invo_emp_names & ref_invo_emp_catgs
+      $$("input[name='ref_invo_emp_catgs']").val('');
+      $$("input[name='user_id_add']").val( users.value.length > 0 ? users.value[0].id : '-1');// user_id_add
+  }
+
   $on('pageInit', () => {
       $($el.value).find('input[type="checkbox"]').on('change', function (e) {
         var $rootEl = $(e.target).closest('.treeview-item-root');
@@ -1327,7 +1361,7 @@ export default (props, { $f7, $store, $el, $, $on, $update }) => {
           $parentCheckbox.prop('checked', checkedChildren > 0);
           $parentCheckbox.prop('indeterminate', checkedChildren === 1);
         }
-      })
+      });
 
       // Date + Time
       calendarDateTime = $f7.calendar.create({
@@ -1351,8 +1385,8 @@ export default (props, { $f7, $store, $el, $, $on, $update }) => {
         $store.state.mylineadverse['step-2-data'] = formData;
       });
 
-      $('.fill-form-from-data').on('click', function () {       // fill example data
-        console.log('demo data, saved both in form and store!');
+      $('.fill-form-from-data').on('click', function () {       // fill example data..
+        //console.log('demo data saved ONLY in form WITHOUT store!');
         var formData = {
           'ref_dept_id' : '11',
           'date_start': '2022-01-15T12:34',
@@ -1368,11 +1402,22 @@ export default (props, { $f7, $store, $el, $, $on, $update }) => {
           'date_add': '2022-04-12T09:18',
         }
         $f7.form.fillFromData('#step-2-form', formData);
-        // don't forget reset store's session value
-        $store.state.mylineadverse['step-2-data'] = formData;
+        // additional header and after display...
+        $$('.item-header#biz_hd_1st').html('已设置');
+        $$('.item-after#biz_ft_1st').html('3,8');
+        $$('.item-header#biz_hd_2nd').html('已设置');
+        $$('.item-after#biz_ft_2nd').html('11,14,18');
+        // don't forget reset store's session value IF YOU WANNA 
+        // $store.state.mylineadverse['step-2-data'] = formData;
       });
 
-      $('.test-form-from-data').on('click', function () {       // test this form value
+      
+      $('.save-form-to-sess').on('click', function () {         // Synchro Form Value To Store
+          var formData = $f7.form.convertToData('#step-2-form');
+          $store.state.mylineadverse['step-2-data'] = formData;
+      });
+
+      $('.test-form-from-data').on('click', function () {       // Test Form Store - this step
         console.log('testing store vars....');
         console.log(JSON.stringify($store.state.mylineadverse['step-2-data']));
       });
@@ -1383,6 +1428,7 @@ export default (props, { $f7, $store, $el, $, $on, $update }) => {
       });
 
       // Others
+      
 
   });
 
@@ -1402,21 +1448,26 @@ export default (props, { $f7, $store, $el, $, $on, $update }) => {
     // save 1,3,6..etc to parent input control
     $$("input[name='"+elmOut+"']").val(outstr);
 
+    // set outer's header & footer
+    // -----------------------------------------------------------
+    $$('.item-header#biz_hd_1st').html(outstr==''?'':'已设置');
+    $$('.item-after#biz_ft_1st').html(outstr==''?'Setup':outstr);
+
   }
   const setPopup2ndHistory = (e) => {
     console.log("closing..debug info");
 
-    // Get string like 1,3,6....etc.
+    // Get string like 1,3,6....etc. || 张无忌 赵敏 小昭
     var outstr = '';
     var elmIn1  = 'tree-empnames-input';
     var elmIn2  = 'tree-empcatgs-checkbox';
     var elmOut1 = 'ref_invo_emp_names';
     var elmOut2 = 'ref_invo_emp_catgs';
 
-    // Elm-1 assign
+    // Elm-1 assign   for example: 张无忌 赵敏 小昭
     $$("input[name='"+elmOut1+"']").val( $$("input[name='"+elmIn1+"']").val() );
 
-    // Elm-2 assign
+    // Elm-2 assign   for example: 1,3,6....etc
     $$("input[name='"+elmIn2+"']:checked").each(function() {
         if (! outstr == '') outstr += ',';
         outstr += $(this).val();
@@ -1424,6 +1475,11 @@ export default (props, { $f7, $store, $el, $, $on, $update }) => {
 
     // save 1,3,6..etc to parent input control
     $$("input[name='"+elmOut2+"']").val(outstr);
+
+    // -----------------------------------------------------------
+    // set outer's header & after
+    $$('.item-header#biz_hd_2nd').html(outstr==''?'':'已设置');
+    $$('.item-after#biz_ft_2nd').html(outstr==''?'Setup':outstr);
 
   }
   //-----------------------------------------------------------
