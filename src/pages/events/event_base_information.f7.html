@@ -21,7 +21,7 @@
 
   <div class="page-content">
   <!-- <form class="form-store-data" id="step-2-form"> -->
-  <form action="https://adverse.kideduc.com/core/EventReported.php?user_id=${users.value.length > 0 ? users.value[0].id : -1}&ccsForm=events" method="POST" class="form-store-data form-ajax-submit" id="step-2-form">
+  <form action="https://adverse.kideduc.com/api/EditEvent.php?ccsForm=events" method="POST" class="form-store-data form-ajax-submit" id="step-2-form">
     <!-- <div class="block-title">步骤二. 请填写不良事件的详细信息.</div> -->
     <!-- <p>步骤二. 请填写不良事件的详细信息.</p> -->
     <!-- <div class="block block-strong"> -->
@@ -109,7 +109,7 @@
               <div class="item-inner">
                 <div class="item-title item-label">发生时间</div>
                 <div class="item-input-wrap">
-                  <input type="datetime-local" name="date_start" value="04/13/2022, 21:12 PM" placeholder="Please choose..." />
+                  <input type="datetime-local" name="date_start" value="1982-03-09T12:56" placeholder="Please choose..." />
                   <span class="input-clear-button"></span>
                 </div>
               </div>
@@ -329,7 +329,7 @@
               <div class="item-media"><i class="icon demo-list-icon"></i></div>
               <div class="item-inner">
                 <div class="item-title item-label">报告人员</div>
-                <div class="item-input-wrap">
+                <div class="item-input-wrap"><input type="hidden" name="user_id_add" value="${users.value.length > 0 ? users.value[0].id : -1}"/>
                   <input type="text" name="presenter" placeholder="Reporter's Name"/>
                   <span class="input-clear-button"></span>
                   <!-- <div class="item-input-info">Default "required" validation</div> -->
