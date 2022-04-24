@@ -3,7 +3,7 @@
     <div class="navbar">
       <div class="navbar-bg"></div>
       <div class="navbar-inner sliding">
-        <div class="title">Approval Todo List</div>
+        <div class="title">事件受理</div>
         <div class="right">
           <a class="link" @click=${togglePosition}>
             <i class="md-only icon material-icons rotate-icon">compare_arrows</i>
@@ -70,8 +70,8 @@
         <div class="block">
           <p><b>操作小贴士</b></p>
           <p>1> 左右滑动屏幕<i style="font-size: 20px" class="icon f7-icons icon-tooltip if-not-md">info_circle_fill</i>
-          <i style="font-size: 20px" class="icon material-icons icon-tooltip if-md">info</i>可以看到更多的活动时间安排.</p>
-          <p>2> 双击某一天的活动框，将弹出快捷操作工具图标.</p>
+          <i style="font-size: 20px" class="icon material-icons icon-tooltip if-md">info</i>可以看到更多时间的不良事件上报.</p>
+          <p>2> 点击某一天的~操作..~工具按钮，将弹出快捷操作工具图标.</p>
           <!-- <p><a href="#" class="fab-open" data-fab=".fab-center-center">测试工具箱1</a>   <a href="#" class="fab-open" data-fab=".fab-right-bottom">测试工具箱2</a></p> -->
         </div>
         <!-- ============================================== -->
@@ -149,7 +149,7 @@
       <div class="page-content tab" id="tab-2">
         <div class="block">
           <p><b>操作小贴士</b></p>
-          <p>1> 双击某一天的活动框<i style="font-size: 20px" class="icon f7-icons icon-tooltip if-not-md">info_circle_fill</i>
+          <p>1> 点击某一天的~操作..~工具按钮<i style="font-size: 20px" class="icon f7-icons icon-tooltip if-not-md">info_circle_fill</i>
           <i style="font-size: 20px" class="icon material-icons icon-tooltip if-md">info</i>，将弹出快捷操作工具图标.</p>
         </div>
         <!-- ============================================== -->
@@ -158,11 +158,11 @@
         Additional "col-50" to define column width (50%)
         Additional "tablet-20" to define column width for tablets (20%)
         -->
-        ${calendar.value.length > 0 ? $h`
-          <!-- ----------------------- Outer Loop : When N-Days Array calendar[..] is Not Null,  do the logic below  ------------- -->
+        ${calendarMonth.value.length > 0 ? $h`
+          <!-- ----------------------- Outer Loop : When N-Days Array calendarMonth[..] is Not Null,  do the logic below  ------------- -->
           <div class="block-title">timeline-horizontal</div>
           <div class="timeline">
-              ${calendar.value.map((line) => $h`
+              ${calendarMonth.value.map((line) => $h`
               <!-- Timeline item with special timeline elements and inner (Day) -->
               <div class="timeline-item">
                 <div class="timeline-item-date">${line.date_title} <small></small></div>
@@ -229,7 +229,7 @@
       <div class="page-content tab tab-active" id="tab-3">
         <div class="block">
           <p><b>操作小贴士</b></p>
-          <p>1> 双击某一天的活动框<i style="font-size: 20px" class="icon f7-icons icon-tooltip if-not-md">info_circle_fill</i>
+          <p>1> 点击某一天的~操作..~工具按钮<i style="font-size: 20px" class="icon f7-icons icon-tooltip if-not-md">info_circle_fill</i>
           <i style="font-size: 20px" class="icon material-icons icon-tooltip if-md">info</i>，将弹出快捷操作工具图标.</p>
           <p class="row">
   <form action="https://adverse.kideduc.com/api/EditSuggestion.php?user_id=${users.value.length > 0 ? users.value[0].id : -1}&ccsForm=suggestion%3AEdit" method="POST" class="list form-ajax-submit" id="kitty-form">
@@ -540,6 +540,7 @@ if (true) {        return;       }    // tony: no longer used
       $toolbarEl = page.$el.find('.toolbar');
 
       $store.dispatch('getCalendar', { catgID:'1'} );   // Outer Loop : Each Daily
+      $store.dispatch('getCalendar', { catgID:'2'} );                             // Monthly @2022-04-24 Tony
       $store.dispatch('getArtiDaily',{ userID:'-1'});   // Inner Loop : Each Line of that Day
 
       $('.fill-form-from-data').on('click', function(){ //  do this when Button SAVE | DEBUG Click
@@ -557,7 +558,7 @@ if (true) {        return;       }    // tony: no longer used
       // iconTooltip init functioon
       var iconTooltip = $f7.tooltip.create({
         targetEl: '.icon-tooltip',
-        text: '日程安排可能超出屏幕宽度，请左右划动触摸屏',
+        text: '日历模式显示时可能超出屏幕宽度，请左右划动触摸屏',
       });
 
       // first time , hidden FAB Tools by default
@@ -570,6 +571,7 @@ if (true) {        return;       }    // tony: no longer used
     // -------------------------------------    App Events  -----------------------------------------
 //  const events    = $store.getters.events;
     const calendar  = $store.getters.calendar;  // NEW
+    const calendarMonth  = $store.getters.calendarMonth;  // NEW NEW NEW @2022-04-24 by Tony  for Montyly
     const artidaily = $store.getters.artidaily; // Tab-1 : Whole Activity
 
     const myarrange = $store.getters.myarrange; // Tab-2 : My Arranges

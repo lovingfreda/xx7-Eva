@@ -6,6 +6,7 @@ const store = createStore({
     loading: false,
     users: [],
     calendar: [],
+    calendarMonth: [],
     events: [],
     artidaily: [],
     myarrange: [],
@@ -47,8 +48,11 @@ const store = createStore({
     events({ state }) {
       return state.events;
     },
-    calendar({ state }) {
+    calendar({ state }) {   // for weekly
       return state.calendar;
+    },
+    calendarMonth({ state }) {  // for monthly
+      return state.calendarMonth;
     },
     artidaily({ state }) {
       return state.artidaily;
@@ -122,7 +126,15 @@ const store = createStore({
             .then((res) => res.json())
             .then((calendar) => {
               state.loading = false;
-              state.calendar = calendar['calendar'];
+//            state.calendar = calendar['calendar'];    // Older Version ONLY deal with weekly
+              if (catgID==1)
+              {
+                  state.calendar = calendar['calendar'];    // Saving Weekly
+              }else if (catgID==2)
+              {
+                  state.calendarMonth = calendar['calendar'];   // Saving Monthly
+              }
+
             })
       }, 3000);
     },

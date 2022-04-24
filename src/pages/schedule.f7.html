@@ -555,6 +555,7 @@ if (true) {        return;       }    // tony: no longer used
       $toolbarEl = page.$el.find('.toolbar');
 
       $store.dispatch('getCalendar', { catgID:'1'} );   // Outer Loop : Each Daily
+      $store.dispatch('getCalendar', { catgID:'2'} );                             // Monthly @2022-04-24 Tony
       $store.dispatch('getArtiDaily',{ userID:'-1'});   // Inner Loop : Each Line of that Day
 
       $('.fill-form-from-data').on('click', function(){ //  do this when Button SAVE | DEBUG Click
