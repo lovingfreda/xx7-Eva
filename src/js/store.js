@@ -7,6 +7,7 @@ const store = createStore({
     users: [],
     calendar: [],
     calendarMonth: [],
+    calendarToday: [],
     events: [],
     artidaily: [],
     myarrange: [],
@@ -53,6 +54,9 @@ const store = createStore({
     },
     calendarMonth({ state }) {  // for monthly
       return state.calendarMonth;
+    },
+    calendarToday({ state }) {  // for today
+      return state.calendarToday;
     },
     artidaily({ state }) {
       return state.artidaily;
@@ -133,6 +137,9 @@ const store = createStore({
               }else if (catgID==2)
               {
                   state.calendarMonth = calendar['calendar'];   // Saving Monthly
+              }else if (catgID==3)
+              {
+                  state.calendarToday = calendar['calendar'];   // Saving Today
               }
 
             })

@@ -98,28 +98,29 @@
                   <!-- ----------------------- Inner Loop: each day have a different activity list  ------------- -->
                   ${artidaily.value.length > 0 ? $h`
 
-                      ${artidaily.value.map((dailyLine) => (line.date_start === dailyLine.date_start ? $h`
+                      ${artidaily.value.map((dailyLine) => (line.date_start === dailyLine.date_add ? $h`
                           <!-- Some data show in Col-1, others show in Col-2..Col-3....Col-N -->
                           <!-- We using AAA === BBB ? H : N,  and first we should mapping to daily--lines  -->
-                          <div class="timeline-item-inner" @dblclick="${showFABTools}" id="Biz_div_${dailyLine.art_daily_id}" data-myid="${dailyLine.art_daily_id}">
-                            <div class="timeline-item-time  biz_noselect">${dailyLine.time_st} - ${dailyLine.time_ed} <!-- <a href="#" class="fab-open" data-fab=".fab-center-center" data-myid="${dailyLine.art_daily_id}" @click=${toggleFABAuto}>
+                          <div class="timeline-item-inner" @dblclick="${showFABTools}" id="Biz_div_${dailyLine.event_id}" data-myid="${dailyLine.event_id}">
+                            <div class="timeline-item-time  biz_noselect">${dailyLine.time_add} - ${dailyLine.presenter}  <!-- <a href="#" class="fab-open" data-fab=".fab-center-center" data-myid="${dailyLine.event_id}" @click=${toggleFABAuto}>
                                 <i class="icon f7-icons if-not-md">wrench_fill</i>
                                 <i class="icon material-icons md-only">wrench</i>
                                 <span class="tabbar-label">操作</span>
                               </a> -->
-                              <a href="#" class="fab-open" data-fab=".fab-center-center" data-myid="${dailyLine.art_daily_id}" @click=${toggleFABAuto}>
+                              <a href="#" class="fab-open" data-fab=".fab-center-center" data-myid="${dailyLine.event_id}" @click=${toggleFABAuto}>
                                 <div class="chip chip-outline">
                                   <div class="chip-media bg-color-red">
                                     <i class="icon f7-icons if-not-md">wrench_fill</i>
-                                    <i class="icon material-icons md-only">wrench</i>
+                                    <i class="icon material-icons md-only">local_dining</i><!--   addchart -->
                                   </div>
                                   <div class="chip-label">操作..</div>
                                 </div>
                               </a>
                             </div>
                             <div class="timeline-item-title biz_noselect"><small>${dailyLine.title}</small></div>
-                            <div class="timeline-item-subtitle">#${dailyLine.art_daily_id}\/#Ref.${dailyLine.ref_article_id}</div>
-                            <div class="timeline-item-text  biz_noselect">${dailyLine.desc}</div>
+                            <div class="timeline-item-subtitle biz_noselect">[#<!-- \/#Ref. -->${dailyLine.event_id}-${dailyLine.is_approve}]</div>
+                            <div class="timeline-item-text biz_noselect">${dailyLine.desc}</div>
+
                           </div>
                           ` : '')
                       )}
@@ -178,27 +179,27 @@
                   <!-- ----------------------- Inner Loop: each day have a different activity list  ------------- -->
                   ${myarrange.value.length > 0 ? $h`
 
-                      ${myarrange.value.map((dailyLine) => (line.date_start === dailyLine.date_start ? $h`
+                      ${myarrange.value.map((dailyLine) => (line.date_start === dailyLine.date_add ? $h`
                           <!-- Some data show in Col-1, others show in Col-2..Col-3....Col-N -->
                           <!-- We using AAA === BBB ? H : N,  and first we should mapping to daily--lines  -->
                           <div class="timeline-item-inner">
-                            <div class="timeline-item-time  biz_noselect" >${dailyLine.time_st} - ${dailyLine.time_ed} <!-- <a href="#" class="fab-open" data-fab=".fab-right-bottom" data-myid="${dailyLine.id}" @click=${toggleFABAuto2nd}>
+                            <div class="timeline-item-time  biz_noselect" >${dailyLine.time_add} - ${dailyLine.presenter}  <!-- <a href="#" class="fab-open" data-fab=".fab-right-bottom" data-myid="${dailyLine.event_id}" @click=${toggleFABAuto2nd}>
                                 <i class="icon f7-icons if-not-md">cloud_upload_fill</i>
                                 <i class="icon material-icons md-only">file_upload</i>
                                 <span class="tabbar-label">操作</span>
                               </a> -->
-                              <a href="#" class="fab-open" data-fab=".fab-right-bottom" data-myid="${dailyLine.id}" @click=${toggleFABAuto2nd}>
+                              <a href="#" class="fab-open" data-fab=".fab-right-bottom" data-myid="${dailyLine.event_id}" @click=${toggleFABAuto2nd}>
                                 <div class="chip chip-outline">
                                   <div class="chip-media bg-color-red">
                                     <i class="icon f7-icons if-not-md">wrench_fill</i>
-                                    <i class="icon material-icons md-only">wrench</i>
+                                    <i class="icon material-icons md-only">local_dining</i>
                                   </div>
                                   <div class="chip-label">操作..</div>
                                 </div>
                               </a>
                             </div>
                             <div class="timeline-item-title biz_noselect"><small>${dailyLine.title}</small></div>
-                            <div class="timeline-item-subtitle">#${dailyLine.id}</div>
+                            <div class="timeline-item-subtitle">[#${dailyLine.event_id}-${dailyLine.is_approve}]</div>
                             <div class="timeline-item-text  biz_noselect">${dailyLine.desc}</div>
                           </div>
                           ` : '')
@@ -246,11 +247,11 @@
         Additional "col-50" to define column width (50%)
         Additional "tablet-20" to define column width for tablets (20%)
         -->
-        ${calendar.value.length > 0 ? $h`
-          <!-- ----------------------- Outer Loop : When N-Days Array calendar[..] is Not Null,  do the logic below  ------------- -->
+        ${calendarToday.value.length > 0 ? $h`
+          <!-- ----------------------- Outer Loop : When N-Days Array calendarToday[..] is Not Null,  do the logic below  ------------- -->
           <div class="block-title">timeline-horizontal</div>
           <div class="timeline timeline-sides">
-              ${calendar.value.map((line) => $h`
+              ${calendarToday.value.map((line) => $h`
               <!-- Timeline Item (Day) -->
               <div class="timeline-item">
                 <div class="timeline-item-date">${line.date_title} <small></small></div>
@@ -266,11 +267,21 @@
                   <!-- ----------------------- Inner Loop: each day have a different activity list  ------------- -->
                   ${mysuggest.value.length > 0 ? $h`
 
-                      ${mysuggest.value.map((dailyLine) => (line.date_start === dailyLine.date_start ? $h`
+                      ${mysuggest.value.map((dailyLine) => (line.date_start === dailyLine.date_add ? $h`
                           <!-- Some data show in Col-1, others show in Col-2..Col-3....Col-N -->
                           <!-- We using AAA === BBB ? H : N,  and first we should mapping to daily--lines  -->
                           <div class="timeline-item-inner">
-                            <div class="timeline-item-time  biz_noselect">${dailyLine.time_st} - ${dailyLine.time_ed}</div>
+                            <div class="timeline-item-time  biz_noselect">${dailyLine.time_add} - ${dailyLine.presenter}  
+                              <a href="#" class="fab-open" data-fab=".fab-right-bottom" data-myid="${dailyLine.event_id}" @click=${toggleFABAuto2nd}>
+                                <div class="chip chip-outline">
+                                  <div class="chip-media bg-color-red">
+                                    <i class="icon f7-icons if-not-md">wrench_fill</i>
+                                    <i class="icon material-icons md-only">local_dining</i>
+                                  </div>
+                                  <div class="chip-label">操作..</div>
+                                </div>
+                              </a>
+                            </div>
                             <div class="timeline-item-title biz_noselect"><small>${dailyLine.title}</small></div>
                             <div class="timeline-item-subtitle"></div>
                             <div class="timeline-item-text  biz_noselect">${dailyLine.desc}</div>
@@ -293,7 +304,7 @@
           <!-- ----------------------- Outer Loop : if true {do sometHing} FINISHED  FINISHED  FINISHED  FINISHED    ----------- -->
         ` : $h`
           <!-- ----------------------- Outer Loop : if falae {do another thing here}  ------------- -->
-          <div>NO RECORDS [LINE 280] FILE [schedule.f7]</div>
+          <div>NO RECORDS [LINE 307] FILE [schedule.f7]</div>
         `}
         <!-- ============================================== -->
         <!-- Tab 3 Ending -->
@@ -541,6 +552,7 @@ if (true) {        return;       }    // tony: no longer used
 
       $store.dispatch('getCalendar', { catgID:'1'} );   // Outer Loop : Each Daily
       $store.dispatch('getCalendar', { catgID:'2'} );                             // Monthly @2022-04-24 Tony
+      $store.dispatch('getCalendar', { catgID:'3'} );                             // Today   @2022-04-24 Tony
       $store.dispatch('getArtiDaily',{ userID:'-1'});   // Inner Loop : Each Line of that Day
 
       $('.fill-form-from-data').on('click', function(){ //  do this when Button SAVE | DEBUG Click
@@ -571,7 +583,8 @@ if (true) {        return;       }    // tony: no longer used
     // -------------------------------------    App Events  -----------------------------------------
 //  const events    = $store.getters.events;
     const calendar  = $store.getters.calendar;  // NEW
-    const calendarMonth  = $store.getters.calendarMonth;  // NEW NEW NEW @2022-04-24 by Tony  for Montyly
+    const calendarMonth  = $store.getters.calendarMonth;    // NEW NEW NEW @2022-04-24 by Tony  for Montyly
+    const calendarToday  = $store.getters.calendarToday;    
     const artidaily = $store.getters.artidaily; // Tab-1 : Whole Activity
 
     const myarrange = $store.getters.myarrange; // Tab-2 : My Arranges
