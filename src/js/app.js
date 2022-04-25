@@ -20,7 +20,7 @@ import App from '../app.f7.html';
 
 var device = getDevice();
 var app = new Framework7({
-  name: 'Lovely Eva', // App name
+  name: 'Adverse Helper', // App name
   theme: 'auto', // Automatic theme detection
   el: '#app', // App root element
   component: App, // App main component
