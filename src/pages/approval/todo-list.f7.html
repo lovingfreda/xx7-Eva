@@ -3,11 +3,17 @@
     <div class="navbar">
       <div class="navbar-bg"></div>
       <div class="navbar-inner sliding">
-        <div class="title">事件受理</div>
-        <div class="right">
+        <div class="left">
           <a class="link" @click=${togglePosition}>
             <i class="md-only icon material-icons rotate-icon">compare_arrows</i>
             <i class="if-not-md icon f7-icons">arrow_up_arrow_down_circle_fill</i>
+          </a>
+        </div>
+        <div class="title">事件受理</div>
+        <div class="right">
+          <a href="#" class="link navbar-tooltip">
+            <i class="icon f7-icons if-not-md">info_circle_fill</i>
+            <i class="icon material-icons if-md">info_outline</i>
           </a>
         </div>
       </div>
@@ -577,6 +583,12 @@ if (true) {        return;       }    // tony: no longer used
       // Open Notifications
       $('.open-click-to-close').on('click', function () {
         notificationClickToClose.open();
+      });
+
+      // Tooltip
+      var navbarTooltip = $f7.tooltip.create({
+        targetEl: '.navbar-tooltip',
+        text: '1> 左右滑动屏幕可以看到更多时间<br>2> 点击"操作.."工具按钮将弹出快捷面板<br><em>操作小贴士</em>'
       });
 
       $('.fill-form-from-data').on('click', function(){ //  do this when Button SAVE | DEBUG Click
