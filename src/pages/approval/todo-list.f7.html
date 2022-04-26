@@ -153,12 +153,12 @@
         <!-- ============================================== -->
       </div>
 
-      <div class="page-content tab" id="tab-2">
+      <div class="page-content tab" id="tab-2"><!--
         <div class="block">
           <p><b>操作小贴士</b></p>
           <p>1> 点击某一天的~操作..~工具按钮<i style="font-size: 20px" class="icon f7-icons icon-tooltip if-not-md">info_circle_fill</i>
           <i style="font-size: 20px" class="icon material-icons icon-tooltip if-md">info</i>，将弹出快捷操作工具图标.</p>
-        </div>
+        </div> -->
         <!-- ============================================== -->
         <!--
         Additional "timeline-horizontal" class to enable Horizontal timeline
@@ -167,7 +167,7 @@
         -->
         ${calendarMonth.value.length > 0 ? $h`
           <!-- ----------------------- Outer Loop : When N-Days Array calendarMonth[..] is Not Null,  do the logic below  ------------- -->
-          <div class="block-title">timeline-horizontal</div>
+          <!-- <div class="block-title">timeline-horizontal</div> -->
           <div class="timeline">
               ${calendarMonth.value.map((line) => $h`
               <!-- Timeline item with special timeline elements and inner (Day) -->
@@ -233,7 +233,7 @@
         <!-- ============================================== -->
       </div>
 
-      <div class="page-content tab tab-active" id="tab-3">
+      <div class="page-content tab tab-active" id="tab-3"><!--
         <div class="block">
           <p><b>操作小贴士</b></p>
           <p>1> 点击某一天的~操作..~工具按钮<i style="font-size: 20px" class="icon f7-icons icon-tooltip if-not-md">info_circle_fill</i>
@@ -242,11 +242,11 @@
   <form action="https://adverse.kideduc.com/api/EditSuggestion.php?user_id=${users.value.length > 0 ? users.value[0].id : -1}&ccsForm=suggestion%3AEdit" method="POST" class="list form-ajax-submit" id="kitty-form">
             <div class="col"><button class="col button button-fill fill-form-from-data" type="submit">标记已读</button></div>
             <div class="col"></div>
-            <div class="col"><!-- <a class="button button-fill fill-form-from-data"  href="#">debug..</a> --></div>
+            <div class="col"><!- <a class="button button-fill fill-form-from-data"  href="#">debug..</a> -></div>
             <div class="col"></div>
   </form>
           </p>
-        </div>
+        </div> -->
         <!-- ============================================== -->
         <!--
         Additional "timeline-horizontal" class to enable Horizontal timeline
@@ -255,7 +255,7 @@
         -->
         ${calendarToday.value.length > 0 ? $h`
           <!-- ----------------------- Outer Loop : When N-Days Array calendarToday[..] is Not Null,  do the logic below  ------------- -->
-          <div class="block-title">timeline-horizontal</div>
+          <!-- <div class="block-title">timeline-horizontal</div> -->
           <div class="timeline timeline-sides">
               ${calendarToday.value.map((line) => $h`
               <!-- Timeline Item (Day) -->
