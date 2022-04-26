@@ -53,18 +53,18 @@
     <div class="toolbar tabbar-labels toolbar-top">
       <div class="toolbar-inner">
         <a href="#tab-1" class="tab-link tab-link-active">
-          <i class="icon f7-icons if-not-md">today<span class="badge color-red">13</span></i><!-- envelope_fill -->
-          <i class="icon material-icons md-only">today<span class="badge color-red">13</span></i><!-- email -->
+          <i class="icon f7-icons if-not-md">today<span class="badge color-red"><!-- 13 -->${artidaily.value.length}</span></i><!-- envelope_fill -->
+          <i class="icon material-icons md-only">today<span class="badge color-red"><!-- 13 -->${artidaily.value.length}</span></i><!-- email -->
           <span class="tabbar-label">本周上报</span>
         </a>
         <a href="#tab-2" class="tab-link" @click=${toggleMyArrange}>
-          <i class="icon f7-icons if-not-md">today_fill<span class="badge color-red">35</span></i>
-          <i class="icon material-icons md-only">today<span class="badge color-red">35</span></i>
+          <i class="icon f7-icons if-not-md">today_fill<span class="badge color-red"><!-- 35 -->${myarrange.value.length}</span></i>
+          <i class="icon material-icons md-only">today<span class="badge color-red"><!-- 35 -->${myarrange.value.length}</span></i>
           <span class="tabbar-label">本月上报</span>
         </a>
         <a href="#tab-3" class="tab-link" @click=${toggleMySuggestion}>
-          <i class="icon f7-icons if-not-md">cloud_upload_fill<span class="badge color-red">3</span></i>
-          <i class="icon material-icons md-only">file_upload<span class="badge color-red">3</span></i>
+          <i class="icon f7-icons if-not-md">cloud_upload_fill<span class="badge color-red"><!-- 3 -->${mysuggest.value.length}</span></i>
+          <i class="icon material-icons md-only">file_upload<span class="badge color-red"><!-- 3 -->${mysuggest.value.length}</span></i>
           <span class="tabbar-label">今日上报</span>
         </a>
       </div>
