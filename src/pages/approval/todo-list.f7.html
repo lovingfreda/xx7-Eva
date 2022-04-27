@@ -36,16 +36,16 @@
     <!-- FAB With Backdrop -->
     <div class="fab-backdrop"></div>
     <div class="fab fab-right-bottom">
-      <a href="#">
+      <a href="#" @click="${toggleClose2nd}"><!-- Tony@2022/04/26 12:38: reset here when close, NOT uing Span-1 <Close and Back> -->
         <i class="icon f7-icons if-not-md">plus</i>
         <i class="icon f7-icons if-not-md">xmark</i>
         <i class="icon material-icons md-only">add</i>
         <i class="icon material-icons md-only">close</i>
       </a>
       <div class="fab-buttons fab-buttons-top">
-        <a class="fab-label-button fab-close" href="#" @click="${toggleClose2nd}" id="ron_href" ><span>1</span><span class="fab-label">关闭返回</span></a>
-        <a class="fab-label-button" href="#" @click="${toggleCancle}"><span>2</span><span class="fab-label">批复整改</span></a>
-        <a class="fab-label-button" href="#" @click="${toggleCancle}"><span>3</span><span class="fab-label">根因分析</span></a>
+        <!-- <a class="fab-label-button fab-close" href="#" @click="${toggleClose2nd}" id="ron_href" ><span>1</span><span class="fab-label">关闭返回</span></a> -->
+        <a class="fab-label-button" href="/evn-info-summary/"><span>1</span><span class="fab-label">调查材料</span></a>
+        <a class="fab-label-button" href="#" @click="${toggleAccept}"><span>2</span><span class="fab-label">正式受理</span></a>
       </div>
     </div>
 
@@ -454,11 +454,11 @@
       console.log("---- toggle action More..Nothing to do!");
     }
 
-    const toggleCancle = () => {     // click action more
-      console.log("---- toggle action Cancle #!");
+    const toggleAccept = () => {     // click action more
+      console.log("---- toggle action Accept #!");
 
       var argID = $currMyArrgID;
-      doSaveDBCancle(argID);
+      doSaveDBAccept(argID);
     }
 
     const doSaveDBJoinIn = (evtID) => {
@@ -494,12 +494,12 @@
 
     }
 
-    const doSaveDBCancle = (argID) => {
-      console.log("---- saving database cancle ID=[" + argID + "]");
+    const doSaveDBAccept = (argID) => {
+      console.log("---- saving database event ID=[" + argID + "]");
 
       if (argID < 0) { 
         // sometimes we check and verify
-        showToastCenter('请首先选择活动!');
+        showToastCenter('请首先选择不良事件!');
         return;
       }  
 
@@ -508,11 +508,18 @@
 
       let paraUserID    = (1==users.value.length ? users.value[0].id:'-1');
       let paraUserLogin = (1==users.value.length ? users.value[0].login:'WEI');
+      var myDate = new Date;    // very very long text of standard time format....must convert to local
+      let paraMyDate = myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate() + ', '  //'2022-4-26, 16:08:23';
+        + ((myDate.getHours()<10) ? ('0'+myDate.getHours()) : (myDate.getHours())) + ':' 
+        + ((myDate.getMinutes()<10) ? ('0'+myDate.getMinutes()) : (myDate.getMinutes())) + ':' 
+        + ((myDate.getSeconds()<10) ? ('0'+myDate.getSeconds()) : (myDate.getSeconds()));       //  Month should [x=x+1] !!!!
+      let paraComments = paraMyDate + '  [' + paraUserLogin + ']' + ' : ' + 'From ' + '<待受理>' + ' To ' + '<调查中>'
+        + '\n                   已开始事件调查，请大家耐心等待结果.... ';
 
-      app.request.post('https://adverse.kideduc.com/api/EditArticleArrange.php?arrange_id='+argID+'&ccsForm=articles_daily_arrange%3AEdit', { user_id_add: paraUserID, Button_Delete: 'Delete' })
+      app.request.post('https://adverse.kideduc.com/api/EditArticleArrange.php?event_id='+argID+'&ccsForm=events%3AEdit', { is_approve: 4, user_id_approve_by: paraUserID, date_approve: paraMyDate, comments: paraComments, Button_Update: 'Update' }) // if do Delete, set |Button_Delete: 'Delete'| Tony@2022/04/26
           .then(function (res) {
 //          $$('.login').html(res.data);                        // init examples code, let it be here. WAIST & NOT CHANGED
-            console.log('Ajax Removing was performed');
+            console.log('Ajax Updating was performed');
 
             // otherwise html will not refresh data, deleted-item will be always exist
             $store.dispatch('resetMyArrange',{ userID:paraUserLogin});
@@ -522,7 +529,7 @@
                 $('a#ron_href').trigger('click');
             },200);
 
-            showToastCenter('退订成功!');
+            showToastCenter('受理成功!');
       });
 
     }
