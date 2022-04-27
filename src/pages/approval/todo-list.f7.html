@@ -513,24 +513,38 @@
         + ((myDate.getHours()<10) ? ('0'+myDate.getHours()) : (myDate.getHours())) + ':' 
         + ((myDate.getMinutes()<10) ? ('0'+myDate.getMinutes()) : (myDate.getMinutes())) + ':' 
         + ((myDate.getSeconds()<10) ? ('0'+myDate.getSeconds()) : (myDate.getSeconds()));       //  Month should [x=x+1] !!!!
-      let paraComments = paraMyDate + '  [' + paraUserLogin + ']' + ' : ' + 'From ' + '<待受理>' + ' To ' + '<调查中>'
-        + '\n                   已开始事件调查，请大家耐心等待结果.... ';
+      let paraComments = paraMyDate + '  [' + paraUserLogin + ']' + ' : ' + 'From ' + '<待受理>' + ' To ' + '<正式受理>'
+        + '\n                   已通过手机App受理，请耐心等待结果.... ';
 
+      $f7.preloader.show();// icon waitting
       app.request.post('https://adverse.kideduc.com/api/EditArticleArrange.php?event_id='+argID+'&ccsForm=events%3AEdit', { is_approve: 4, user_id_approve_by: paraUserID, date_approve: paraMyDate, comments: paraComments, Button_Update: 'Update' }) // if do Delete, set |Button_Delete: 'Delete'| Tony@2022/04/26
           .then(function (res) {
 //          $$('.login').html(res.data);                        // init examples code, let it be here. WAIST & NOT CHANGED
-            console.log('Ajax Updating was performed');
+            console.log(res.data);
 
-            // otherwise html will not refresh data, deleted-item will be always exist
-            $store.dispatch('resetMyArrange',{ userID:paraUserLogin});
+            $f7.preloader.hide(); // icon waitting close
+            var flag = JSON.parse(res.data)['success'];
+            var msg = JSON.parse(res.data)['message'];
+            if (flag == 1) {
 
-            //reback html init status [no yellow selected]
-            setTimeout(function(){
-                $('a#ron_href').trigger('click');
-            },200);
+                console.log('Ajax Updating was performed');
 
-            showToastCenter('受理成功!');
+                // otherwise html will not refresh data, deleted-item will be always exist
+                $store.dispatch('resetMyArrange',{ userID:paraUserLogin});
+
+                //reback html init status [no yellow selected]
+                setTimeout(function(){
+                    $('a#ron_href').trigger('click');
+                },200);
+
+                showToastCenter('受理成功!');
+            }else {
+                showToastCenter('操作失败! ' + '[' + msg[0]['code'] + ']' + '-' + msg[0]['text']);
+            }
       });
+      //=========================
+
+      //==========================
 
     }
 
