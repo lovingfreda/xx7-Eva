@@ -514,7 +514,7 @@
         + ((myDate.getMinutes()<10) ? ('0'+myDate.getMinutes()) : (myDate.getMinutes())) + ':' 
         + ((myDate.getSeconds()<10) ? ('0'+myDate.getSeconds()) : (myDate.getSeconds()));       //  Month should [x=x+1] !!!!
       let paraComments = paraMyDate + '  [' + paraUserLogin + ']' + ' : ' + 'From ' + '<待受理>' + ' To ' + '<正式受理>'
-        + '\n                   已通过手机App受理，请耐心等待结果.... ';
+        + '\n                   已通过手机App受理，请耐心等待结果.... \n';
 
       $f7.preloader.show();// icon waitting
       app.request.post('https://adverse.kideduc.com/api/EditArticleArrange.php?event_id='+argID+'&ccsForm=events%3AEdit', { is_approve: 4, user_id_approve_by: paraUserID, date_approve: paraMyDate, comments: paraComments, Button_Update: 'Update' }) // if do Delete, set |Button_Delete: 'Delete'| Tony@2022/04/26
@@ -537,9 +537,9 @@
                     $('a#ron_href').trigger('click');
                 },200);
 
-                showToastCenter('受理成功!');
+                showToastCenter('操作成功 ! 状态已变更');
             }else {
-                showToastCenter('操作失败! ' + '[' + msg[0]['code'] + ']' + '-' + msg[0]['text']);
+                showToastCenter('操作失败 ! <br>' + '[' + msg[0]['code'] + ']' + '-' + msg[0]['text']);
             }
       });
       //=========================
