@@ -246,21 +246,15 @@ const store = createStore({
     resetProduct({ state }) {
       state.products = [
                           {
-                            id: '1',
-                            title: '上报历史-示例A',
-                            date_add: '04/04/2022',
+                            id: '1',title: '上报历史-示例1',department: '血管外科',ref_dept_1st: '主院区',ref_dept_2nd: '手术科室',date_add: '04/22/2022',time_add: '23:15',location: '放射诊疗部门 CT MR',ref_ills_name: '张无忌',ref_ills_docs: '太极',event_catgs: '药物事件,手术事件',invo_emp_name: '张三 李四 王五',invo_emp_catg: '医护人员 医生 护士',presenter: 'helen',is_approve: '审核结束',date_start: '04/22/2022',time_st: '10:15',
                             description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis.'
                           },
                           {
-                            id: '2',
-                            title: '上报历史-示例B',
-                            date_add: '03/12/2022',
+                            id: '2',title: '上报历史-示例2',department: '产科',ref_dept_1st: '东院区',ref_dept_2nd: '手术科室',date_add: '03/12/2022',time_add: '23:15',location: '重症监护ICU区域',ref_ills_name: '赵敏',ref_ills_docs: '格格',event_catgs: '输血事件,公共意外事件',invo_emp_name: '张三 李四 王五',invo_emp_catg: '医护人员 医生 护士',presenter: 'helen',is_approve: '审核结束',date_start: '04/22/2022',time_st: '10:15',
                             description: 'Velit odit autem modi saepe ratione totam minus, aperiam, labore quia provident temporibus quasi est ut aliquid blanditiis beatae suscipit odio vel! Nostrum porro sunt sint eveniet maiores, dolorem itaque!'
                           },
                           {
-                            id: '3',
-                            title: '上报历史-示例C',
-                            date_add: '02/11/2022',
+                            id: '3',title: '上报历史-示例3',department: '中医科',ref_dept_1st: '主院区',ref_dept_2nd: '非手术科室',date_add: '02/11/2022',time_add: '23:15',location: '手术区域 住院手术室',ref_ills_name: '小昭',ref_ills_docs: '西域美女',event_catgs: '跌倒事件,伤害行为事件',invo_emp_name: '张三 李四 王五',invo_emp_catg: '医护人员 医生 护士',presenter: 'helen',is_approve: '审核结束',date_start: '04/22/2022',time_st: '10:15',
                             description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.'
                           },
                         ];
