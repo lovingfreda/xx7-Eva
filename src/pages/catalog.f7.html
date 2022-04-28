@@ -104,20 +104,21 @@
         let strWord = "";
         for (var i=0; i<$store.state.products.length; i++) {
             if (i>2) {
-                console.log( "Line " + i + " : ........." + $store.state.products.[i].description);
-                strWord += " " + $store.state.products.[i].description;
+                console.log( "Line " + i + " : ........." + $store.state.products.[i].event_catgs);
+                strWord += " " + $store.state.products.[i].event_catgs;
             }
         }
         let strEcho = "{login:'" + (1==users.value.length ? users.value[0].login:'EVA') + "',keywords='" + strWord + "'}";
         console.log("parmeters = |" +strEcho+ "|");
 
         let paraUserName = (1==users.value.length ? users.value[0].login:'EVA');
+        let paraUserID =   (1==users.value.length ? users.value[0].id:'-1');
         let paraKeywords = strWord;
 
         // AJAX Post Jason
         var app = $f7;
 
-        app.request.post('https://adverse.kideduc.com/api/EditKeywords.php?ccsForm=user_keywords', {user_login:paraUserName, key_desc: paraKeywords} )
+        app.request.post('https://adverse.kideduc.com/api/EditKeywords.php?ccsForm=user_keywords', {user_id:paraUserID, user_login:paraUserName, key_desc: paraKeywords} )
           .then(function (res) {
 //          $$('.login').html(res.data);                        // init examples code, let it be here. WAIST & NOT CHANGED
             console.log('Load was performed');
