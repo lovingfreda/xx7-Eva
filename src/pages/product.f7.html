@@ -13,9 +13,17 @@
       </div>
     </div>
     <div class="page-content">
-      <div class="block-title">About ${currentProduct.title}</div>
-      <div class="block block-strong">
-        ${currentProduct.description}
+      <div class="block-title">About #${currentProduct.id}</div>
+      <div class="block block-strong" style="white-space:pre-wrap">
+        事件标题 : <u>${currentProduct.title} </u><br/>
+        填报部门 : <u>${currentProduct.department} </u><br/>
+        发生时间 : <u>${currentProduct.date_start} ${currentProduct.time_st}</u>     地点 : <u>${currentProduct.location} </u><br/>
+        涉及患者 : <u>${currentProduct.ref_ills_name}</u>                     病历号 : <u>${currentProduct.ref_ills_docs} </u><br/>
+        事件类型 : <u>${currentProduct.event_catgs} </u><br/>
+        关联人员 : <u>${currentProduct.invo_emp_name} </u>      类型 : <u>${currentProduct.invo_emp_catg} </u><br/>
+        事件描述 : <u>${currentProduct.description} </u><br/>
+        上报人员 : <u>${currentProduct.presenter}</u>                      上报时间 : <u>${currentProduct.date_add} ${currentProduct.time_add} </u><br/>
+        当前状态 : <u>${currentProduct.is_approve} </u><br/>
       </div>
     </div>
   </div>
