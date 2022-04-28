@@ -22,7 +22,9 @@ const store = createStore({
       {
         id: '1',
         title: '上报历史-示例1',
-        department: '主院区 | 手术科室  | 血管外科',
+        department: '血管外科',
+        ref_dept_1st: '主院区',
+        ref_dept_2nd: '手术科室',
         date_add: '04/22/2022',
         time_add: '23:15',
         location: '放射诊疗部门 CT MR',
@@ -40,7 +42,9 @@ const store = createStore({
       {
         id: '2',
         title: '上报历史-示例2',
-        department: '东院区 | 手术科室 | 产科',
+        department: '产科',
+        ref_dept_1st: '东院区',
+        ref_dept_2nd: '手术科室',
         date_add: '03/12/2022',
         time_add: '23:15',
         location: '重症监护ICU区域',
@@ -58,7 +62,9 @@ const store = createStore({
       {
         id: '3',
         title: '上报历史-示例3',
-        department: '主院区 | 非手术科室 | 中医科',
+        department: '中医科',
+        ref_dept_1st: '主院区',
+        ref_dept_2nd: '非手术科室',
         date_add: '02/11/2022',
         time_add: '23:15',
         location: '手术区域 住院手术室',
@@ -148,13 +154,15 @@ const store = createStore({
             })
       }, 3000);
     },
-    getProductsBy({ state }, { userID }) {
+    getProductsBy({ state }, { userID, f7 }) {
       state.loading = true;
+      f7.preloader.show();  // show refresh icon...
       setTimeout(() => {
           fetch(`https://adverse.kideduc.com/services/events.php?userID=${userID}`)
             .then((res) => res.json())
             .then((events) => {
               state.loading = false;
+              f7.preloader.hide();  // hidden refresh icon...
               state.products = events['events'];
             })
       }, 3000);

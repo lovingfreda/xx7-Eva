@@ -81,7 +81,7 @@
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis.'
       });*/
       console.log("okay! let loading our history of event-reported!!! ");
-      $store.dispatch('getProductsBy',{ userID: (1==users.value.length ? users.value[0].id:'-1')});
+      $store.dispatch('getProductsBy',{ userID: (1==users.value.length ? users.value[0].id:'-1'), f7:$f7});
     }
     const creatEvent = () => {
       ;
