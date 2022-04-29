@@ -13,6 +13,7 @@
       </div>
     </div>
     <div class="page-content">
+  <!-- <form action="https://adverse.kideduc.com/api/EditArticleArrange.php?event_id=${currentProduct.id}&ccsForm=events" method="POST" class="form-store-data form-ajax-submit" id="product-form"> -->
       <div class="block-title">About #${currentProduct.id}</div>
       <div class="block block-strong" style="white-space:pre-wrap">
         事件标题 : <u>${currentProduct.title} </u><br/>
@@ -24,21 +25,141 @@
         事件描述 : <u>${currentProduct.description} </u><br/>
         上报时间 : <u>${currentProduct.date_add} ${currentProduct.time_add}</u>     上报人 : <u>${currentProduct.presenter}</u><br/>
         当前状态 : <u>${currentProduct.approve_name} </u><br/>
+      <!-- </div>
+
+      <div class="block block-strong"> -->
+      <!-- ================================================================================================= -->
+      ${currentProduct.is_approve == 1 ? $h`
+        <p class="row"></p>
+        <p class="row">
+          <button class="col-50 button button-fill color-gray" @click="${resetAddiInvalid}">标记失效</button>
+          <button class="col-50 button button-fill color-blue" @click="${resetAddiFormal}">存为正式文件</button>
+        </p>
+      ` : $h`
+        <!-- 草稿时显示上方操作按钮，否则Nothing Display  -->
+      `}
+      <!-- ================================================================================================= -->
+      ${currentProduct.is_approve < 4 ? $h`
+        <p class="row"></p>
+        <p class="row"><button class="col button button-fill color-red" @click="${resetAddiTobeAccept}">上报质控部门</button></p>
+      ` : $h`
+        <!-- 未上报前显示上报操作按钮，否则Nothing Display  -->
+      `}
+      <!-- ================================================================================================= -->
+      ${(currentProduct.is_approve == 1 || currentProduct.is_approve > 4) ? $h`
+        <!-- 正式文件时显示下方操作按钮，但当已上报时需要隐藏  -->
+      ` : $h`
+        <p class="row"></p>
+        <p class="row">
+          <button class="col-50 button button-fill color-gray" @click="${resetAddiInvalid}">标记失效</button>
+          <button class="col-50 button button-fill color-blue" @click="${resetAddi}">修改 →</button>
+        </p>
+      `}
+      <!-- ================================================================================================= -->
       </div>
+  <!-- </form> -->
     </div>
   </div>
 </template>
 <script>
-  export default (props, { $f7route, $store }) => {
-    const products = $store.getters.products;
-    const productId = $f7route.params.id;
-    let currentProduct;
-    products.value.forEach((product) => {
-      if (product.id === productId) {
-        currentProduct = product;
-      }
-    });
+export default (props, { $f7route, $store, $f7 }) => {
+  //----------------------------------------------------
+  const products = $store.getters.products;
+  const productId = $f7route.params.id;
+  //----------------------------------------------------
+  const loading = $store.getters.loading;
+  const users   = $store.getters.users;
+  //----------------------------------------------------
+  let currentProduct;
+  //Export DOM7 to local variable to make it easy accessible
+  //var app = $f7;
+  //var $$ = app.$;
+  const resetAddiInvalid = () => {
+      // additional header and footer display...
+      let eventID  = currentProduct.id;    // Event ID
+      let userLogin = (1==users.value.length ? users.value[0].login:'WEI');
+      let commText = '  [' + userLogin + ']' + ' : ' + 'From ' + '<'+ currentProduct.approve_name +'>' + ' To ' + '<失效>'
+        + '\n                   已通过手机App设为失效 \n';
+      // Call Post Saving DB
+      console.log("call Post!" + "ID[" + eventID + "] Login[" + commText + "]");
+      console.log("call Post!" + "comments[" + commText + "]");
+      doSaveDBApprove(eventID, 20, commText);    // 20 means Invalid
+  }
 
-    return $render;
-  };
+  const resetAddiFormal = () => {
+      // additional header and footer display...
+      let eventID  = currentProduct.id;    // Event ID
+      let userLogin = (1==users.value.length ? users.value[0].login:'WEI');
+      let commText = '  [' + userLogin + ']' + ' : ' + 'From ' + '<'+ currentProduct.approve_name +'>' + ' To ' + '<正式>'
+        + '\n                   已通过手机App存为正式 \n';
+      // Call Post Saving DB
+      console.log("call Post!" + "ID[" + eventID + "] Login[" + commText + "]");
+      console.log("call Post!" + "comments[" + commText + "]");
+      doSaveDBApprove(eventID, 2, commText);    // 2 means Formal
+  }
+
+  const resetAddiTobeAccept = () => {
+      // additional header and footer display...
+      let eventID  = currentProduct.id;    // Event ID
+      let userLogin = (1==users.value.length ? users.value[0].login:'WEI');
+      let commText = '  [' + userLogin + ']' + ' : ' + 'From ' + '<'+ currentProduct.approve_name +'>' + ' To ' + '<待受理>'
+        + '\n                   已通过手机App上报质控部门 \n';
+      // Call Post Saving DB
+      console.log("call Post!" + "ID[" + eventID + "] Login[" + commText + "]");
+      console.log("call Post!" + "comments[" + commText + "]");
+      doSaveDBApprove(eventID, 3, commText);    // 3 means Tobe Accept
+  }
+
+  const doSaveDBApprove = (evtID, aprvID, commentText) => {
+      // AJAX Post Jason
+      var app = $f7;
+
+      let eventID       = evtID;    //   Event-ID
+      let approveID     = aprvID;   // Approve-ID
+
+      let paraUserID    = (1==users.value.length ? users.value[0].id:'-1');
+      let paraUserLogin = (1==users.value.length ? users.value[0].login:'WEI');
+      var myDate = new Date;    // very very long text of standard time format....must convert to local
+      let paraMyDate = myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate() + ', '  //'2022-4-26, 16:08:23';
+        + ((myDate.getHours()<10) ? ('0'+myDate.getHours()) : (myDate.getHours())) + ':' 
+        + ((myDate.getMinutes()<10) ? ('0'+myDate.getMinutes()) : (myDate.getMinutes())) + ':' 
+        + ((myDate.getSeconds()<10) ? ('0'+myDate.getSeconds()) : (myDate.getSeconds()));       //  Month should [x=x+1] !!!!
+      let paraComments = paraMyDate + commentText;
+
+      $f7.preloader.show();// icon waitting
+      app.request.post('https://adverse.kideduc.com/api/EditArticleArrange.php?event_id='+eventID+'&ccsForm=events%3AEdit', { is_approve: approveID, user_id_approve_by: paraUserID, date_approve: paraMyDate, comments: paraComments, Button_Update: 'Update' }) // if do Delete, set |Button_Delete: 'Delete'| Tony@2022/04/29
+          .then(function (res) {
+//          $$('.login').html(res.data);                        // init examples code, let it be here. WAIST & NOT CHANGED
+            console.log(res.data);
+
+            $f7.preloader.hide(); // icon waitting close
+            var flag = JSON.parse(res.data)['success'];
+            var msg = JSON.parse(res.data)['message'];
+            if (flag == 1) {
+
+                console.log('Ajax Updating was performed');
+
+                // otherwise html will not refresh data, deleted-item will be always exist
+                $store.dispatch('resetMyArrange',{ userID:paraUserLogin});
+
+                //reback html init status [no yellow selected]
+                setTimeout(function(){
+                    $('a#ron_href').trigger('click');
+                },200);
+
+                showToastCenter('操作成功 ! 已存为正式文件');
+            }else {
+                showToastCenter('操作失败 ! <br>' + '[' + msg[0]['code'] + ']' + '-' + msg[0]['text']);
+            }
+      });
+  }
+  //-----------------------------------------------------------
+  products.value.forEach((product) => {
+    if (product.id === productId) {
+      currentProduct = product;
+    }
+  });
+
+  return $render;
+};
 </script>
