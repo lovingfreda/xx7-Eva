@@ -14,7 +14,7 @@
             <li><a href="/product/${product.id}/" class="item-link item-content">
                   <div class="item-inner">
                     <div class="item-title">${product.date_add} - ${product.title}</div>
-                    <div class="item-after"><span class="badge ${product.is_approve  == '草稿' ? '' : (product.is_approve  == '正式' ? 'color-orange' : (product.is_approve  == '正式受理' ? 'color-green' : 'color-blue'))}">${product.is_approve}</span></div>
+                    <div class="item-after"><span class="badge ${product.is_approve  == '1' ? '' : (product.is_approve  == '2' ? 'color-orange' : (product.is_approve  == '4' ? 'color-green' : 'color-blue'))}">${product.approve_name}</span></div>
                   </div>
             </a></li>
           `)}
