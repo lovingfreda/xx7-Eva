@@ -4,7 +4,7 @@
       <div class="navbar-bg"></div>
       <div class="navbar-inner sliding">
         <div class="left">
-          <a href="#" class="link back">
+          <a href="/catalog/" class="link"><!-- <a href="#" class="link back"> MUST Refresh, so NOT using class|back -->
             <i class="icon icon-back"></i>
             <span class="if-not-md">Back</span>
           </a>
@@ -24,11 +24,12 @@
         关联人员 : <u>${currentProduct.invo_emp_name} </u>   类型 : <u>${currentProduct.invo_emp_catg} </u><br/>
         事件描述 : <u>${currentProduct.description} </u><br/>
         上报时间 : <u>${currentProduct.date_add} ${currentProduct.time_add}</u>     上报人 : <u>${currentProduct.presenter}</u><br/>
-        当前状态 : <u>${currentProduct.approve_name} </u><br/>
+        当前状态 : <u id="tom">${currentProduct.approve_name} - [${currentProduct.is_approve}]</u><br/>
       <!-- </div>
 
       <div class="block block-strong"> -->
       <!-- ================================================================================================= -->
+      <div id="jerry">
       ${currentProduct.is_approve == 1 ? $h`
         <p class="row"></p>
         <p class="row">
@@ -39,22 +40,34 @@
         <!-- 草稿时显示上方操作按钮，否则Nothing Display  -->
       `}
       <!-- ================================================================================================= -->
-      ${currentProduct.is_approve < 4 ? $h`
+      ${currentProduct.is_approve < 3 ? $h`
+        <!-- 草稿1|正式2 => 均可显示上报操作按钮  -->
         <p class="row"></p>
         <p class="row"><button class="col button button-fill color-red" @click="${resetAddiTobeAccept}">上报质控部门</button></p>
       ` : $h`
         <!-- 未上报前显示上报操作按钮，否则Nothing Display  -->
       `}
       <!-- ================================================================================================= -->
-      ${(currentProduct.is_approve == 1 || currentProduct.is_approve > 4) ? $h`
+      ${(currentProduct.is_approve == 1 || currentProduct.is_approve >= 4) ? $h`
         <!-- 正式文件时显示下方操作按钮，但当已上报时需要隐藏  -->
       ` : $h`
         <p class="row"></p>
         <p class="row">
           <button class="col-50 button button-fill color-gray" @click="${resetAddiInvalid}">标记失效</button>
-          <button class="col-50 button button-fill color-blue" @click="${resetAddi}">修改 →</button>
+          <button class="col-50 button button-fill color-blue" @click="#">修改 →</button>
         </p>
       `}
+      <!-- ================================================================================================= -->
+      ${currentProduct.is_approve == 20 ? $h`
+        <p class="row"></p>
+        <p class="row">
+          <button class="col-50 button button-fill color-gray" @click="${resetAddiDraft}">恢复为草稿</button>
+          <button class="col-50 button button-fill color-gray" @click="${resetAddiFormal}">恢复为正式文件</button>
+        </p>
+      ` : $h`
+        <!-- 仅在失效状态下显示恢复为草稿或恢复为正式操作按钮，否则Nothing Display  -->
+      `}
+      </div>
       <!-- ================================================================================================= -->
       </div>
   <!-- </form> -->
@@ -62,7 +75,7 @@
   </div>
 </template>
 <script>
-export default (props, { $f7route, $store, $f7 }) => {
+export default (props, { $f7route, $store, $, $f7 }) => {
   //----------------------------------------------------
   const products = $store.getters.products;
   const productId = $f7route.params.id;
@@ -70,20 +83,36 @@ export default (props, { $f7route, $store, $f7 }) => {
   const loading = $store.getters.loading;
   const users   = $store.getters.users;
   //----------------------------------------------------
-  let currentProduct;
+  //let currentProduct;
   //Export DOM7 to local variable to make it easy accessible
-  //var app = $f7;
-  //var $$ = app.$;
+  var app = $f7;
+  var $$ = app.$;
+  // Component Methods
+    const showToastCenter = (msg) => {
+      let toastCenter;
+      // Create toast
+      if (!toastCenter) {
+        toastCenter = $f7.toast.create({
+          text: msg,
+          position: 'center',
+          closeTimeout: 800,
+        });
+      }
+      // Open it
+      toastCenter.open();
+    }
+
   const resetAddiInvalid = () => {
       // additional header and footer display...
       let eventID  = currentProduct.id;    // Event ID
       let userLogin = (1==users.value.length ? users.value[0].login:'WEI');
       let commText = '  [' + userLogin + ']' + ' : ' + 'From ' + '<'+ currentProduct.approve_name +'>' + ' To ' + '<失效>'
         + '\n                   已通过手机App设为失效 \n';
+      let aprvText = '失效';  // target approve name
       // Call Post Saving DB
       console.log("call Post!" + "ID[" + eventID + "] Login[" + commText + "]");
       console.log("call Post!" + "comments[" + commText + "]");
-      doSaveDBApprove(eventID, 20, commText);    // 20 means Invalid
+      doSaveDBApprove(eventID, 20, commText, aprvText);    // 20 means Invalid
   }
 
   const resetAddiFormal = () => {
@@ -92,10 +121,11 @@ export default (props, { $f7route, $store, $f7 }) => {
       let userLogin = (1==users.value.length ? users.value[0].login:'WEI');
       let commText = '  [' + userLogin + ']' + ' : ' + 'From ' + '<'+ currentProduct.approve_name +'>' + ' To ' + '<正式>'
         + '\n                   已通过手机App存为正式 \n';
+      let aprvText = '正式';   // target approve name
       // Call Post Saving DB
       console.log("call Post!" + "ID[" + eventID + "] Login[" + commText + "]");
       console.log("call Post!" + "comments[" + commText + "]");
-      doSaveDBApprove(eventID, 2, commText);    // 2 means Formal
+      doSaveDBApprove(eventID, 2, commText, aprvText);    // 2 means Formal
   }
 
   const resetAddiTobeAccept = () => {
@@ -103,14 +133,28 @@ export default (props, { $f7route, $store, $f7 }) => {
       let eventID  = currentProduct.id;    // Event ID
       let userLogin = (1==users.value.length ? users.value[0].login:'WEI');
       let commText = '  [' + userLogin + ']' + ' : ' + 'From ' + '<'+ currentProduct.approve_name +'>' + ' To ' + '<待受理>'
-        + '\n                   已通过手机App上报质控部门 \n';
+        + '\n                   已通过手机App上报, 请质控部门受理... \n';
+      let aprvText = '待受理';  // target approve name
       // Call Post Saving DB
       console.log("call Post!" + "ID[" + eventID + "] Login[" + commText + "]");
       console.log("call Post!" + "comments[" + commText + "]");
-      doSaveDBApprove(eventID, 3, commText);    // 3 means Tobe Accept
+      doSaveDBApprove(eventID, 3, commText, aprvText);    // 3 means Tobe Accept
   }
 
-  const doSaveDBApprove = (evtID, aprvID, commentText) => {
+  const resetAddiDraft = () => {
+      // additional header and footer display...
+      let eventID  = currentProduct.id;    // Event ID
+      let userLogin = (1==users.value.length ? users.value[0].login:'WEI');
+      let commText = '  [' + userLogin + ']' + ' : ' + 'From ' + '<'+ currentProduct.approve_name +'>' + ' To ' + '<草稿>'
+        + '\n                   已通过手机App恢复为草稿... \n';
+      let aprvText = '草稿';  // target approve name
+      // Call Post Saving DB
+      console.log("call Post!" + "ID[" + eventID + "] Login[" + commText + "]");
+      console.log("call Post!" + "comments[" + commText + "]");
+      doSaveDBApprove(eventID, 1, commText, aprvText);    // 1 means Draft
+  }
+
+  const doSaveDBApprove = (evtID, aprvID, commentText, approveText ) => {
       // AJAX Post Jason
       var app = $f7;
 
@@ -137,28 +181,42 @@ export default (props, { $f7route, $store, $f7 }) => {
             var msg = JSON.parse(res.data)['message'];
             if (flag == 1) {
 
-                console.log('Ajax Updating was performed');
-
+                console.log('Ajax Updating was performed:');
+/*  console.log('now is_approve = |' + products.value.find(item=>item.id===productId).is_approve + '|');
+    console.log('now apprv name = |' + products.value.find(item=>item.id===productId).approve_name + '|');*/
                 // otherwise html will not refresh data, deleted-item will be always exist
-                $store.dispatch('resetMyArrange',{ userID:paraUserLogin});
+//              $store.dispatch('getProductsBy', { userID: paraUserID, f7:$f7});
+                // performance reason,  reset status is better than reload list from remote DB
+                currentProduct.is_approve = approveID;
+                currentProduct.approve_name = approveText;
+                // ------------------
+                $('u#tom').html(approveText + '- [' + approveID + ']'); // Status Update
+                $('div#jerry').hide();// All Button hiddden.
+                $store.dispatch('refreshProduct', { prdtID: evtID, newProduct: currentProduct});
+                // ------------------
+/*  console.log('new is_approve = |' + products.value.find(item=>item.id===eventID).is_approve + '|');
+    console.log('new apprv name = |' + products.value.find(item=>item.id===eventID).approve_name + '|');*/
+
+                console.log('Finished Refresh ~');
 
                 //reback html init status [no yellow selected]
                 setTimeout(function(){
                     $('a#ron_href').trigger('click');
                 },200);
 
-                showToastCenter('操作成功 ! 已存为正式文件');
+                showToastCenter('操作成功 ! 状态已变更');
             }else {
                 showToastCenter('操作失败 ! <br>' + '[' + msg[0]['code'] + ']' + '-' + msg[0]['text']);
             }
       });
   }
   //-----------------------------------------------------------
-  products.value.forEach((product) => {
+  /*products.value.forEach((product) => {
     if (product.id === productId) {
       currentProduct = product;
     }
-  });
+  });*/
+  const currentProduct = products.value.find(item=>item.id===productId);
 
   return $render;
 };

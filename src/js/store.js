@@ -246,6 +246,14 @@ const store = createStore({
     addProduct({ state }, product) {
       state.products = [...state.products, product];
     },
+    refreshProduct({ state }, { prdtID, newProduct}) {
+      state.products.forEach((product) => {
+        if (product.id === prdtID) {
+          product.is_approve   = newProduct.is_approve; 
+          product.approve_name = newProduct.approve_name; 
+        }
+      });
+    },
     resetProduct({ state }) {
       state.products = [
                           {
