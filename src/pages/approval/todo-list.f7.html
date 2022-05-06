@@ -204,8 +204,8 @@
                                 </div>
                               </a>
                             </div>
-                            <div class="timeline-item-title biz_noselect"><small>${dailyLine.title}</small></div>
-                            <div class="timeline-item-subtitle">[#${dailyLine.event_id}-${dailyLine.is_approve}]</div>
+                            <div class="timeline-item-title biz_noselect"><small>${dailyLine.title} </small> <span class="badge color-orange"> ${dailyLine.is_approve}</span></div>
+                            <div class="timeline-item-subtitle">[#${dailyLine.event_id}] ${dailyLine.date_start} ${dailyLine.time_st}</div>
                             <div class="timeline-item-text  biz_noselect">${dailyLine.desc}</div>
                           </div>
                           ` : '')
@@ -344,6 +344,7 @@
     const loading = $store.getters.loading;
     const users   = $store.getters.users;
 
+    const products = $store.getters.products;
     //----------------------------------------------------
     // Component Data
     let $toolbarEl;
@@ -508,6 +509,7 @@
 
       let paraUserID    = (1==users.value.length ? users.value[0].id:'-1');
       let paraUserLogin = (1==users.value.length ? users.value[0].login:'WEI');
+      let approveID  = 4;   // Statu = Accept
       var myDate = new Date;    // very very long text of standard time format....must convert to local
       let paraMyDate = myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate() + ', '  //'2022-4-26, 16:08:23';
         + ((myDate.getHours()<10) ? ('0'+myDate.getHours()) : (myDate.getHours())) + ':' 
@@ -517,7 +519,7 @@
         + '\n                   已通过手机App受理，请耐心等待结果.... \n';
 
       $f7.preloader.show();// icon waitting
-      app.request.post('https://adverse.kideduc.com/api/EditArticleArrange.php?event_id='+argID+'&ccsForm=events%3AEdit', { is_approve: 4, user_id_approve_by: paraUserID, date_approve: paraMyDate, comments: paraComments, Button_Update: 'Update' }) // if do Delete, set |Button_Delete: 'Delete'| Tony@2022/04/26
+      app.request.post('https://adverse.kideduc.com/api/EditArticleArrange.php?event_id='+argID+'&ccsForm=events%3AEdit', { is_approve: approveID, user_id_approve_by: paraUserID, date_approve: paraMyDate, comments: paraComments, Button_Update: 'Update' }) // if do Delete, set |Button_Delete: 'Delete'| Tony@2022/04/26
           .then(function (res) {
 //          $$('.login').html(res.data);                        // init examples code, let it be here. WAIST & NOT CHANGED
             console.log(res.data);
@@ -531,6 +533,16 @@
 
                 // otherwise html will not refresh data, deleted-item will be always exist
                 $store.dispatch('resetMyArrange',{ userID:paraUserLogin});
+
+                // also we reset Products-List 
+                const currentProduct = products.value.find(item=>item.id===argID);
+                if (currentProduct) {
+                    currentProduct.is_approve   = approveID;
+                    currentProduct.approve_name = '正式受理';
+                }else {
+                    console.log('Products NOT loaded yet'); // For Tab-2 auto updated when loaded
+                }
+//              $store.dispatch('refreshProduct', { prdtID: argID, newProduct: currentProduct});
 
                 //reback html init status [no yellow selected]
                 setTimeout(function(){
