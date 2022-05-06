@@ -185,14 +185,14 @@ export default (props, { $f7route, $store, $, $f7 }) => {
 /*  console.log('now is_approve = |' + products.value.find(item=>item.id===productId).is_approve + '|');
     console.log('now apprv name = |' + products.value.find(item=>item.id===productId).approve_name + '|');*/
                 // otherwise html will not refresh data, deleted-item will be always exist
-//              $store.dispatch('getProductsBy', { userID: paraUserID, f7:$f7});
-                // performance reason,  reset status is better than reload list from remote DB
+      //        $store.dispatch('getProductsBy', { userID: paraUserID, f7:$f7});
+                // performance issue,  reset status is better than reload list from remote URL
                 currentProduct.is_approve = approveID;
                 currentProduct.approve_name = approveText;
                 // ------------------
-                $('u#tom').html(approveText + '- [' + approveID + ']'); // Status Update
-                $('div#jerry').hide();// All Button hiddden.
-                $store.dispatch('refreshProduct', { prdtID: evtID, newProduct: currentProduct});
+                $('u#tom').html(approveText + '- [' + approveID + ']'); // Statu Updated
+                $('div#jerry').hide();//  Buttons hiddden.
+      //        $store.dispatch('refreshProduct', { prdtID: evtID, newProduct: currentProduct});
                 // ------------------
 /*  console.log('new is_approve = |' + products.value.find(item=>item.id===eventID).is_approve + '|');
     console.log('new apprv name = |' + products.value.find(item=>item.id===eventID).approve_name + '|');*/
