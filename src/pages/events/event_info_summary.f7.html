@@ -9,7 +9,7 @@
           <span class="if-not-md">Back</span>
         </a>
       </div>
-      <div class="title">Event Info Summary</div>
+      <div class="title">不良事件详情</div>
     </div>
   </div>
 
@@ -34,7 +34,7 @@
         <div class="card-header">
           <div class="demo-facebook-avatar"><img src="https://cdn.framework7.io/placeholder/people-68x68-1.jpg"
               width="34" height="34" /></div>
-          <div class="demo-facebook-name">John Doe</div>
+          <div class="demo-facebook-name">John Doe [${currentProduct.id}]</div>
           <div class="demo-facebook-date">Monday at 3:47 PM</div>
         </div>
         <div class="card-content card-content-padding">Card with header and footer. Card headers are used to display
@@ -211,7 +211,11 @@
   }
 </style>
 <script>
-export default (props, { $f7, $update }) => {
+//export default (props, { $f7, $update }) => {
+export default (props, { $f7route, $store, $, $f7 }) => {
+  //----------------------------------------------------
+  const products  = $store.getters.products;
+  const productId = $f7route.params.id;
   //-----------------------------------------------------------
   //Export DOM7 to local variable to make it easy accessible
   var app = $f7;
@@ -233,6 +237,8 @@ export default (props, { $f7, $update }) => {
   });
   */
   //-----------------------------------------------------------
+  const currentProduct = products.value.find(item=>item.id===productId);
+
   return $render;
 };
 </script>

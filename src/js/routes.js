@@ -348,7 +348,7 @@ var routes = [
     component: EvnAddiAttachment,
   },
   {
-    path: '/evn-info-summary/',
+    path: '/evn-info-summary/:id/',
     component: EvnInfoSummary,
   },
   {

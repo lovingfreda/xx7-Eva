@@ -44,7 +44,7 @@
       </a>
       <div class="fab-buttons fab-buttons-top">
         <!-- <a class="fab-label-button fab-close" href="#" @click="${toggleClose2nd}" id="ron_href" ><span>1</span><span class="fab-label">关闭返回</span></a> -->
-        <a class="fab-label-button" href="/evn-info-summary/" @click="${toggleDetail}"><span>1</span><span class="fab-label">详细材料</span></a>
+        <a class="fab-label-button" href="/evn-info-summary/" id="nora"><span>1</span><span class="fab-label">详细材料</span></a>
         <a class="fab-label-button" href="#" @click="${toggleAccept}"><span>2</span><span class="fab-label">正式受理</span></a>
       </div>
     </div>
@@ -419,6 +419,13 @@
 
       // At last, saving page variable, for latere used.
       $currMyArrgID = key; 
+
+      // Don't forget reset Href of Trig|Details : id=nora
+      // Here we hardcode the URL
+      var HrefNew = "/evn-info-summary/" + key + '/';//$('a#nora').attr('href') + key + '/';
+      $('a#nora').attr('href', HrefNew);
+      console.log("---- toggle item's href==|" + HrefNew + "|");
+
     }
 
     const toggleJoinin = () => {     // click action join-in
@@ -429,13 +436,15 @@
     }
 
     const toggleDetail = (e) => {     // click action detail
+        /*
       var argID = $currMyArrgID;
       console.log("---- toggle action Details #"+argID+"!");
       // add eventID to Href
       var key = $(e.currentTarget).attr('href');
-      $(e.currentTarget).attr('href', key+argID+"/");
+      var keyNew = key + argID + '/';
+      $(e.currentTarget).attr('href', keyNew);
 
-      console.log("---- toggle item's href==|"+$(e.currentTarget).attr('href')+"|");
+      console.log("---- toggle item's href==|" + keyNew + "|");*/
 
     }
 
