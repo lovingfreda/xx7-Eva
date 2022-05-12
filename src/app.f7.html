@@ -647,8 +647,10 @@
               if (!(flag > 0))  //  !flag > 0 means NOT login yet
               {
                 // ---   Open Login Screen Automatic ----
-                console.log('login-screen.....line 650 ! ');
+                console.log('login-screen [app.f7 line 650] ! ');
                 $f7.loginScreen.open('.login-screen', true);
+              }else {
+                console.log('users list not loaded [app.f7 line 653]');
               }
              // --------------------------------------------------------------------------------
         }

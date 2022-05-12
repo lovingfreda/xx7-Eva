@@ -204,8 +204,8 @@
                                 </div>
                               </a>
                             </div>
-                            <div class="timeline-item-title biz_noselect"><small>${dailyLine.title} </small> <span class="badge color-orange"> ${dailyLine.is_approve}</span></div>
-                            <div class="timeline-item-subtitle">[#${dailyLine.event_id}] ${dailyLine.date_start} ${dailyLine.time_st}</div>
+                            <div class="timeline-item-title biz_noselect"><small>[#${dailyLine.event_id}] - ${dailyLine.title} </small> <span class="badge color-orange"> ${dailyLine.is_approve}</span> </div>
+                            <div class="timeline-item-subtitle">发生时间: ${dailyLine.date_start} ${dailyLine.time_st}</div>
                             <div class="timeline-item-text  biz_noselect">${dailyLine.desc}</div>
                           </div>
                           ` : '')
@@ -288,9 +288,10 @@
                                 </div>
                               </a>
                             </div>
-                            <div class="timeline-item-title biz_noselect"><small>${dailyLine.title}</small></div>
-                            <div class="timeline-item-subtitle"></div>
+                            <div class="timeline-item-title biz_noselect"><small>[#${dailyLine.event_id}] - ${dailyLine.title} </small> <span class="badge color-orange"> ${dailyLine.is_approve}</span> </div>
+                            <div class="timeline-item-subtitle">${dailyLine.date_start} ${dailyLine.time_st}</div>
                             <div class="timeline-item-text  biz_noselect">${dailyLine.desc}</div>
+
                           </div>
                           ` : '')
                       )}
@@ -375,7 +376,7 @@
       console.log("---- toggleMyArrange exec");
       //----------------------------------------------------
       if (myarrange.value.length > 0){
-          ;
+          console.log("MyArrange list loaded..");
       }else {
           $f7.preloader.show();
           $store.dispatch('getMyArrange',   { userID: (users.value.length > 0 ? users.value[0].login : -1), f7:$f7} ); // Ajax Get Data...
@@ -387,7 +388,7 @@
       console.log("---- toggleMySuggestion exec");
       //----------------------------------------------------
       if (mysuggest.value.length > 0){
-          ;
+          console.log("MySuggestion list loaded..");
       }else {
           $f7.preloader.show();
           $store.dispatch('getMySuggest',   { userID: (users.value.length > 0 ? users.value[0].login : -1), f7:$f7} );   // Ajax Get Data...
