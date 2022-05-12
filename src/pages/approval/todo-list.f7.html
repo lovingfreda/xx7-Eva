@@ -44,7 +44,7 @@
       </a>
       <div class="fab-buttons fab-buttons-top">
         <!-- <a class="fab-label-button fab-close" href="#" @click="${toggleClose2nd}" id="ron_href" ><span>1</span><span class="fab-label">关闭返回</span></a> -->
-        <a class="fab-label-button" href="/evn-info-summary/"><span>1</span><span class="fab-label">调查材料</span></a>
+        <a class="fab-label-button" href="/evn-info-summary/" @click="${toggleDetail}"><span>1</span><span class="fab-label">详细材料</span></a>
         <a class="fab-label-button" href="#" @click="${toggleAccept}"><span>2</span><span class="fab-label">正式受理</span></a>
       </div>
     </div>
@@ -428,8 +428,15 @@
       doSaveDBJoinIn(evtID);
     }
 
-    const toggleDetail = () => {     // click action detail
-      console.log("---- toggle action Details");
+    const toggleDetail = (e) => {     // click action detail
+      var argID = $currMyArrgID;
+      console.log("---- toggle action Details #"+argID+"!");
+      // add eventID to Href
+      var key = $(e.currentTarget).attr('href');
+      $(e.currentTarget).attr('href', key+argID+"/");
+
+      console.log("---- toggle item's href==|"+$(e.currentTarget).attr('href')+"|");
+
     }
 
     const toggleClose = () => {     // click action close
