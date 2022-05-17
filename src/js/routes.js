@@ -348,8 +348,72 @@ var routes = [
     component: EvnAddiAttachment,
   },
   {
-    path: '/evn-info-summary/:id/',
-    component: EvnInfoSummary,
+    path: '/evn-info-summary/:Evntid/',
+    async: function ({ router, to, resolve }) {
+      // App instance
+      var app = router.app;
+
+      // Show Preloader
+      app.preloader.show();
+
+      // User ID from request
+      var Evntid = to.params.Evntid;
+
+      // Simulate Ajax Request
+      setTimeout(function () {
+        // We got user data from request
+        var vCatg = {
+          firstName: 'Dear',
+          lastName: 'My Passengers',
+          about: ' 我们为您提供以下服务，希望您喜欢!',
+          links: [
+            {
+              title: 'Fall in lover with YangY Website',
+              url: 'http://framework7.io',
+            },
+            {
+              title: 'Loving Eva Forum',
+              url: 'http://forum.framework7.io',
+            },
+          ]
+        };
+        // Tony Adding Main Logic of AJAX :  1. Larabel 2. CCS Studio
+        app.request.get('https://adverse.kideduc.com/services/event_full_detail.php?event_id='+Evntid, function(data) {
+              // Hide Preloader
+              app.preloader.hide();
+
+              // Resolve route to load page
+              resolve(
+                  {
+                      component: EvnInfoSummary,
+                  },
+                  {
+                      props: {
+                          catg: vCatg,
+                          prdt: data,
+                      }
+                  }
+              );
+
+          });
+/*
+        // Hide Preloader
+        app.preloader.hide();
+
+        // Resolve route to load page
+        resolve(
+          {
+            component: EvnInfoSummary,
+          },
+          {
+            props: {
+              catg: catg,
+            }
+          }
+        );
+*/
+      }, 1000);
+    },
   },
   {
     path: '/aprvl-todo-list/',

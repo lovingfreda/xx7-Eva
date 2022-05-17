@@ -34,12 +34,13 @@
         <div class="card-header">
           <div class="demo-facebook-avatar"><img src="https://cdn.framework7.io/placeholder/people-68x68-1.jpg"
               width="34" height="34" /></div>
-          <div class="demo-facebook-name">John Doe [${currentProduct.id}]</div>
-          <div class="demo-facebook-date">Monday at 3:47 PM</div>
+          <div class="demo-facebook-name">${currentProduct.presenter} </div>
+          <div class="demo-facebook-date">Added at ${currentProduct.date_add} ${currentProduct.time_add}</div>
         </div>
-        <div class="card-content card-content-padding">Card with header and footer. Card headers are used to display
-          card titles and footers for additional information or just for custom actions......</div>
-        <div class="card-footer"><a href="/evn-base-information/" class="link">详情</a><a href="#" class="link">审核</a><a href="#"
+        <div class="card-content card-content-padding"><p>[#${currentProduct.id}] ${currentProduct.title}</p>
+            ${currentProduct.description}...
+            <p class="likes">Loc. ${currentProduct.location}</p></div>
+        <div class="card-footer"><a href="/product/${currentProduct.id}/" class="link">展开</a><a href="#" class="link">审核</a><a href="#"
             class="link">分享</a></div>
       </div>
 
@@ -96,15 +97,15 @@
             </ul>
           </div>
         </div>
-        <div class="card-footer"> <span>January 20, 2015</span><span>5 comments</span></div>
+        <div class="card-footer"> <span>January 20, 2022</span><span>5 comments</span></div>
       </div>
 
-      <div class="block-title">Our Tearms</div>
+      <div class="block-title">RCAnalysis & Action Plan</div>
       <div class="card card-expandable">
         <div class="card-content">
           <div class="bg-color-red" style="height: 300px">
-            <div class="card-header text-color-white display-block">Tony.Kang<br />
-              <small style="opacity: 0.7">Build Mobile Apps</small>
+            <div class="card-header text-color-white display-block">根因分析<br />
+              <small style="opacity: 0.7">Build By Tony.Kang</small>
             </div>
             <a href="#" class="link card-close card-opened-fade-in color-white"
               style="position: absolute; right: 15px; top: 15px">
@@ -129,8 +130,8 @@
       <div class="card card-expandable">
         <div class="card-content">
           <div class="bg-color-yellow" style="height: 300px">
-            <div class="card-header text-color-black display-block">Triplux.Hu<br />
-              <small style="opacity: 0.7">Build Mobile Apps</small>
+            <div class="card-header text-color-black display-block">行动计划<br />
+              <small style="opacity: 0.7">Build By Triplux.Hu</small>
             </div>
             <a href="#" class="link card-close card-opened-fade-in color-black"
               style="position: absolute; right: 15px; top: 15px">
@@ -224,20 +225,14 @@ export default (props, { $f7route, $store, $, $f7 }) => {
      $$('h1, h2').toggleClass('small');
   }
   //-----------------------------------------------------------
-  // Simulate Ajax Request
-  /*
-  app.request.get('https://adverse.kideduc.com/services/auth.php', { login:'yangy', password: 'lovingme' })
-  .then(function (res) {
-//  $$('.login').html(res.data);
-    console.log(res.data);
-    var users = JSON.parse(res.data)['users'];
-    console.log('Girl = |' + users[0]["login"] + '|');
-    console.log('Address2 = |' + users[0]['address2'] + '|');
-    console.log('Load was performed');
-  });
-  */
-  //-----------------------------------------------------------
-  const currentProduct = products.value.find(item=>item.id===productId);
+  //const currentProduct = products.value.find(item=>item.id===productId);
+  const currentProduct = JSON.parse(props.prdt)['events'][0];
+  const aaaaa = JSON.parse(props.prdt)['rca_items'];
+  const bbbbb = JSON.parse(props.prdt)['action_plan_items'];
+
+  console.log('1.Presenter = |' + currentProduct.presenter + '|');
+  console.log('2.Name = |' + aaaaa[0]["q_name"] + '|');
+  console.log('3.Measures = |' + bbbbb[0]['measures'] + '|');
 
   return $render;
 };
