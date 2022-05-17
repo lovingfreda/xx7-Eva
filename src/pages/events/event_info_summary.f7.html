@@ -15,7 +15,7 @@
 
   <div class="page-content">
 
-    <div class="block-title">不良事件报告单</div>
+    <div class="block-title">状态 : ${currentProduct.approve_name}</div>
 
       <!-- <div class="card demo-facebook-card">
         <div class="card-header">
@@ -34,12 +34,16 @@
         <div class="card-header">
           <div class="demo-facebook-avatar"><img src="https://cdn.framework7.io/placeholder/people-68x68-1.jpg"
               width="34" height="34" /></div>
-          <div class="demo-facebook-name">${currentProduct.presenter} </div>
-          <div class="demo-facebook-date">Added at ${currentProduct.date_add} ${currentProduct.time_add}</div>
+          <div class="demo-facebook-name">${currentProduct.presenter} @ ${currentProduct.ref_dept_1st} | ${currentProduct.ref_dept_2nd} | ${currentProduct.department}</div>
+          <div class="demo-facebook-date">Added at ${currentProduct.date_add} ${currentProduct.time_add} </div>
         </div>
         <div class="card-content card-content-padding"><p>[#${currentProduct.id}] ${currentProduct.title}</p>
-            ${currentProduct.description}...
-            <p class="likes">Loc. ${currentProduct.location}</p></div>
+            <p>${currentProduct.description}</p>
+            <p>地点 : ${currentProduct.location}<br />时间 : ${currentProduct.date_start} ${currentProduct.time_st}</p>
+            <p>类型 : ${currentProduct.event_catgs}</p>
+            
+            <p class="likes" style="white-space:pre-wrap">涉及患者 : ${currentProduct.ref_ills_name}                病历号# : ${currentProduct.ref_ills_docs}</p>
+            </div>
         <div class="card-footer"><a href="/product/${currentProduct.id}/" class="link">展开</a><a href="#" class="link">审核</a><a href="#"
             class="link">分享</a></div>
       </div>
