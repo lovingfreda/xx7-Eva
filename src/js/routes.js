@@ -8,6 +8,8 @@ import ProductPage from '../pages/product.f7.html';
 import SettingsPage from '../pages/settings.f7.html';
 import ProfilePage from '../pages/settings/profile.f7.html';
 
+import PurchasePage from '../pages/purchase.f7.html';
+
 import DynamicRoutePage from '../pages/dynamic-route.f7.html';
 import RequestAndLoad from '../pages/request-and-load.f7.html';
 import NotFoundPage from '../pages/404.f7.html';
@@ -37,6 +39,10 @@ var routes = [
   {
     path: '/about/',
     component: AboutPage,
+  },
+  {
+    path: '/order/',
+    component: PurchasePage,
   },
   {
     path: '/about-link-ajax/:linkId',
