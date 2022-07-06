@@ -25,7 +25,11 @@
 
     <!-- Scrollable page content-->
     <div class="page-content">
-      <div class="block-title">Trial Version(V1.0) : Expired in 45 days.</div>
+    ${myappProps.expired >= 7 ? $h`
+      <div class="block-title">Trial Version(V1.0.66) : <span class="badge color-green">Expired in ${myappProps.expired} days</span> </div>
+    ` : $h`
+      <div class="block-title">Trial Version(V1.0.66) : <span class="badge color-red">Expired in ${myappProps.expired} days</span> </div>
+    `}
       <div class="card demo-card-header-pic">
         <div style="background-image:url(https://cdn.framework7.io/placeholder/nature-1000x600-3.jpg)"
           class="card-header align-items-flex-end">Adverse Event Report and Management</div>
@@ -279,6 +283,9 @@ export default (props, {$, $f7, $on, $store}) => {
   //Export DOM7 to local variable to make it easy accessible
   var app = $f7;
   var $$ = app.$;
+  //----------------------------------------------------
+  const myappProps = $store.getters.appIdentifyProps.value.find(item=>item.id==='0');
+  //----------------------------------------------------
 
   var strNow = new Date();
   //----------------------------------------------------
@@ -302,7 +309,7 @@ export default (props, {$, $f7, $on, $store}) => {
           // Simulate Ajax Request
           app.request.get('https://adverse.kideduc.com/services/acl.php', { })
               .then(function (res) {
-        //////  $$('.login').html(res.data);
+          ////  $$('.login').html(res.data);
                 console.log(res.data);
 
                 var statu = JSON.parse(res.data)['success'];
@@ -338,6 +345,11 @@ export default (props, {$, $f7, $on, $store}) => {
 
       }
 
+      //----------------------------------------------------
+      // App IdentifyCode and ExpiredDays
+      console.log('App Identify Code = |' + myappProps.code + '|');
+      console.log('App Customer Name = |' + myappProps.name + '|');
+
       // Time Clock on ship
       setInterval(function(){
             var today = new Date().getFullYear() +"/"+ (new Date().getMonth() + 1) +"/"+ new Date().getDate();
@@ -358,7 +370,7 @@ export default (props, {$, $f7, $on, $store}) => {
         },1000)
 
   })
-  //----------------------------------------------------
+
   return $render;
 }
 </script>

@@ -17,7 +17,14 @@ const store = createStore({
 
     synday: '2021/01/01',
     access: [],
-
+    appIdentifyProps: [
+      {
+        id: '0',
+        code: '0Kj4V3851s5x',
+        name: '北京美中宜和妇儿医院',
+        expired: 6
+      }
+    ],
     products: [
       {
         id: '1',
@@ -121,6 +128,9 @@ const store = createStore({
     },
     access({ state }) {
       return state.access;
+    },
+    appIdentifyProps({ state }) {
+      return state.appIdentifyProps;
     },
     products({ state }) {
       return state.products;
