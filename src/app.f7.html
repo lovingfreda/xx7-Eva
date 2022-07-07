@@ -37,7 +37,7 @@
                   <a href="/about/" data-view=".view-main" class="panel-close">关于系统</a>
                 </li>
                 <li>
-                  <a href="#" data-view=".view-main" class="back panel-close">返回首页</a>
+                  <a href="#" data-view=".view-main" class="back panel-close" @click="${exitSystem}">退出系统</a>
                 </li>
               </ul>
             </div>
@@ -804,6 +804,14 @@
 
       //Open photo browser on click
       myPhotoBrowserPage.open();
+    }
+
+    const exitSystem = (e) => {
+        if ($f7.device.cordova) {
+            window.navigator.app.exitApp(); // Bug here :  this function is ONLY for cordova enviroment.
+        }else{
+            console.log('Service already expired, Exit !');
+        }
     }
 
     return $render;

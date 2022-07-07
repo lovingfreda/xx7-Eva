@@ -26,9 +26,9 @@
     <!-- Scrollable page content-->
     <div class="page-content">
     ${myappProps.expired >= 7 ? $h`
-      <div class="block-title">Trial Version(V1.0.66) : <span class="badge color-green">Expired in ${myappProps.expired} days</span> </div>
+      <div class="block-title">Trial Version(V1.0.68) : <span class="badge color-green">Expired in ${myappProps.expired} days</span> </div>
     ` : $h`
-      <div class="block-title">Trial Version(V1.0.66) : <span class="badge color-red">Expired in ${myappProps.expired} days</span> </div>
+      <div class="block-title">Trial Version(V1.0.68) : <span class="badge color-red">Expired in ${myappProps.expired} days</span> </div>
     `}
       <div class="card demo-card-header-pic">
         <div style="background-image:url(https://cdn.framework7.io/placeholder/nature-1000x600-3.jpg)"
@@ -295,7 +295,7 @@ export default (props, {$, $f7, $on, $store}) => {
       const flag = $store.getters.users.value.length;
       if (!flag > 0)
       {   // ---   Open Login Screen Automatic ----
-          console.log('->HOME|pageInit|login-screen..line 288 ! ');
+          console.log('**HOME|pageInit|login-screen..line 298 ! ');
 //        $f7.loginScreen.open('.login-screen', true); //Tony : No longer Login each times
 
           // We got user data from request
@@ -339,16 +339,62 @@ export default (props, {$, $f7, $on, $store}) => {
                     // ---------------------------------------------------------
                   /*});*/
                 }else {
-                  console.log('->Unknow Error at line 335 !!'); 
+                  console.log('->Unknow Error at line 342 !!'); 
                 }
             });
 
       }
 
-      //----------------------------------------------------
-      // App IdentifyCode and ExpiredDays
+      //------------------------------------------------------------------------------------------------------
+      // App Identify-code and Expired-days      Writted by Tony at 2022/07/27 12:02
+      //------------------------------------------------------------------------------------------------------
       console.log('App Identify Code = |' + myappProps.code + '|');
       console.log('App Customer Name = |' + myappProps.name + '|');
+      // We got user data from request
+      var vInfo = {
+            time_st: '',
+            time_ed: '',
+            days_remain:''
+      };
+      app.request.get('https://www.kideduc.com/online-demo/expired_info.php', {identify_code : myappProps.code} )
+         .then(function (res) {
+
+            console.log(res.data);
+
+            var statu = JSON.parse(res.data)['success'];
+            var expired_info = JSON.parse(res.data)['expired_info'];
+
+            vInfo.time_st   = expired_info[0]["time_st"];
+            vInfo.time_ed   = expired_info[0]["time_ed"];
+            vInfo.days_remain   = expired_info[0]["days_remain"];
+                
+            if (statu == 1)
+            { 
+                myappProps.expired = vInfo.days_remain;//myappProps defined above
+                // If Expired, app can NOT use agian
+                if (myappProps.expired <= 0)    // Already Expired ! ! ！
+                {
+                    $f7.dialog.alert('您的产品授权已失效 !<br>Your License Expired', () => { 
+                        //console.log('Service already expired, Exit !');
+                        if ($f7.device.cordova) {
+                            window.navigator.app.exitApp(); // Bug here :  this function is ONLY for cordova enviroment.
+                        }else{
+                            console.log('Service already expired, Exit !');
+                        }
+                    });
+                }else if (myappProps.expired < 6)
+                {
+                    $f7.dialog.alert('您的产品授权将于'+myappProps.expired+'天后失效 !<br>请通知管理员及时续约', () => { 
+                        console.log('Will be expired in few days!');
+                    });
+                }
+
+            }else {
+                console.log('Invalid Customer! ! '); 
+
+            }
+         });
+      //---------------------------------------------------------------------------------------------------------
 
       // Time Clock on ship
       setInterval(function(){
