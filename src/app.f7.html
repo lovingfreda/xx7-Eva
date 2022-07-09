@@ -806,10 +806,17 @@
     }
 
     const exitSystem = (e) => {
+        console.log('Application run at '+$f7.device.os +'['+$f7.device.osVersion+']');
+
         if ($f7.device.cordova) {
-            window.navigator.app.exitApp(); // Bug here :  this function is ONLY for cordova enviroment.
-        }else{
-            console.log('Service already expired, Exit !');
+            //console.log('Exit in Cordova enviroment !');
+            navigator.app.exitApp(); // Bug here :  this function is ONLY for cordova enviroment.
+        }else if ($f7.device.windows) {
+            console.log('Exit in Device::Windows enviroment !');
+        }else if ($f7.device.ios) {
+            console.log('Exit in Device::IOS enviroment !');
+        }else {
+            console.log('Exit in Device::Unknown enviroment !');
         }
     }
 

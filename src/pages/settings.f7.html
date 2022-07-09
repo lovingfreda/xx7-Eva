@@ -299,7 +299,7 @@
     <div class="list">
         <ul>
           <li>
-            <a href="#" class="item-link item-content">
+            <a href="#" class="item-link item-content" @click="${exitSystem}">
               <div class="item-media"><i class="icon icon-f7"></i></div>
               <div class="item-inner">
                 <div class="item-title">退出系统</div>
@@ -307,10 +307,10 @@
             </a>
           </li>
           <li>
-            <a href="#" class="item-link item-content">
+            <a href="/about/" class="item-link item-content">
               <div class="item-media"><i class="icon icon-f7"></i></div>
               <div class="item-inner">
-                <div class="item-title">关于我们</div>
+                <div class="item-title">关于系统</div>
               </div>
             </a>
           </li>
@@ -355,6 +355,20 @@ export default (props, { $, $on, $f7, $store }) => {
     // Component Data
 
     // Component Methods
+    const exitSystem = (e) => {
+        console.log('Application run at '+$f7.device.os +'['+$f7.device.osVersion+']');
+
+        if ($f7.device.cordova) {
+            //console.log('Exit in Cordova enviroment !');
+            navigator.app.exitApp(); // Bug here :  this function is ONLY for cordova enviroment.
+        }else if ($f7.device.windows) {
+            console.log('Exit in Device::Windows enviroment !');
+        }else if ($f7.device.ios) {
+            console.log('Exit in Device::IOS enviroment !');
+        }else {
+            console.log('Exit in Device::Unknown enviroment !');
+        }
+    }
 
     // Lifecycle
 
